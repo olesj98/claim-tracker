@@ -1,0 +1,40 @@
+@import 'bootstrap/tools';
+@import 'variables';
+
+.toolbar {
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    background-color: $pko-white;
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.75rem;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+        height: $sm-header-height;
+        padding: 0;
+        box-shadow: 0 2px 6px 0 #767676;
+
+        &__title {
+            font-size: 19px;
+            text-transform: uppercase;
+        }
+
+        &__logo {
+            display: none;
+        }
+
+        &__row {
+            justify-content: flex-start;
+            margin-top: 0;
+        }
+    }
+}

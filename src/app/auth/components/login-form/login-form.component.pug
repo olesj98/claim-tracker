@@ -1,0 +1,21 @@
+.signin-form
+    h2.signin-form__title Zaloguj się
+    form([formGroup]="form", (ngSubmit)="submit()")
+        .signin-form__step.signin__step--1(*ngIf="!phoneVerified")
+            .form-group
+                input.form-control(type="text", placeholder="Wpisz numer telefonu", formControlName="phone")
+                .error-messages(*ngIf="form.get('phone').touched && form.get('phone').invalid")
+                    .error-messages__item(*ngIf="form.get('phone').hasError('required')") Pole jest wymagane
+            .signin-form__submit-row
+                .signin-form__secondary-action
+                button.btn.btn-primary.signin-form__submit-btn(type="button", (click)="verifyPhone()") Dalej
+        .signin-form__step.signin__step--2(*ngIf="phoneVerified")
+            .form-group
+                input.form-control(type="text", placeholder="Wpisz PIN", formControlName="pin")
+                .error-messages(*ngIf="form.get('pin').touched && form.get('pin').invalid")
+                    .error-messages__item(*ngIf="form.get('pin').hasError('required')") Pole jest wymagane
+            .signin-form__submit-row
+                .signin-form__secondary-action
+                    .signin-form__action.link.link--back.link--fake(role="button", (click)="restore()") Powrót
+                    a.signin-form__action.link(routerLink="/logowanie") Odzyskaj PIN
+                button.btn.btn-primary.signin-form__submit-btn(type="submit") Zaloguj

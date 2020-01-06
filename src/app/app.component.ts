@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'pko-root',
+    templateUrl: './app.component.pug'
 })
 export class AppComponent {
-  title = 'pko-claim-tracker';
+
 }

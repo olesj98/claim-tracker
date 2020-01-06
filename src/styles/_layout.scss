@@ -1,0 +1,14 @@
+html, body {
+    height: 100%;
+}
+
+.ui {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__content {
+        flex-grow: 1;
+        padding-top: 2rem;
+    }
+}

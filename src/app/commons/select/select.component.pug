@@ -1,0 +1,27 @@
+.select.form-control(
+    [class.select--opened]="panelOpen",
+    cdk-overlay-origin,
+    #origin="cdkOverlayOrigin",
+    #trigger,
+    (click)="toggle()"
+)
+    .select__value([ngSwitch]="empty")
+        .select__placeholder(*ngSwitchCase="true") {{ placeholder || '' }}
+        .select__value-text(*ngSwitchDefault) {{ selectedOptionLabel }}
+    .select__expand-container
+        img.select__expand(src="/assets/icons/expand.svg", alt="Expand")
+ng-template(
+    cdk-connected-overlay,
+    cdkConnectedOverlayLockPosition,
+    cdkConnectedOverlayHasBackdrop,
+    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop",
+    [cdkConnectedOverlayOrigin]="origin",
+    [cdkConnectedOverlayOpen]="panelOpen",
+    [cdkConnectedOverlayMinWidth]="triggerBoundingClientRect?.width",
+    [cdkConnectedOverlayPositions]="positions",
+    (backdropClick)="close()",
+    (detach)="close()"
+)
+    .select-panel-wrapper
+        .select-panel
+            ng-content

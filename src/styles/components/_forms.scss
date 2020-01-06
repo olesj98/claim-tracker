@@ -1,0 +1,57 @@
+@import '../variables';
+
+.form-control {
+    &:disabled,
+    &[readonly] {
+        box-shadow: 0 2px 4px 0 #dcdcdc;
+        border-color: transparent;
+    }
+
+    &.ng-invalid.ng-touched {
+        border-color: $pko-danger;
+    }
+}
+
+.form-group {
+    position: relative;
+
+    label {
+        font-size: $pko-caption-size;
+        font-weight: 300;
+        color: $pko-black;
+    }
+}
+
+.error-messages {
+    position: absolute;
+    right: 0;
+
+    &__item {
+        font-size: $pko-caption-size;
+        color: $pko-danger;
+        margin-top: 2px;
+    }
+}
+
+.link {
+    color: $pko-primary-light;
+    transition: color .2s linear;
+
+    &--back {
+        &:before {
+            content: '\003C';
+            padding-right: 4px;
+        }
+    }
+
+    &--fake {
+        cursor: pointer;
+        display: inline-block;
+        margin: 0;
+    }
+
+    &:hover {
+        color: $pko-primary;
+        text-decoration: none;
+    }
+}

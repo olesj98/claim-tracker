@@ -1,0 +1,18 @@
+@import 'bootstrap/tools';
+@import 'variables';
+
+.signup-form {
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid $pko-divider-color;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &__submit {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+@import 'bootstrap/tools';
+@import 'variables';
+
+.text {
+    &--bold {
+        font-weight: bold;
+    }
+
+    &--caption {
+        font-size: $pko-caption-size;
+    }
+
+    &--headline {
+        font-size: $pko-headline-size;
+    }
+
+    &--subheader {
+        font-size: $pko-subheader-size;
+    }
+
+    &--h2 {
+        font-size: $pko-h2-size;
+        margin-bottom: 2rem;
+
+        @include media-breakpoint-down(sm) {
+            font-size: $pko-h5-size;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &--h4 {
+        font-size: $pko-h4-size;
+        margin-bottom: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            font-size: $pko-h5-size;
+        }
+    }
+
+    &--divider-bottom {
+        border-bottom: 1px solid $pko-gray-4;
+        padding-bottom: 1rem;
+    }
+}

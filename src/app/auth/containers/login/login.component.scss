@@ -1,0 +1,20 @@
+@import 'bootstrap/tools';
+@import 'variables';
+
+.signin {
+    &__top {
+        border-bottom: 1px solid $pko-divider-color;
+    }
+
+    &__form-container {
+        max-width: 390px;
+        padding: 2rem 0;
+        margin: 0 auto;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &__form-container {
+            max-width: 100%;
+        }
+    }
+}

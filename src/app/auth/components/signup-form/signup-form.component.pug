@@ -1,0 +1,19 @@
+form.signup-form([formGroup]="form", (ngSubmit)="submit()", novalidate)
+    h4.text.text--h4 Podaj nam swoje dane
+    .row
+        .col-md-6.form-group
+            label Numer telefonu
+            input.form-control(type="text", placeholder="np. 9210170483", formControlName="phone")
+        .col-md-6.form-group
+            label PESEL lub kod dostępu
+            input.form-control(type="text", placeholder="np. 9210170483", formControlName="pesel")
+    h4.text.text--h4 Ustaw PIN do logowania
+    .row
+        .col-md-6.form-group
+            label Nowy PIN (4 cyfry)
+            input.form-control(type="text", placeholder="Wpisz 4-cyfrowy numer PIN", formControlName="pin")
+        .col-md-6.form-group
+            label Powtórz nowy PIN
+            input.form-control(type="text", placeholder="Powtórz PIN z pola po lewej", formControlName="pinConfirm")
+    .signup-form__actions
+        button.signup-form__submit.btn.btn-primary(type="submit") Zarejestruj się

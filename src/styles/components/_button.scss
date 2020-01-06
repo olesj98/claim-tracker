@@ -1,0 +1,43 @@
+@import '../variables';
+
+.btn {
+    &-primary,
+    &-light {
+        height: 40px;
+        min-width: 180px;
+    }
+
+    &-primary  {
+        &:not(:disabled):not(.disabled):active:focus,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    &.btn-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    &-primary,
+    &-info {
+        border-radius: $pko-border-radius 0;
+    }
+
+    &-light {
+        background: $pko-white;
+        border-color: $pko-gray-5;
+    }
+
+    &-info {
+        color: $pko-white;
+    }
+
+    &__icon {
+        display: inline-block;
+
+        &--left {
+            margin-right: 4px;
+        }
+    }
+}

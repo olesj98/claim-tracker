@@ -1,0 +1,29 @@
+@import 'variables';
+
+.select {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+
+    &--opened {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &--opened &__expand {
+        transform: rotate(-180deg);
+    }
+
+    &__value {
+        flex: 1;
+    }
+
+    &__placeholder {
+        color: $pko-gray-7;
+    }
+
+    &__expand {
+        transition: transform .1s linear;
+    }
+}

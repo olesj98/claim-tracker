@@ -1,0 +1,7 @@
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function rem($px, $base) {
+    @return strip-unit($px) / $base * 1rem;
+}

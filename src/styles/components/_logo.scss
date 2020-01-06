@@ -1,0 +1,12 @@
+.logo {
+    display: inline-block;
+
+    &--small {
+        margin-top: -7px;
+        width: 125px;
+    }
+
+    &--medium {
+        width: 206px;
+    }
+}

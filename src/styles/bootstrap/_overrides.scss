@@ -1,0 +1,25 @@
+@import '../variables';
+@import '../helpers';
+
+$font-family-sans-serif: $pko-root-font;
+$font-size-base: rem($pko-font-size, $pko-root-size);
+$body-color: $pko-black;
+
+$primary: $pko-primary;
+$info: $pko-info;
+$btn-border-radius: $pko-border-radius;
+
+$input-focus-box-shadow: none;
+$input-focus-border-color: $pko-primary;
+$input-height: 40px;
+$input-placeholder-color: $pko-gray-7;
+$input-border-color: $pko-control-border-color;
+$input-border-radius: $pko-border-radius;
+$input-color: $pko-black;
+$input-disabled-bg: $pko-gray-2;
+
+$h1-font-size: rem($pko-h1-size, $pko-root-size);
+$h2-font-size: rem($pko-h2-size, $pko-root-size);
+$h3-font-size: rem($pko-h3-size, $pko-root-size);
+$h4-font-size: rem($pko-h4-size, $pko-root-size);
+$h5-font-size: rem($pko-h5-size, $pko-root-size);
