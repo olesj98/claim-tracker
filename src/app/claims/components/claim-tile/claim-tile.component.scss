@@ -1,0 +1,53 @@
+@import 'variables';
+
+:host {
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    margin: 15px;
+    border: 1px solid $pko-gray-3;
+    border-radius: $pko-border-radius;
+    background-color: #f9f9f9;
+    width: 285px;
+    height: 120px;
+    padding: 12px;
+}
+
+:host(.--active) {
+    background-color: $pko-white;
+    border: 1px solid $pko-primary;
+}
+
+.claim {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__type {
+        display: inline-block;
+        font-size: 11px;
+        background: $pko-gray-3;
+        border: 1px solid #dcdcdc;
+        border-radius: 2px;
+        padding: 0 4px;
+    }
+
+    &__id {
+        margin: 8px 0 4px 0;
+        font-size: $pko-caption-size;
+        color: $pko-primary;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    &__vehicle {
+        font-size: 11px;
+        color: $pko-gray-7;
+    }
+
+    &__status {
+        text-align: right;
+    }
+}

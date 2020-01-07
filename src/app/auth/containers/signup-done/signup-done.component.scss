@@ -1,0 +1,43 @@
+@import 'bootstrap/tools';
+@import 'variables';
+
+.signup-ok {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__icon {
+        margin: 3.5rem 0 2rem;
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+    }
+
+    &__description {
+        margin-bottom: 2rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+        height: 100%;
+
+        &__body {
+            flex-grow: 1;
+        }
+
+        &__icon {
+            margin-top: 1rem;
+        }
+
+        &__footer {
+            width: 100%;
+            padding: 1rem 0;
+            border-top: 1px solid $pko-divider-color;
+        }
+
+        &__login {
+            width: 100%;
+        }
+    }
+}

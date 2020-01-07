@@ -1,0 +1,12 @@
+.claims(*ngIf="claims?.length")
+    pko-claim-tile(
+        *ngFor="let claim of claims; trackBy: trackByClaimId",
+        class="claims__tile",
+        [claim]="claim",
+        [active]="claim.id === selectedClaimId",
+        (selected)="selected.emit(claim.id)"
+    )
+
+ng-template(#emptyClaimsTmpl)
+    .claims__empty
+        p.m-0 Brak zgłoszonych szkód

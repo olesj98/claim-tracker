@@ -1,0 +1,10 @@
+@mixin make-menu-border {
+    content: '';
+    position: absolute;
+    bottom: -2.5px;
+    width: 100%;
+    height: 5px;
+    border-radius: $pko-border-radius;
+    background: $pko-primary;
+    transform: skew(-30deg);
+}

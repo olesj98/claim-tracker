@@ -1,0 +1,29 @@
+header.toolbar([class.toolbar--minified]="minified")
+    .container.toolbar__container
+        .toolbar__row(*ngIf="!minified; else minifiedToolbarRowTmpl", @toolbarAnimation)
+            .toolbar__col-left
+                .toolbar__logo
+                    img.logo.logo--small(src="/assets/pkou-logo.png", alt="PKO Ubezpieczenia", routerLink="/logowanie")
+                ul.toolbar__menu
+                    li.toolbar__menu-item
+                        a.toolbar__menu-link.link(routerLink="/", routerLinkActive="toolbar__menu-link--active") Moje szkody
+                    li.toolbar__menu-item
+                        a.toolbar__menu-link.link(routerLink="/ustawienia", routerLinkActive="toolbar__menu-link--active") Ustawienia
+            .toolbar__col-right
+                button.btn.btn-info.btn-icon(type="button")
+                    .btn__icon.btn__icon--left
+                        img(src="/assets/icons/star.svg" alt="Star")
+                    | Oceń aplikację
+                .toolbar__user-container
+                    pko-user-menu([user]="user")
+                .toolbar__logout(role="button")
+                    img(src="/assets/icons/power.svg", alt="Wyloguj")
+                    .toolbar__logout-label.text.text--caption Wyloguj
+
+ng-template(#minifiedToolbarRowTmpl)
+    .toolbar__row.toolbar__row(@toolbarAnimation)
+        pko-user-menu([user]="user", [minified]="true")
+        .toolbar__logo
+            img.logo.logo--small(src="/assets/pkou-logo.png", alt="PKO Ubezpieczenia", routerLink="/logowanie")
+        .toolbar__logout(role="button")
+            img(src="/assets/icons/power.svg", alt="Wyloguj")

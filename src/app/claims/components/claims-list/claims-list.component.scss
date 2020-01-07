@@ -1,0 +1,27 @@
+@import 'bootstrap/tools';
+
+.claims {
+    margin-left: -15px;
+    margin-right: -15px;
+
+    &__empty {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    @include media-breakpoint-down(sm) {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &__tile {
+            flex: 0 0 auto;
+        }
+    }
+}

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-import { Credentials, User } from '../models';
+import { Credentials, Signup, User } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -13,5 +13,9 @@ export class AuthService {
             name: 'Kamil',
             surname: 'Kwasiborski'
         });
+    }
+
+    signup(data: Signup): Observable<void> {
+        return of(null);
     }
 }

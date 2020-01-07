@@ -1,0 +1,28 @@
+@import 'variables';
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    font-size: $pko-caption-size;
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background: $pko-gray-2;
+        color: $pko-black;
+        font-size: $pko-caption-size;
+        user-select: none;
+    }
+
+    &__name {
+        max-width: 145px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-left: 1rem;
+    }
+}

@@ -1,9 +1,14 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { LOCALE_ID, NgModule, Optional, SkipSelf } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+
+import localePl from '@angular/common/locales/pl';
+
+registerLocaleData(localePl, 'pl');
 
 @NgModule({
     declarations: [],
-    imports: [
-
+    providers: [
+        { provide: LOCALE_ID, useValue: 'pl-PL' }
     ]
 })
 export class CoreModule {

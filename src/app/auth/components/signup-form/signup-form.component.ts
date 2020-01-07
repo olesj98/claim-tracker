@@ -27,8 +27,7 @@ export class SignupFormComponent implements OnInit {
 
     submit() {
         if (this.form.valid) {
-            const { pinConfirm, ...data } = this.form.value;
-            this.submitted.next(data);
+            this.submitted.next(this.form.value);
         }
     }
 }

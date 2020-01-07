@@ -1,0 +1,15 @@
+.bottom-bar(@bottomBarAnimation)
+    .container
+        ul.bottom-bar__nav
+            li.bottom-bar__nav-element
+                a.bottom-bar__nav-link.link(routerLink="/")
+                    img.bottom-bar__nav-link-icon(src="/assets/icons/settings.svg" alt="Ustawienia")
+                    span.bottom-bar__nav-link-label Ustawienia
+            li.bottom-bar__nav-element
+                a.bottom-bar__nav-link.link(routerLink="/")
+                    img.bottom-bar__nav-link-icon(src="/assets/icons/taxi.svg" alt="Taxi")
+                    span.bottom-bar__nav-link-label Moje szkody
+            li.bottom-bar__nav-element
+                a.bottom-bar__nav-link.link(routerLink="/")
+                    img.bottom-bar__nav-link-icon(src="/assets/icons/star_dark.svg" alt="Oceń aplikację")
+                    span.bottom-bar__nav-link-label Oceń aplikację

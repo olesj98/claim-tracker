@@ -1,0 +1,73 @@
+@import 'variables';
+@import 'mixins';
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    height: 78px;
+    background: $pko-white;
+    box-shadow: 0 2px 6px 0 #767676;
+
+    &--minified {
+        height: $sm-header-height;
+    }
+
+    &__container {
+        height: 100%;
+    }
+
+    &__row,
+    &__logout {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__row,
+    &__menu,
+    &__menu-link,
+    &__user-container,
+    &__col-left,
+    &__col-right {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__menu {
+        list-style: none;
+        padding: 0;
+        margin: 0 1rem 0 2.5rem;
+    }
+
+    &__menu-item {
+        height: 100%;
+        margin: 0 1rem;
+    }
+
+    &__menu-link {
+        position: relative;
+        font-size: $pko-headline-size;
+        color: $pko-black;
+
+        &--active:before {
+            @include make-menu-border;
+        }
+    }
+
+    &__user-container {
+        margin: 0 1rem;
+        padding: 0 1rem;
+        border-left: 1px solid $pko-divider-color;
+        border-right: 1px solid $pko-divider-color;
+    }
+
+    &__logout {
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    &__logout-label {
+        margin-top: 4px;
+    }
+}

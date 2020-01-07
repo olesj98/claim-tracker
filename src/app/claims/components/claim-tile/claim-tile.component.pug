@@ -1,0 +1,7 @@
+.claim
+    .claim__body
+        .claim__type {{ claim.type }}
+        .claim__id {{ claim.id }}
+        .claim__vehicle {{ claim.vehicle }} | {{ claim.registration }}
+    .claim__status(*ngIf="claim.status") {{ claim.status }}
+

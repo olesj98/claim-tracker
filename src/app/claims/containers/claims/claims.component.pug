@@ -1,0 +1,7 @@
+.container
+    h5.text.text--bold.mb-3.mb-md-5 Zgłoszone szkody
+    pko-claims-list(
+        [claims]="claims$ | async",
+        [selectedClaimId]="selectedClaimId$ | async",
+        (selected)="onClaimSelected($event)"
+    )

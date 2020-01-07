@@ -11,6 +11,7 @@ import { environment } from '@pko-env/environment';
 
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
+import { TrackerModule } from './tracker/tracker.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import * as fromRoot from './core/reducers';
         }),
         CoreModule,
         AuthModule,
+        TrackerModule,
         AppRoutingModule
     ],
     bootstrap: [

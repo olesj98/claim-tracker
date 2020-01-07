@@ -1,3 +1,5 @@
+@import 'variables';
+
 html, body {
     height: 100%;
 }
@@ -7,8 +9,18 @@ html, body {
     flex-direction: column;
     height: 100%;
 
+    &--app &__content {
+        &--bottom-bar-showing {
+            padding-bottom: $sm-bottom-menu-height;
+        }
+    }
+
     &__content {
         flex-grow: 1;
-        padding-top: 2rem;
+        padding: 2rem 0 1rem 0;
+    }
+
+    &__content > .container {
+        height: 100%;
     }
 }

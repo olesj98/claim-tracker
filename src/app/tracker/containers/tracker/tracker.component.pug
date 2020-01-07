@@ -1,0 +1,5 @@
+.ui.ui--app
+    pko-toolbar([minified]="minified")
+    .ui__content([class.ui__content--bottom-bar-showing]="minified")
+        router-outlet
+    pko-bottom-bar(*ngIf="minified")
