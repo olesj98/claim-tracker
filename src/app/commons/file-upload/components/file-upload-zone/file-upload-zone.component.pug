@@ -1,0 +1,10 @@
+.file-zone
+    .file-zone__box((dragDrop)="onFilesDropped($event)")
+        .file-zone__info
+            .text.text--subheader.file-zone__title.mb-3 Przeciągnij i upuść plik tutaj lub
+            label.btn.btn-light.file-zone__add-from-drive([for]="fileFor") Dodaj plik
+            input.file-zone__hidden-input(type="file", [id]="fileFor", (change)="onSelectedFromDrive($event)")
+        .file-zone__files(*ngIf="multiple && files?.length")
+            pko-file.file-zone__file(*ngFor="let file of files; let i = index; trackBy: trackByFilesIndex", [name]="file.name", [removeable]="true", (remove)="removeAt(i)")
+    .file-zone__save(*ngIf="multiple && files?.length")
+        button.btn.btn-primary.file-zone__submit(type="button", (click)="submit()") Zapisz pliki

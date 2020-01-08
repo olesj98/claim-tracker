@@ -1,0 +1,26 @@
+@import 'variables';
+
+.file {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__self {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        margin-right: 0.5rem;
+    }
+
+    &__name {
+        color: $pko-primary;
+        font-size: $pko-caption-size;
+    }
+
+    &__trash {
+        cursor: pointer;
+        margin-left: 1rem;
+    }
+}

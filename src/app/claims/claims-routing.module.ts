@@ -13,9 +13,29 @@ export const claimsRoutes: Routes = [
         component: ClaimsComponent,
         children: [
             {
+                path: '',
+                redirectTo: 'os-czasu',
+                pathMatch: 'full'
+            },
+            {
+                path: 'os-czasu',
+                loadChildren: () => import('./children/timeline/timeline.module')
+                    .then(m => m.TimelineModule)
+            },
+            {
+                path: 'dokumenty',
+                loadChildren: () => import('./children/documents/documents.module')
+                    .then(m => m.DocumentsModule)
+            },
+            {
                 path: 'wiadomosci',
                 loadChildren: () => import('./children/messages/messages.module')
                     .then(m => m.MessagesModule)
+            },
+            {
+                path: 'opiekun-szkody',
+                loadChildren: () => import('./children/patron/patron.module')
+                    .then(m => m.PatronModule)
             }
         ]
     }
