@@ -1,10 +1,15 @@
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
 import * as fromRoot from '@pko/core/reducers';
+
 import * as fromClaimsList from './claims-list';
+import * as fromMenu from './menu';
+import * as fromMessages from './messages';
 
 export interface ClaimsState {
     claimsList: fromClaimsList.State;
+    menu: fromMenu.State;
+    messages: fromMessages.State;
 }
 
 export interface State extends fromRoot.State {
@@ -12,7 +17,9 @@ export interface State extends fromRoot.State {
 }
 
 export const reducers: ActionReducerMap<ClaimsState> = {
-    claimsList: fromClaimsList.reducer
+    claimsList: fromClaimsList.reducer,
+    menu: fromMenu.reducer,
+    messages: fromMessages.reducer
 };
 
 export const getClaimsState = createFeatureSelector<State, ClaimsState>('claims');
@@ -26,3 +33,9 @@ export const getSelectedClaim   = createSelector(
     getSelectedClaimId,
     (entities, id) => entities[id]
 );
+
+export const getMenuState = createSelector(getClaimsState, state => state.menu);
+export const getMenuList = createSelector(getMenuState, fromMenu.getAll);
+
+export const getMessagesState = createSelector(getClaimsState, state => state.messages);
+export const getThreadsList = createSelector(getMessagesState, fromMessages.getAll);

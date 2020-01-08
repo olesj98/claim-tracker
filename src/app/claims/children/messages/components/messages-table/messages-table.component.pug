@@ -1,0 +1,11 @@
+table.messages
+    thead
+        tr.messages__head-row
+            th.messages__head-cell.messages__head-cell--date Data
+            th.messages__head-cell Temat
+    tbody
+        tr.messages__body-row(*ngFor="let thread of threads; trackBy: trackByThreadId")
+            td.messages__body-cell.messages__body-cell--date
+                pko-message-date([time]="thread.messages[thread.messages.length - 1].date")
+            td.messages__body-cell
+                pko-messages-thread([thread]="thread", [user]="user")

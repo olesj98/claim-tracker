@@ -10,8 +10,9 @@ export class AuthService {
 
     signin(credentials: Credentials): Observable<User> {
         return of({
-            name: 'Kamil',
-            surname: 'Kwasiborski'
+            id: 'jan_kowalski',
+            name: 'Jan',
+            surname: 'Kowalski'
         });
     }
 

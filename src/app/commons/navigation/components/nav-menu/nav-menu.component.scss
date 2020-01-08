@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'mixins';
+
+.nav-routing {
+    margin-bottom: 1.75rem;
+
+    &__tabs {
+        display: flex;
+        background: $pko-white;
+        height: 72px;
+        border-bottom: 1px solid $pko-gray-3;
+    }
+
+    &__tab {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        margin-right: 1.25rem;
+        color: $pko-black;
+        position: relative;
+
+        &--active:before {
+            @include make-menu-border;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

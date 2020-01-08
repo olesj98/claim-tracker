@@ -16,6 +16,7 @@ export class AuthEffects {
             exhaustMap(({ credentials }) =>
                 this._auth.signin(credentials).pipe(
                     map(user => LoginActions.loginSuccess({ user })),
+                    tap(user => localStorage.setItem('_user', JSON.stringify(user))),
                     catchError(() => of(LoginActions.loginFailed()))
                 )
             )

@@ -11,7 +11,7 @@ html, body {
 
     &--app &__content {
         &--bottom-bar-showing {
-            padding-bottom: $sm-bottom-menu-height;
+            padding-bottom: $sm-bottom-menu-height + 12px;
         }
     }
 

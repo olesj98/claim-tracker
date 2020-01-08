@@ -12,7 +12,11 @@ export const claimsRoutes: Routes = [
         path: ':id',
         component: ClaimsComponent,
         children: [
-
+            {
+                path: 'wiadomosci',
+                loadChildren: () => import('./children/messages/messages.module')
+                    .then(m => m.MessagesModule)
+            }
         ]
     }
 ];

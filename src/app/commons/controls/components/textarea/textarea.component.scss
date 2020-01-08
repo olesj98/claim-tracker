@@ -1,0 +1,17 @@
+@import 'variables';
+
+.textarea {
+    &__self {
+        resize: none;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.75rem;
+    }
+
+    &__charsleft {
+        font-size: $pko-caption-size;
+    }
+}

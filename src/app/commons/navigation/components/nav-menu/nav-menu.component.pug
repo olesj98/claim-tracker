@@ -1,0 +1,12 @@
+.nav-routing
+    .nav-routing__tabs(*ngIf="!minified; else minifiedRoutingMenuTmpl")
+        a.nav-routing__tab(
+            *ngFor="let tab of tabs",
+            [routerLink]="tab.link",
+            routerLinkActive="nav-routing__tab--active",
+            [routerLinkActiveOptions]="{ exact: true }"
+        ) {{ tab.title }}
+
+ng-template(#minifiedRoutingMenuTmpl)
+    pko-select([formControl]="menu")
+        pko-option(*ngFor="let tab of tabs", [value]="tab.link" ) {{ tab.title }}

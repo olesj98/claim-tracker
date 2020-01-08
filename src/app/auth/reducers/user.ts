@@ -8,9 +8,11 @@ export interface State {
     isLoggedIn: boolean;
 }
 
+const savedUser = JSON.parse(localStorage.getItem('_user'));
+
 export const initialState: State = {
-    user: null,
-    isLoggedIn: false
+    user: savedUser || null,
+    isLoggedIn: !!savedUser
 };
 
 export const userReducer = createReducer(

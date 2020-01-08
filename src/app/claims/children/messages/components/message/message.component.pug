@@ -1,0 +1,9 @@
+.msg
+    .msg__from
+        .msg__from-label Od: {{ message.from.name }} {{ message.from.surname }} | {{ message.date | date: 'dd.MM.yyyy hh:mm' }}
+    .msg__content([innerHTML]="message.body")
+    .msg__reply(*ngIf="mayReply")
+        button.btn.btn-primary(*ngIf="!messageFormShowing; else messageFormTmpl", type="button", (click)="messageFormShowing = true") Odpowiedź
+
+ng-template(#messageFormTmpl)
+    pko-message-form([withSubject]="false", (cancel)="messageFormShowing = false")

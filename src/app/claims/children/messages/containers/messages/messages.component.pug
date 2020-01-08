@@ -1,0 +1,7 @@
+.row.messages-view
+    .col-12.messages-view__new-message-col
+        button.messages-view__new-message-btn.btn.btn-light(type="button", (click)="messageFormShowing = true") Nowa Wiadomość
+    .col-12.messages-view__message-form(*ngIf="messageFormShowing")
+        pko-message-form([withSubject]="true", (cancel)="messageFormShowing = false")
+    .col-12
+        pko-messages-table([threads]="threads$ | async", [user]="user$ | async")

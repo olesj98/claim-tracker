@@ -1,0 +1,14 @@
+@import 'variables';
+
+.msg {
+    padding: 24px 0;
+    border-bottom: 1px solid $pko-divider-color;
+
+    &__from-label {
+        font-size: $pko-caption-size;
+    }
+
+    &__content {
+        margin: 1rem 0;
+    }
+}

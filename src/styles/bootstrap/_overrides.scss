@@ -23,3 +23,18 @@ $h2-font-size: rem($pko-h2-size, $pko-root-size);
 $h3-font-size: rem($pko-h3-size, $pko-root-size);
 $h4-font-size: rem($pko-h4-size, $pko-root-size);
 $h5-font-size: rem($pko-h5-size, $pko-root-size);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 620px,
+    lg: 925px,
+    xl: 1230px
+);
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1230px
+);

@@ -1,0 +1,19 @@
+@import 'bootstrap/tools';
+
+.messages-view {
+    &__new-message-col {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__message-form,
+    &__new-message-col {
+        margin-bottom: 1.25rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &__new-message-btn {
+            width: 100%;
+        }
+    }
+}
