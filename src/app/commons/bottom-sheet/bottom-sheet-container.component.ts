@@ -75,7 +75,7 @@ export class BottomSheetContainerComponent extends BasePortalOutlet implements O
     }
 
     ngOnDestroy(): void {
-
+        this._destroyed = true;
     }
 }
 

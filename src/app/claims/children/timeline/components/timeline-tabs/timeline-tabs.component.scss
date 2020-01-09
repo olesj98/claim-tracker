@@ -1,0 +1,109 @@
+@import 'variables';
+
+.timeline-group {
+    display: flex;
+
+    &--minified &__left {
+        max-width: 100%;
+    }
+
+    &--minified &__tab {
+        border: 1px solid $pko-gray-3;
+        padding: 32px 16px;
+        margin-bottom: 0;
+    }
+
+    &--minified &__connector {
+        padding: 0;
+        margin-left: 28px;
+    }
+
+    &__left {
+        flex-grow: 1;
+        max-width: 320px;
+    }
+
+    &__content {
+        flex-grow: 1;
+        align-self: flex-start;
+        max-height: 320px;
+        padding: 1rem 1rem 2rem 1rem;
+        background: $pko-gray-1;
+    }
+
+    &__tab {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    &__unit--disabled &__tab {
+        cursor: default;
+    }
+
+    &__unit--active &__circle {
+        background: $pko-primary;
+    }
+
+    &__unit--completed:not(&__unit--active) &__circle {
+        background: $pko-success;
+        border-color: $pko-success;
+
+        &:before {
+            content: '';
+            background: url("assets/icons/done-white.svg") no-repeat;
+            background-size: 16px 16px;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+        }
+    }
+
+    &__unit--active &__connection-line,
+    &__unit--completed &__connection-line {
+        border-left-style: solid;
+        border-left-color: $pko-primary;
+    }
+
+    &__circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $pko-white;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        border: 1px solid $pko-primary;
+        border-radius: 50%;
+        margin-right: 1.75rem;
+    }
+
+    &__connector {
+        padding: 0 0 8px;
+        margin-left: 12px;
+    }
+
+    &__connection-line {
+        min-height: 36px;
+        border-left-style: dotted;
+        border-left-width: 2px;
+        display: block;
+        border-color: $pko-gray-3;
+    }
+
+    &__title {
+        color: $pko-black;
+        font-size: $pko-caption-size;
+    }
+
+    &__action {
+        color: $pko-primary-light;
+        font-size: $pko-caption-size + 1px;
+    }
+
+    &__description {
+        font-size: 10px;
+        color: $pko-gray-5;
+    }
+}
