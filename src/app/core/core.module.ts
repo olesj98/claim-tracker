@@ -1,5 +1,5 @@
 import { LOCALE_ID, NgModule, Optional, SkipSelf } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
 
 import localePl from '@angular/common/locales/pl';
 
@@ -8,6 +8,7 @@ registerLocaleData(localePl, 'pl');
 @NgModule({
     declarations: [],
     providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: LOCALE_ID, useValue: 'pl-PL' }
     ]
 })

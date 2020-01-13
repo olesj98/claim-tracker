@@ -25,6 +25,7 @@
 .error-messages {
     position: absolute;
     right: 0;
+    left: 0;
 
     &__item {
         font-size: $pko-caption-size;

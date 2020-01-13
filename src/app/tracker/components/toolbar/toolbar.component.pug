@@ -2,8 +2,8 @@ header.toolbar([class.toolbar--minified]="minified")
     .container.toolbar__container
         .toolbar__row(*ngIf="!minified; else minifiedToolbarRowTmpl", @toolbarAnimation)
             .toolbar__col-left
-                .toolbar__logo
-                    img.logo.logo--small(src="assets/pkou-logo.png", alt="PKO Ubezpieczenia", routerLink="/logowanie")
+                a(routerLink="/").toolbar__logo
+                    img.logo.logo--small(src="assets/pkou-logo.png", alt="PKO Ubezpieczenia")
                 ul.toolbar__menu
                     li.toolbar__menu-item
                         a.toolbar__menu-link.link(routerLink="/", routerLinkActive="toolbar__menu-link--active") Moje szkody
