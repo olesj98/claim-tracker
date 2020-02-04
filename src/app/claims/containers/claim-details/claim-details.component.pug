@@ -1,0 +1,8 @@
+.container
+    .row(*ngIf="selectedClaim$ | async as claim")
+        .col-12
+            a.link.link--back(routerLink="/") Powrót do listy szkód
+            .h4.text.text--bold.mt-4.mb-3.mb-md-5 Szkoda: {{ claim.id }}
+        .col-12
+            pko-nav-menu([tabs]="menu$ | async")
+            router-outlet

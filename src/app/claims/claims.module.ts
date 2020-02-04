@@ -6,6 +6,7 @@ import { NavigationModule } from '@pko/commons/navigation';
 import { ClaimsRoutingModule } from './claims-routing.module';
 
 import { ClaimsComponent } from './containers/claims/claims.component';
+import { ClaimDetailsComponent } from './containers/claim-details/claim-details.component';
 import { ClaimsListComponent } from './components/claims-list/claims-list.component';
 import { ClaimTileComponent } from './components/claim-tile/claim-tile.component';
 
@@ -15,7 +16,8 @@ import { reducers } from './reducers';
     declarations: [
         ClaimsComponent,
         ClaimsListComponent,
-        ClaimTileComponent
+        ClaimTileComponent,
+        ClaimDetailsComponent
     ],
     imports: [
         CommonModule,

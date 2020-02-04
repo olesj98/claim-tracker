@@ -11,18 +11,12 @@
     }
 
     @include media-breakpoint-down(sm) {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: none;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        margin-left: 0;
+        margin-right: 0;
 
         &__tile {
-            flex: 0 0 auto;
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 }

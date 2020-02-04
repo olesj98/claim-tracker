@@ -24,3 +24,9 @@ html, body {
         height: 100%;
     }
 }
+
+@include media-breakpoint-down(sm) {
+    body, .ui {
+        background: $pko-gray-2;
+    }
+}

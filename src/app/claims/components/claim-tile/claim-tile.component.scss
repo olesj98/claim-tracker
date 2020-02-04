@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'bootstrap/tools';
 
 :host {
     cursor: pointer;
@@ -49,5 +50,11 @@
 
     &__status {
         text-align: right;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    :host {
+        width: 100%;
     }
 }

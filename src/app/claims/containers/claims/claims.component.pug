@@ -1,11 +1,7 @@
 .container
-    h5.text.text--bold.mb-3.mb-md-4 Zgłoszone szkody
+    h5.text.text--bold.mb-3.mb-md-4 Aby przejść dalej wybierz szkodę, która Cię interesuje:
     pko-claims-list(
         [claims]="claims$ | async",
         [selectedClaimId]="selectedClaimId$ | async",
         (selected)="onClaimSelected($event)"
     )
-    ng-container(*ngIf="selectedClaim$ | async")
-        h5.text.text--bold.my-3.my-md-4 Szkoda: {{ selectedClaimId$ | async }}
-        pko-nav-menu([tabs]="menu$ | async")
-        router-outlet

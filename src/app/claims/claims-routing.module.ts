@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ClaimsComponent } from './containers/claims/claims.component';
+import { ClaimDetailsComponent } from './containers/claim-details/claim-details.component';
 
 export const claimsRoutes: Routes = [
     {
@@ -10,7 +11,7 @@ export const claimsRoutes: Routes = [
     },
     {
         path: ':id',
-        component: ClaimsComponent,
+        component: ClaimDetailsComponent,
         children: [
             {
                 path: '',

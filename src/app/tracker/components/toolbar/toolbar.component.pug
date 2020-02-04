@@ -10,10 +10,6 @@ header.toolbar([class.toolbar--minified]="minified")
                     li.toolbar__menu-item
                         a.toolbar__menu-link.link(routerLink="/ustawienia", routerLinkActive="toolbar__menu-link--active") Ustawienia
             .toolbar__col-right
-                button.btn.btn-info.btn-icon(type="button")
-                    .btn__icon.btn__icon--left
-                        img(src="assets/icons/star.svg" alt="Star")
-                    | Oceń aplikację
                 .toolbar__user-container
                     pko-user-menu([user]="user")
                 .toolbar__logout(role="button")
