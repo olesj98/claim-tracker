@@ -1,6 +1,9 @@
-import { Credentials } from './credentials';
-
-export interface Signup extends Credentials {
+export interface Signup {
     pesel: string;
+    phone: string;
+}
+
+export interface SignupPIN {
+    pin: string;
     pinConfirm: string;
 }

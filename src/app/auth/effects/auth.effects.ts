@@ -23,13 +23,25 @@ export class AuthEffects {
         )
     );
 
-    signup$: Observable<Action> = createEffect(() =>
+    verify$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
-            ofType(SignupActions.signup),
+            ofType(SignupActions.verify),
             exhaustMap(({ data }) =>
-                this._auth.signup(data).pipe(
-                    map(() => SignupActions.signupSuccess()),
-                    catchError(() => of(SignupActions.signupFailed()))
+                this._auth.verify(data).pipe(
+                    map(() => SignupActions.verifySuccess()),
+                    catchError(() => of(SignupActions.verifyFailed()))
+                )
+            )
+        )
+    );
+
+    configurePIN$: Observable<Action> = createEffect(() =>
+        this._actions.pipe(
+            ofType(SignupActions.configPIN),
+            exhaustMap(({ data }) =>
+                this._auth.configurePIN(data).pipe(
+                    map(() => SignupActions.configPINSuccess()),
+                    catchError(() => of(SignupActions.configPINFailed()))
                 )
             )
         )
@@ -42,9 +54,16 @@ export class AuthEffects {
         ), { dispatch: false }
     );
 
-    signupRedirect$: Observable<Action> = createEffect(() =>
+    verifyRedirect$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
-            ofType(SignupActions.signupSuccess),
+            ofType(SignupActions.verifySuccess),
+            tap(() => this._router.navigate(['/rejestracja/pin']))
+        ), { dispatch: false }
+    );
+
+    configurePINRedirect$: Observable<Action> = createEffect(() =>
+        this._actions.pipe(
+            ofType(SignupActions.configPINSuccess),
             tap(() => this._router.navigate(['/rejestracja/ok']))
         ), { dispatch: false }
     );

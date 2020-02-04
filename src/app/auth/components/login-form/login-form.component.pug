@@ -3,7 +3,7 @@
     form([formGroup]="form", (ngSubmit)="submit()")
         .signin-form__step.signin__step--1(*ngIf="!phoneVerified")
             .form-group
-                input.form-control(type="text", placeholder="Wpisz numer telefonu", formControlName="phone")
+                input.signin-form__phone-control.form-control(type="text", placeholder="Wpisz numer telefonu podany w zgłoszeniu szkody", formControlName="phone")
                 .error-messages(*ngIf="form.get('phone').touched && form.get('phone').invalid")
                     .error-messages__item(*ngIf="form.get('phone').hasError('required')") Pole jest wymagane
             .signin-form__submit-row
@@ -11,9 +11,9 @@
                 button.btn.btn-primary.signin-form__submit-btn(type="button", (click)="verifyPhone()") Dalej
         .signin-form__step.signin__step--2(*ngIf="phoneVerified")
             .form-group
-                input.form-control(type="text", placeholder="Wpisz PIN", formControlName="pin")
-                .error-messages(*ngIf="form.get('pin').touched && form.get('pin').invalid")
-                    .error-messages__item(*ngIf="form.get('pin').hasError('required')") Pole jest wymagane
+                input.signin-form__pin-control.form-control(type="text", placeholder="Wpisz PIN", formControlName="pin")
+                .error-messages(*ngIf="form.get('pin-set').touched && form.get('pin-set').invalid")
+                    .error-messages__item(*ngIf="form.get('pin-set').hasError('required')") Pole jest wymagane
             .signin-form__submit-row
                 .signin-form__secondary-action
                     .signin-form__action.link.link--back.link--fake(role="button", (click)="restore()") Powrót

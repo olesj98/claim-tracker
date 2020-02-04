@@ -4,6 +4,11 @@
 .signin-form {
     padding: 1rem;
 
+    &__phone-control,
+    &__pin-control {
+        height: 48px;
+    }
+
     &__title {
         margin-bottom: 2rem;
     }

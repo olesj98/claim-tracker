@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-import { Credentials, Signup, User } from '../models';
+import { Credentials, Signup, SignupPIN, User } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -16,7 +16,11 @@ export class AuthService {
         });
     }
 
-    signup(data: Signup): Observable<void> {
+    verify(data: Signup): Observable<void> {
+        return of(null);
+    }
+
+    configurePIN(pin: SignupPIN): Observable<void> {
         return of(null);
     }
 }

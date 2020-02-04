@@ -1,21 +1,21 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { Signup } from '../../models';
+import { SignupPIN } from '../../models';
 import { SignupActions } from '../../actions';
 
 import * as fromAuth from '../../reducers';
 
 @Component({
-    selector: 'pko-signup',
-    templateUrl: './signup.component.pug',
-    styleUrls: ['./signup.component.scss'],
+    selector: 'pko-pin-set',
+    templateUrl: './pin-set.component.pug',
+    styleUrls: [ './pin-set.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SignupComponent {
+export class PinSetComponent {
     constructor(private _store: Store<fromAuth.State>) { }
 
-    signup(data: Signup): void {
-        this._store.dispatch(SignupActions.verify({ data }));
+    onPINCreated(pin: SignupPIN): void {
+        this._store.dispatch(SignupActions.configPIN({ data: pin }));
     }
 }

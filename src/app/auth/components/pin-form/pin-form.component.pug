@@ -1,0 +1,9 @@
+form.pin-form([formGroup]="form")
+    .pin-form__body
+        pko-pin(*ngIf="!confirmed", formControlName="pin") Ustaw PIN do logowania
+        pko-pin(*ngIf="confirmed", formControlName="pinConfirm") Powtórz PIN
+    .pin-form__submit
+        button.pin-form__next-btn.btn.btn-primary(*ngIf="!confirmed; else submitPINTmpl", type="button", (click)="confirmPIN()") Dalej
+
+ng-template(#submitPINTmpl)
+    button.pin-form__next-btn.btn.btn-primary(type="button", (click)="submit()") Dalej

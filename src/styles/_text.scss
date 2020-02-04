@@ -14,8 +14,12 @@
         font-size: $pko-headline-size;
     }
 
-    &--subheader {
-        font-size: $pko-subheader-size;
+    &--regular {
+        font-size: $pko-default-size;
+    }
+
+    &--regular-small {
+        font-size: $pko-default-smaller-size;
     }
 
     &--divider-bottom {

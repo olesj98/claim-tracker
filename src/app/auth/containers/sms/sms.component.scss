@@ -1,0 +1,9 @@
+.sms-container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    &__form {
+        flex: 1;
+    }
+}

@@ -1,0 +1,11 @@
+@import 'variables';
+
+.pin-control {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__pass {
+        display: inline-flex;
+    }
+}

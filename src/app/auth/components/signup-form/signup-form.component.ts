@@ -19,9 +19,7 @@ export class SignupFormComponent implements OnInit {
     ngOnInit() {
         this.form = this._fb.group({
             pesel: [ null, Validators.required ],
-            phone: [ null, Validators.required ],
-            pin: [ null, Validators.required ],
-            pinConfirm: [ null, Validators.required ]
+            phone: [ null, Validators.required ]
         });
     }
 
