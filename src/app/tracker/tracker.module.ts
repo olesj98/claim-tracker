@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { TrackerComponent } from './containers/tracker/tracker.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
-import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
 
 import { TrackerRoutingModule } from './tracker-routing.module';
 
@@ -12,8 +11,7 @@ import { TrackerRoutingModule } from './tracker-routing.module';
     declarations: [
         ToolbarComponent,
         TrackerComponent,
-        UserMenuComponent,
-        BottomBarComponent
+        UserMenuComponent
     ],
     imports: [
         CommonModule,

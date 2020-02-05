@@ -4,5 +4,8 @@
             a.link.link--back(routerLink="/") Powrót do listy szkód
             .h4.text.text--bold.mt-4.mb-3.mb-md-5 Szkoda: {{ claim.id }}
         .col-12
-            pko-nav-menu([tabs]="menu$ | async")
+            pko-nav-menu
+                pko-nav-menu-item(path="./os-czasu") Oś czasu
+                pko-nav-menu-item(path="./dokumenty") Dokumenty
+                pko-nav-menu-item(path="./wiadomosci") Wiadomości
             router-outlet

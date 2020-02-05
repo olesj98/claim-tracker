@@ -1,6 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-
-import { MenuTab } from '../../models';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'pko-nav-menu',
@@ -8,6 +6,4 @@ import { MenuTab } from '../../models';
     styleUrls: ['./nav-menu.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavMenuComponent {
-    @Input() tabs: Array<MenuTab>;
-}
+export class NavMenuComponent { }

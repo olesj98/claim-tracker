@@ -20,6 +20,14 @@ export class AuthService {
         return of(null);
     }
 
+    verifySMS(code: string): Observable<void> {
+        return of(null);
+    }
+
+    resendSMS(): Observable<void> {
+        return of(null);
+    }
+
     configurePIN(pin: SignupPIN): Observable<void> {
         return of(null);
     }

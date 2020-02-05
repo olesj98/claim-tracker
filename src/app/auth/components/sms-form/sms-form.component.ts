@@ -9,6 +9,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class SMSFormComponent {
     @Output() submitted: EventEmitter<string> = new EventEmitter<string>();
+    @Output() resend: EventEmitter<void> = new EventEmitter<void>();
 
     sms = new FormControl('', Validators.compose([
         Validators.required

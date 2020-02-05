@@ -4,7 +4,6 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 
-import { MenuTab } from '@pko/commons/navigation';
 import { Claim } from '../../models';
 import { ClaimsListActions } from '../../actions';
 
@@ -18,8 +17,6 @@ import * as fromClaims from '../../reducers';
 })
 export class ClaimDetailsComponent implements OnInit, OnDestroy {
     selectedClaim$: Observable<Claim>;
-    menu$: Observable<Array<MenuTab>>;
-
     destroyed$: Subject<void> = new Subject<void>();
 
     constructor(
@@ -27,7 +24,6 @@ export class ClaimDetailsComponent implements OnInit, OnDestroy {
         private _route: ActivatedRoute) {
 
         this.selectedClaim$ = this._store.pipe(select(fromClaims.getSelectedClaim));
-        this.menu$ = this._store.pipe(select(fromClaims.getMenuList));
     }
 
     ngOnInit() {

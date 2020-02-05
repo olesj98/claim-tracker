@@ -3,22 +3,22 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { SelectModule } from '../select';
-
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { NavMenuItemComponent } from './components/nav-menu-item/nav-menu-item.component';
 
 @NgModule({
     declarations: [
-        NavMenuComponent
+        NavMenuComponent,
+        NavMenuItemComponent
     ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        RouterModule,
-        SelectModule
+        RouterModule
     ],
     exports: [
-        NavMenuComponent
+        NavMenuComponent,
+        NavMenuItemComponent
     ]
 })
 export class NavigationModule { }

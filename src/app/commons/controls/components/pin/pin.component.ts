@@ -1,5 +1,4 @@
-import {
-    Component,
+import { Component,
     ChangeDetectionStrategy,
     forwardRef,
     Input,
@@ -8,14 +7,7 @@ import {
     ViewChildren,
     QueryList, AfterViewInit
 } from '@angular/core';
-import {
-    ControlValueAccessor,
-    FormArray,
-    FormBuilder,
-    FormControl,
-    FormGroup,
-    NG_VALUE_ACCESSOR
-} from '@angular/forms';
+import { ControlValueAccessor, FormArray, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { merge, Observable, Subject } from 'rxjs';
 import { filter, map, mapTo, takeUntil } from 'rxjs/operators';
 

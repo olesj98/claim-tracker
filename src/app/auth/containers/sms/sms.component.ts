@@ -1,4 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { SignupActions } from '../../actions';
+
+import * as fromAuth from '../../reducers';
 
 @Component({
     selector: 'pko-sms',
@@ -7,5 +12,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SMSComponent {
+    constructor(private _store: Store<fromAuth.State>) { }
 
+    onCodeReceived(code: string): void {
+        this._store.dispatch(SignupActions.verifySMS({ code }));
+    }
+
+    onResendSMS(): void {
+
+    }
 }

@@ -21,7 +21,7 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
 import { SMSFormComponent } from './components/sms-form/sms-form.component';
 import { PinFormComponent } from './components/pin-form/pin-form.component';
 
-import { AuthEffects } from './effects';
+import { AuthEffects, ConfigPINEffects, VerifyIdentityEffects, VerifySMSEffects } from './effects';
 
 import { reducers } from './reducers';
 
@@ -45,7 +45,10 @@ import { reducers } from './reducers';
         ReactiveFormsModule,
         StoreModule.forFeature('auth', reducers),
         EffectsModule.forFeature([
-            AuthEffects
+            AuthEffects,
+            VerifySMSEffects,
+            VerifyIdentityEffects,
+            ConfigPINEffects
         ]),
         ControlsModule,
         AuthRoutingModule

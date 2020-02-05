@@ -3,6 +3,6 @@
         .sms-form__title.h1 Wpisz kod SMS
         .sms-form__subtitle Na Twój numer telefonu wysłaliśmy kod, dzięki któremu będziesz mógł potwierdzić swoją tożsamość. Wpisz go poniżej
         input.sms-form__input.form-control(type="text", autocomplete="off", spellcheck="false", [formControl]="sms")
-        .sms-form__resend.link.link--fake.text.text--regular-small Wyślij kod SMS ponownie
+        .sms-form__resend.link.link--fake.text.text--regular-small(role="button", (click)="resend.emit()") Wyślij kod SMS ponownie
     .sms-form__submit
         button.sms-form__next-btn.btn.btn-primary(type="button", (click)="submit()") Dalej
