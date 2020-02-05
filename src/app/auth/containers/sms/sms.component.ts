@@ -19,6 +19,6 @@ export class SMSComponent {
     }
 
     onResendSMS(): void {
-
+        this._store.dispatch(SignupActions.resendSMS());
     }
 }

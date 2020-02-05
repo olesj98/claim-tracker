@@ -1,3 +1,6 @@
 .sms-container
-    pko-sms-form.sms-container__form((submitted)="onCodeReceived($event)")
+    pko-sms-form.sms-container__form(
+        (submitted)="onCodeReceived($event)",
+        (resend)="onResendSMS()"
+    )
 

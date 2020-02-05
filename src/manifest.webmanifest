@@ -4,7 +4,7 @@
     "theme_color": "#003574",
     "background_color": "#ffffff",
     "display": "standalone",
-    "scope": "/",
+    "scope": "/claim-tracker",
     "start_url": "/claim-tracker",
     "icons": [
         {
