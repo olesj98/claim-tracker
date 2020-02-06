@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 import { User } from '@pko/auth/models';
 import { toolbarAnimation } from './toolbar.animations';
@@ -13,4 +13,6 @@ import { toolbarAnimation } from './toolbar.animations';
 export class ToolbarComponent {
     @Input() minified: boolean;
     @Input() user: User;
+
+    @Output() logout: EventEmitter<void> = new EventEmitter<void>();
 }

@@ -1,8 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { LoginActions } from '@pko/auth/actions';
 import { TrackerLayoutService } from '../../services';
+
+import * as fromAuth from '@pko/auth/reducers';
 
 @Component({
     selector: 'pko-tracker',
@@ -16,6 +20,7 @@ export class TrackerComponent implements OnInit, OnDestroy {
     destroyed$: Subject<void> = new Subject<void>();
 
     constructor(
+        private _store: Store<fromAuth.State>,
         private _trackerLayout: TrackerLayoutService,
         private _changeDetectionRef: ChangeDetectorRef) {
 
@@ -29,6 +34,10 @@ export class TrackerComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
 
+    }
+
+    onLogout(): void {
+        this._store.dispatch(LoginActions.logout());
     }
 
     ngOnDestroy(): void {

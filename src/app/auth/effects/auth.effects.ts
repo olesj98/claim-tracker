@@ -23,6 +23,16 @@ export class AuthEffects {
         )
     );
 
+    logout$: Observable<Action> = createEffect(() =>
+        this._actions.pipe(
+            ofType(LoginActions.logout),
+            tap(() => {
+                localStorage.removeItem('_user');
+                this._router.navigate(['/logowanie']);
+            })
+        ), { dispatch: false }
+    );
+
     signinRedirect$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
             ofType(LoginActions.loginSuccess),

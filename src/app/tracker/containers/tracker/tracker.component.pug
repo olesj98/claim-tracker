@@ -1,4 +1,4 @@
 .ui.ui--app
-    pko-toolbar([minified]="minified")
+    pko-toolbar([minified]="minified", (logout)="onLogout()")
     .ui__content
         router-outlet
