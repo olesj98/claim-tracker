@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
     selector: 'pko-root',
     templateUrl: './app.component.pug'
 })
-export class AppComponent {
-
-}
+export class AppComponent { }

@@ -55,7 +55,7 @@ export class PinComponent implements ControlValueAccessor, OnInit, AfterViewInit
     ngAfterViewInit(): void {
         this._getCellToFocus()
             .pipe(takeUntil(this.destroyed$))
-            .subscribe(cell => cell && cell.focus());
+            .subscribe(cell => cell?.focus());
     }
 
     onInternalChange(value: string) {

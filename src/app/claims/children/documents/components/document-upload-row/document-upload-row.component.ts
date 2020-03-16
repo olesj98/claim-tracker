@@ -14,6 +14,6 @@ export class DocumentUploadRowComponent {
     collapsed = true;
 
     get completed(): boolean {
-        return this.files && this.files.length > 0;
+        return this.files?.length > 0;
     }
 }
