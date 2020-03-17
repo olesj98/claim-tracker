@@ -9,14 +9,14 @@ import { BottomSheetContainerComponent } from './bottom-sheet-container.componen
 
 @Injectable({ providedIn: BottomSheetModule })
 export class BottomSheetService implements OnDestroy {
-    private _bottomSheetRefAtThisLevel: BottomSheetRef<any> | null = null;
+    private _bottomSheetRefAtThisLevel: BottomSheetRef | null = null;
 
-    private get _openedBottomSheetRef(): BottomSheetRef<any> | null {
+    private get _openedBottomSheetRef(): BottomSheetRef | null {
         const parent = this._parentBottomSheet;
         return parent ? parent._openedBottomSheetRef : this._bottomSheetRefAtThisLevel;
     }
 
-    private set _openedBottomSheetRef(value: BottomSheetRef<any> | null) {
+    private set _openedBottomSheetRef(value: BottomSheetRef | null) {
         if (this._parentBottomSheet) {
             this._parentBottomSheet._openedBottomSheetRef = value;
         } else {
@@ -80,7 +80,7 @@ export class BottomSheetService implements OnDestroy {
     private _attachContainer(overlayRef: OverlayRef,
                              config: BottomSheetConfig): BottomSheetContainerComponent {
 
-        const userInjector = config && config.viewContainerRef && config.viewContainerRef.injector;
+        const userInjector = config?.viewContainerRef?.injector;
         const injector = new PortalInjector(userInjector || this._injector, new WeakMap([
             [BottomSheetConfig, config]
         ]));
@@ -111,7 +111,7 @@ export class BottomSheetService implements OnDestroy {
     }
 
     private _createInjector<T>(config: BottomSheetConfig, bottomSheetRef: BottomSheetRef<T>): PortalInjector {
-        const userInjector = config && config.viewContainerRef && config.viewContainerRef.injector;
+        const userInjector = config?.viewContainerRef?.injector;
         const injectionTokens = new WeakMap<any, any>([
             [ BottomSheetRef, bottomSheetRef ],
             [ BOTTOM_SHEET_DATA, config.data ]

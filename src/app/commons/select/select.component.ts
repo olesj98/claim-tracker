@@ -35,7 +35,7 @@ export class SelectComponent implements OnInit, OnDestroy, AfterContentInit, Con
     @Input() @HostBinding('attr.disabled') disabled: boolean;
     @Input() placeholder: string;
 
-    @ViewChild('trigger', { static: false }) trigger: ElementRef;
+    @ViewChild('trigger') trigger: ElementRef;
     @ContentChildren(SelectOptionComponent, { descendants: true }) options: QueryList<SelectOptionComponent>;
 
     panelOpen = false;
