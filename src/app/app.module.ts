@@ -1,7 +1,7 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { StoreModule } from '@ngrx/store';
@@ -20,34 +20,30 @@ import { AppComponent } from './app.component';
 import * as fromRoot from './core/reducers';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
-            runtimeChecks: {
-                strictStateSerializability: true,
-                strictActionSerializability: true,
-                strictStateImmutability: true,
-                strictActionImmutability: true
-            }
-        }),
-        EffectsModule.forRoot([]),
-        StoreDevtoolsModule.instrument({
-            maxAge: 25,
-            logOnly: environment.production
-        }),
-        CoreModule,
-        AuthModule,
-        TrackerModule,
-        AppRoutingModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-    ],
-    bootstrap: [
-        AppComponent
-    ]
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
+      runtimeChecks: {
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    }),
+    CoreModule,
+    AuthModule,
+    TrackerModule,
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

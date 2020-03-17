@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
             select(fromAuth.getIsUserLoggedIn),
             tap(authorized => {
                 if (!authorized) {
-                    this._router.navigate(['/logowanie']);
+                    this._router.navigate(['/login']);
                 }
             }),
             take(1)

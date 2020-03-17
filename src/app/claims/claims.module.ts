@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 
-import { NavigationModule } from '@pko/commons/navigation';
+import { NavigationModule } from '../shared/navigation';
 import { ClaimsRoutingModule } from './claims-routing.module';
 
 import { ClaimsComponent } from './containers/claims/claims.component';

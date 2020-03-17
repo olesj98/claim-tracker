@@ -1,18 +1,21 @@
 import { Component, ChangeDetectionStrategy, Input, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FocusMonitor } from '@angular/cdk/a11y';
+
 import { filter } from 'rxjs/operators';
+
+import { PinCellMaskConfig } from '@pko/shared/util';
 
 @Component({
     selector: 'pko-pin-cell',
     templateUrl: './pin-cell.component.pug',
-    styleUrls: [ './pin-cell.component.scss' ],
+    styleUrls: ['./pin-cell.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PinCellComponent implements OnInit, OnDestroy {
     @Input() control: FormControl;
 
-    mask = [/\d/];
+    mask = new PinCellMaskConfig();
 
     private get _target(): HTMLInputElement {
         return this._elementRef.nativeElement.querySelector('input.pin-cell');

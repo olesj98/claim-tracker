@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { User } from '@pko/auth/models';
+import { User } from '../../../auth/models';
+
 
 @Component({
     selector: 'pko-user-menu',

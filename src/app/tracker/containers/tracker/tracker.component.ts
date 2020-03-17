@@ -3,10 +3,10 @@ import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { LoginActions } from '@pko/auth/actions';
+import { LoginActions } from '../../../auth/actions';
 import { TrackerLayoutService } from '../../services';
 
-import * as fromAuth from '@pko/auth/reducers';
+import * as fromAuth from '../../../auth/reducers';
 
 @Component({
     selector: 'pko-tracker',

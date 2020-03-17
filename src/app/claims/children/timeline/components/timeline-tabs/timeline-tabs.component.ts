@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { CdkPortalOutlet } from '@angular/cdk/portal';
 
-import { BottomSheetService } from '@pko/commons/bottom-sheet';
+import { BottomSheetService } from '@pko/shared/bottom-sheet';
 
 import { TimelineTabComponent } from '../timeline-tab/timeline-tab.component';
 

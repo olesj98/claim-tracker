@@ -28,7 +28,7 @@ export class AuthEffects {
             ofType(LoginActions.logout),
             tap(() => {
                 localStorage.removeItem('_user');
-                this._router.navigate(['/logowanie']);
+                this._router.navigate(['/login']);
             })
         ), { dispatch: false }
     );

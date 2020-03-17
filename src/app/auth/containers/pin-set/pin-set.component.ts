@@ -9,7 +9,7 @@ import * as fromAuth from '../../reducers';
 @Component({
     selector: 'pko-pin-set',
     templateUrl: './pin-set.component.pug',
-    styleUrls: [ './pin-set.component.scss' ],
+    styleUrls: ['./pin-set.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PinSetComponent {

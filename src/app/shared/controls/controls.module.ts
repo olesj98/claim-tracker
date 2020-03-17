@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 
-import { SelectModule } from '@pko/commons/select';
+import { SelectModule } from '@pko/shared/select';
 
 import { TextareaComponent } from './components/textarea/textarea.component';
 import { PinComponent } from './components/pin/pin.component';
