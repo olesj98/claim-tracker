@@ -1,4 +1,4 @@
 .row
     .col-12
-        h2.text.text--divider-bottom.mb-4 Śledź na bieżąco postęp w likwidacji Twojej szkody. Wystarczy, że zweryfikujemy Twoją tożsamość za pomocą poniższego formularza.
-        pko-signup-form((submitted)="signup($event)")
+        h2.text.text--divider-bottom.mb-4(translate) AUTH.SIGN_UP_SECOND_TITLE
+        pko-signup-form([error]="error$ | async", (submitted)="signup($event)")

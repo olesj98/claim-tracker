@@ -27,6 +27,8 @@
     "@ngrx/entity": "^9.0.0",
     "@ngrx/store": "^9.0.0",
     "@ngrx/store-devtools": "^9.0.0",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^4.0.0",
     "angular2-text-mask": "^9.0.0",
     "bootstrap": "^4.4.1",
     "ng-cli-pug-loader": "^0.2.2",

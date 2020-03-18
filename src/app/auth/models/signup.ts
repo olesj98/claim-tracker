@@ -1,6 +1,6 @@
 export interface Signup {
+    phoneNumber: string;
     pesel: string;
-    phone: string;
 }
 
 export interface SignupPIN {

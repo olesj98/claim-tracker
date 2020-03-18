@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortalModule } from '@angular/cdk/portal';
 
-import { BottomSheetModule } from '@pko/commons/bottom-sheet';
-import { FileUploadModule } from '@pko/commons/file-upload';
+import { BottomSheetModule } from '../../../shared/bottom-sheet';
+import { FileUploadModule } from '../../../shared/file-upload';
 import { TimelineRoutingModule } from './timeline-routing.module';
 
 import { TimelineComponent } from './containers/timeline/timeline.component';

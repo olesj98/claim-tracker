@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { Message } from '@pko/claims/models';
+import { Message } from '../../../../models';
 
 @Component({
     selector: 'pko-message',

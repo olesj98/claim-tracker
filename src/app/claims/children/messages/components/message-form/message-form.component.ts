@@ -1,7 +1,8 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { DraftMessage } from '@pko/claims/models';
+import { DraftMessage } from '../../../../models';
+
 
 @Component({
     selector: 'pko-message-form',

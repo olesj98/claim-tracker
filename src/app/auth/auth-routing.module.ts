@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './containers/login/login.component';
 import { SignupPathComponent } from './containers/signup-path/signup-path.component';
@@ -10,11 +10,11 @@ import { PinSetComponent } from './containers/pin-set/pin-set.component';
 
 const authRoutes: Routes = [
     {
-        path: 'logowanie',
+        path: 'login',
         component: LoginComponent
     },
     {
-        path: 'rejestracja',
+        path: 'registration',
         component: SignupPathComponent,
         children: [
             {
