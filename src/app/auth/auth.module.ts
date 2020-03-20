@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from '../shared/shared.module';
 import { ControlsModule } from '../shared/controls';
 
+import { AuthService } from '@pko/auth/services';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './containers/login/login.component';
 import { SignupPathComponent } from './containers/signup-path/signup-path.component';
@@ -19,7 +20,6 @@ import { LoginToolbarComponent } from './components/login-toolbar/login-toolbar.
 import { SignupToolbarComponent } from './components/signup-toolbar/signup-toolbar.component';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { SMSFormComponent } from './components/sms-form/sms-form.component';
-
 import { PinFormComponent } from './components/pin-form/pin-form.component';
 
 import { AuthEffects, ConfigPINEffects, VerifyIdentityEffects, VerifySMSEffects } from './effects';
@@ -52,6 +52,7 @@ import { reducers } from './reducers';
     ]),
     ControlsModule,
     AuthRoutingModule
-  ]
+  ],
+  providers: [AuthService]
 })
 export class AuthModule {}

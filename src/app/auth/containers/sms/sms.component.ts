@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { SignupActions } from '../../actions';
 
 import * as fromAuth from '../../reducers';
+import { SmsVerification } from '@pko/auth/models';
 
 @Component({
     selector: 'pko-sms',
@@ -14,8 +15,8 @@ import * as fromAuth from '../../reducers';
 export class SMSComponent {
     constructor(private _store: Store<fromAuth.State>) { }
 
-    onCodeReceived(code: string): void {
-        this._store.dispatch(SignupActions.verifySMS({ code }));
+    onCodeReceived(data: SmsVerification): void {
+        this._store.dispatch(SignupActions.verifySMS({ data }));
     }
 
     onResendSMS(): void {

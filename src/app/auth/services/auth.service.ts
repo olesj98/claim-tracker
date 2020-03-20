@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import { Credentials, Signup, SignupPIN, User } from '../models';
+import { Credentials, Signup, SignupPIN, SmsVerification, User } from '../models';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AuthService {
 
     private readonly accountsUri = '/api/accounts';
@@ -26,8 +26,9 @@ export class AuthService {
             .pipe(first());
     }
 
-    verifySMS(code: string): Observable<void> {
-        return of(null);
+    verifySMS(data: SmsVerification): Observable<void> {
+        return this._http.post<void>(`${this.accountsUri}/pin`, data)
+          .pipe(first());
     }
 
     resendSMS(): Observable<void> {

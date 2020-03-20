@@ -13,8 +13,8 @@ export class VerifySMSEffects {
     verifySMS$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
             ofType(SignupActions.verifySMS),
-            exhaustMap(({ code }) =>
-                this._auth.verifySMS(code).pipe(
+            exhaustMap(({ data }) =>
+                this._auth.verifySMS(data).pipe(
                     map(() => SignupActions.verifySMSSuccess()),
                     catchError(() => of(SignupActions.verifySMSFailed()))
                 )
