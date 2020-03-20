@@ -1,12 +1,12 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Signup, SignupPIN } from '../models';
+import { Signup, SignupPIN, SmsVerification } from '../models';
 import { ErrorInfo } from '@pko/core/error';
 
 export const verify = createAction('[Auth] Verify', props<{ data: Signup }>());
-export const verifySuccess = createAction('[Auth] Verify Success');
+export const verifySuccess = createAction('[Auth] Verify Success', props<{ data: Signup }>());
 export const verifyFailed = createAction('[Auth] Verify Failed', props<{ err: ErrorInfo }>());
-export const verifySMS = createAction('[Auth] Verify SMS', props<{ code: string }>());
+export const verifySMS = createAction('[Auth] Verify SMS', props<{ data: SmsVerification }>());
 export const verifySMSSuccess = createAction('[Auth] Verify SMS Success');
 export const verifySMSFailed = createAction('[Auth] Verify SMS Failed');
 

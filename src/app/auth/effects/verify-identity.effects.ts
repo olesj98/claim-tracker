@@ -15,7 +15,7 @@ export class VerifyIdentityEffects {
       ofType(SignupActions.verify),
       exhaustMap(({ data }) =>
         this._auth.verify(data).pipe(
-          map(() => SignupActions.verifySuccess()),
+          map(() => SignupActions.verifySuccess({ data })),
           catchError(error => of(SignupActions.verifyFailed({ err: error?.error })))
         )
       )
@@ -25,7 +25,9 @@ export class VerifyIdentityEffects {
   verifyIdentityRedirect$: Observable<Action> = createEffect(() =>
     this._actions.pipe(
       ofType(SignupActions.verifySuccess),
-      tap(() => this._router.navigate(['/registration/sms']))
+      tap(({ data }) => this._router.navigate(['/registration/sms'], {
+        queryParams: { phoneNumber: data.phoneNumber, pesel: data.pesel }
+      }))
     ), { dispatch: false }
   );
 

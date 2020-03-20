@@ -1,22 +1,13 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  Output,
-  EventEmitter,
-  Input,
-  DoCheck,
-  ChangeDetectorRef,
-  OnDestroy
-} from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Signup } from '../../models';
-import { PeselMaskConfig, PhoneNumberMaskConfig } from '@pko/shared/util';
-import { PeselValidator } from '@pko/auth/validators/pesel/pesel.validator';
-import { ErrorInfo } from '@pko/core/error';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
+
+import { PeselMaskConfig, PhoneNumberMaskConfig } from '@pko/shared/util';
+import { PeselValidator } from '@pko/auth/validators/pesel/pesel.validator';
+import { ErrorCode, ErrorInfo } from '@pko/core/error';
+import { Signup } from '@pko/auth/models';
 
 @Component({
   selector: 'pko-signup-form',
@@ -29,9 +20,11 @@ export class SignupFormComponent implements OnInit, OnDestroy, DoCheck {
   @Output() submitted: EventEmitter<Signup> = new EventEmitter<Signup>();
   form: FormGroup;
 
+  readonly authErrorCode = ErrorCode.AUTH;
+  readonly accountLockedCode = ErrorCode.ACCOUNT_LOCKED;
+
   phoneNumberMask = new PhoneNumberMaskConfig();
   peselMask = new PeselMaskConfig();
-  readonly authErrorCode = 'auth.authentication.error';
 
   private readonly destroyed$ = new Subject();
 
@@ -55,8 +48,10 @@ export class SignupFormComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngDoCheck(): void {
-    if (this.authErrorCode === this.error?.code) {
-      this.phoneNumber.setErrors({ [this.authErrorCode]: true });
+    const isAccountError = [this.authErrorCode, this.accountLockedCode].map(c => c.toString()).includes(this.error?.code);
+
+    if (isAccountError) {
+      this.phoneNumber.setErrors({ [this.error?.code]: true });
     }
   }
 

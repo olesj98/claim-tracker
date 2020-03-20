@@ -47,7 +47,7 @@
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "release-it": "^12.4.3",
-    "ts-node": "~7.0.0",
+    "ts-node": "^8.7.0",
     "tslint": "~5.15.0",
     "typescript": "~3.7.5"
   },
