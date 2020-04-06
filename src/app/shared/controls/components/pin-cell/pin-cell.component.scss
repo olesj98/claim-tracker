@@ -1,13 +1,29 @@
 @import 'variables';
+@import 'bootstrap/tools';
 
-.pin-cell {
-    width: 55px;
-    height: 72px;
-    border-radius: 0;
-    border-color: $pko-gray-4;
-    box-shadow: inset 2px 0 3px 0 $pko-gray-5;
-    text-align: center;
-    font-size: $pko-h3-size;
-    margin: 0.75rem;
-    -webkit-text-security: disc;
+$pko-default-cell-width: 55px;
+
+:host {
+    display: inline-block;
+
+    &.size-m .pin-cell {
+        width: $pko-huge-control-height;
+    }
+
+    .pin-cell {
+        width: $pko-default-cell-width;
+        height: $pko-huge-control-height;
+        border-radius: 0;
+        border-color: $pko-gray-4;
+        box-shadow: inset 2px 0 3px 0 $pko-gray-5;
+        text-align: center;
+        font-size: $pko-h3-size;
+        -webkit-text-security: disc;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &.size-m .pin-cell {
+            width: $pko-default-cell-width;
+        }
+    }
 }

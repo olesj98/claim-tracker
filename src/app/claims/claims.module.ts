@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { NavigationModule } from '../shared/navigation';
 import { ClaimsRoutingModule } from './claims-routing.module';
@@ -10,6 +12,7 @@ import { ClaimDetailsComponent } from './containers/claim-details/claim-details.
 import { ClaimsListComponent } from './components/claims-list/claims-list.component';
 import { ClaimTileComponent } from './components/claim-tile/claim-tile.component';
 
+import { ClaimsEffects, MessagesEffects } from './effects';
 import { reducers } from './reducers';
 
 @NgModule({
@@ -22,6 +25,11 @@ import { reducers } from './reducers';
     imports: [
         CommonModule,
         StoreModule.forFeature('claims', reducers),
+        EffectsModule.forFeature([
+            ClaimsEffects,
+            MessagesEffects
+        ]),
+        TranslateModule,
         NavigationModule,
         ClaimsRoutingModule
     ]

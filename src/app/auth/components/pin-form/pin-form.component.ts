@@ -1,8 +1,9 @@
 import { Component, ChangeDetectionStrategy, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { PinValidator } from '../../validators';
-import { SignupPIN } from '../../models';
+import { pinValidator } from '@pko/shared/controls';
+
+import { SignupPin } from '../../models';
 
 @Component({
     selector: 'pko-pin-form',
@@ -11,10 +12,9 @@ import { SignupPIN } from '../../models';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PinFormComponent implements OnInit {
-    @Output() submitted: EventEmitter<SignupPIN> = new EventEmitter<SignupPIN>();
+    @Output() submitted: EventEmitter<SignupPin> = new EventEmitter<SignupPin>();
 
     form: FormGroup;
-    confirmed: boolean;
 
     constructor(private _fb: FormBuilder) { }
 
@@ -28,16 +28,10 @@ export class PinFormComponent implements OnInit {
             pinConfirm: [ '', Validators.compose([
                     Validators.required,
                     Validators.minLength(4),
-                    PinValidator('pin')
+                    pinValidator('pin')
                 ])
             ]
         });
-    }
-
-    confirmPIN(): void {
-        if (this.form.get('pin').valid) {
-            this.confirmed = true;
-        }
     }
 
     submit(): void {

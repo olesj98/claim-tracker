@@ -1,21 +1,23 @@
-form.signup-form([formGroup]="form", (ngSubmit)="submit()", appFormChecker)
-  h4.mb-3(translate) AUTH.SIGN_UP_DATA
-  .text.text--regular.mb-4(translate) AUTH.SIGN_UP_INFO
-  .row
-    .col-md-5.col-lg-4
-      .form-group
-        label(translate) AUTH.PHONE_NUMBER
-        input.form-control(type="text", formControlName="phoneNumber", [textMask]="phoneNumberMask")
-        .error-messages(*ngIf="phoneNumber.touched && phoneNumber.invalid")
-          .error-messages__item(*ngIf="phoneNumber.hasError('required')", translate) VALIDATION.REQUIRED
-          .error-messages__item(*ngIf="phoneNumber.hasError(authErrorCode) || phoneNumber.hasError(accountLockedCode)", translate) {{ error?.message }}
-    .col-md-5.col-lg-4
-      .form-group
-        label(translate) AUTH.PESEL
-        input.form-control(type="text", formControlName="pesel", [textMask]="peselMask")
-        .error-messages(*ngIf="pesel.touched && pesel.invalid")
-          .error-messages__item(*ngIf="pesel.hasError('required')", translate) VALIDATION.REQUIRED
-          .error-messages__item(*ngIf="pesel.hasError('pesel')", translate) VALIDATION.PESEL
-  .signup-form__actions
-    button.signup-form__submit.btn.btn-primary(type="submit", translate) ALL.NEXT
+form.signup-form([formGroup]="form", (ngSubmit)="submit()")
+    h4.mb-3(translate) AUTH.SIGN_UP_DATA
+    .text.text--regular.mb-4(translate) AUTH.SIGN_UP_INFO
+    .row
+        .col-md-5.col-lg-4
+            .form-group
+                label(translate) AUTH.PHONE_NUMBER
+                input.form-control(type="text", [placeholder]="'AUTH.PHONE_NUMBER_PLACEHOLDER' | translate", formControlName="phoneNumber", [textMask]="phoneNumberMask")
+                .error-messages(*ngIf="phoneNumber.touched && phoneNumber.invalid")
+                    .error-messages__item(*ngIf="phoneNumber.hasError('required')", translate) VALIDATION.REQUIRED
+        .col-md-5.col-lg-4
+            .form-group
+                label(translate) AUTH.PESEL
+                input.form-control(type="text", [placeholder]="'AUTH.PESEL_PLACEHOLDER' | translate", formControlName="pesel", [textMask]="peselMask")
+                .error-messages(*ngIf="pesel.touched && pesel.invalid")
+                    .error-messages__item(*ngIf="pesel.hasError('required')", translate) VALIDATION.REQUIRED
+                    .error-messages__item(*ngIf="pesel.hasError('pesel')", translate) VALIDATION.PESEL
+        .col-12(*ngIf="error")
+            .error-messages
+                .error-messages__item {{ error.message }}
+    .signup-form__actions
+        button.signup-form__submit.btn.btn-primary(type="submit", translate) ALL.NEXT
 

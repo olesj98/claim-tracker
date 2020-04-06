@@ -25,7 +25,7 @@ export class ConfigPINEffects {
     configurePINRedirect$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
             ofType(SignupActions.configPINSuccess),
-            tap(() => this._router.navigate(['/rejestracja/ok']))
+            tap(() => this._router.navigate(['/registration/ok']))
         ), { dispatch: false }
     );
 

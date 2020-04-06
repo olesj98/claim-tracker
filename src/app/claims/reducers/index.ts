@@ -25,6 +25,8 @@ export const getClaimsListState = createSelector(getClaimsState, state => state.
 export const getClaimsList      = createSelector(getClaimsListState, fromClaimsList.getClaims);
 export const getClaimsEntities  = createSelector(getClaimsListState, fromClaimsList.getEntities);
 export const getSelectedClaimId = createSelector(getClaimsListState, fromClaimsList.getSelectedClaimId);
+export const getHasClaimsLoaded = createSelector(getClaimsListState, fromClaimsList.getHasLoaded);
+export const getClaimsPending   = createSelector(getClaimsListState, fromClaimsList.getPending);
 export const getSelectedClaim   = createSelector(
     getClaimsEntities,
     getSelectedClaimId,
@@ -32,4 +34,4 @@ export const getSelectedClaim   = createSelector(
 );
 
 export const getMessagesState = createSelector(getClaimsState, state => state.messages);
-export const getThreadsList = createSelector(getMessagesState, fromMessages.getAll);
+export const getMessagesList = createSelector(getMessagesState, fromMessages.getAll);

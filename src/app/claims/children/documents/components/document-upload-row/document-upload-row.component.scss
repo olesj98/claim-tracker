@@ -3,7 +3,7 @@
 
 .upload-row {
     &--completed &__label:before {
-        background: url("assets/icons/green-check.svg") no-repeat;
+        background: url("/assets/icons/green-check.svg") no-repeat;
         background-size: 14px 14px;
         top: calc(50% - 7px);
         border-radius: 0;

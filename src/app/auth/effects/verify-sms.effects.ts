@@ -16,7 +16,7 @@ export class VerifySMSEffects {
             exhaustMap(({ data }) =>
                 this._auth.verifySMS(data).pipe(
                     map(() => SignupActions.verifySMSSuccess()),
-                    catchError(() => of(SignupActions.verifySMSFailed()))
+                    catchError(response => of(SignupActions.verifySMSFailed({ error: response?.error })))
                 )
             )
         )
@@ -37,7 +37,7 @@ export class VerifySMSEffects {
     verifySMSRedirect$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
             ofType(SignupActions.verifySMSSuccess),
-            tap(() => this._router.navigate(['/rejestracja/pin']))
+            tap(() => this._router.navigate(['/registration/pin']))
         ), { dispatch: false }
     );
 

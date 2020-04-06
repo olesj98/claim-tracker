@@ -4,13 +4,13 @@
 .signin-form {
     padding: 1rem;
 
-    &__phone-control,
-    &__pin-control {
-        height: 48px;
+    &__phone-control {
+        height: $pko-huge-control-height;
     }
 
     &__title {
         margin-bottom: 2rem;
+        text-align: center;
     }
 
     &__submit-row {
@@ -34,6 +34,10 @@
     }
 
     @include media-breakpoint-down(sm) {
+        &__phone-control {
+            height: 48px;
+        }
+
         &__title {
             font-size: $pko-h4-size;
             margin-bottom: 1rem;

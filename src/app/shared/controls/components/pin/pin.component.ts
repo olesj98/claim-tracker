@@ -1,11 +1,13 @@
-import { Component,
+import {
+    Component,
     ChangeDetectionStrategy,
     forwardRef,
     Input,
     OnInit,
     OnDestroy,
     ViewChildren,
-    QueryList, AfterViewInit
+    QueryList,
+    AfterViewInit
 } from '@angular/core';
 import { ControlValueAccessor, FormArray, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { merge, Observable, Subject } from 'rxjs';
@@ -24,11 +26,21 @@ import { PinCellComponent } from '../pin-cell/pin-cell.component';
 })
 export class PinComponent implements ControlValueAccessor, OnInit, AfterViewInit, OnDestroy {
     @Input() config = '****';
+    @Input()
+    set size(size: 's' | 'm' | string) {
+        this._size = `size-${(size || 's')}`;
+    }
+
+    get size(): string {
+        return this._size;
+    }
 
     @ViewChildren(PinCellComponent) cells: QueryList<PinCellComponent>;
 
     form: FormGroup;
     destroyed$: Subject<void> = new Subject<void>();
+
+    private _size: string;
 
     onChange = (value: string) => {};
     onTouched = () => {};
@@ -59,7 +71,7 @@ export class PinComponent implements ControlValueAccessor, OnInit, AfterViewInit
     }
 
     onInternalChange(value: string) {
-        this.onChange(value);
+        this.writeValue(value);
     }
 
     writeValue(value: string): void {

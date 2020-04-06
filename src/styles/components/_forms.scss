@@ -23,14 +23,12 @@
 }
 
 .error-messages {
-    position: absolute;
-    right: 0;
-    left: 0;
+    margin-top: 0.5rem;
 
     &__item {
+        text-align: left;
         font-size: $pko-caption-size;
         color: $pko-danger;
-        margin-top: 2px;
     }
 }
 

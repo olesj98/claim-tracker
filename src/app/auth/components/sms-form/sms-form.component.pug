@@ -1,8 +1,10 @@
-.sms-form([formGroup]="form", (ngSubmit)="submit()", appFormChecker)
+form.sms-form([formGroup]="form", (ngSubmit)="submit()")
     .sms-form__body
         .sms-form__title.h1(translate) AUTH.SMS_TITLE
         .sms-form__subtitle(translate) AUTH.SMS_SUBTITLE
         input.sms-form__input.form-control(type="text", autocomplete="off", spellcheck="false", formControlName="code")
+        .error-messages(*ngIf="error")
+            .error-messages__item {{ error.message }}
         .sms-form__resend.link.link--fake.text.text--regular-small(role="button", (click)="resend.emit()", translate) AUTH.SMS_RESEND
     .sms-form__submit
-        button.sms-form__next-btn.btn.btn-primary(translate) ALL.NEXT
+        button.sms-form__next-btn.btn.btn-primary(type="submit", translate) ALL.NEXT

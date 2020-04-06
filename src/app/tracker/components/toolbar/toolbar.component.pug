@@ -10,7 +10,7 @@ header.toolbar([class.toolbar--minified]="minified")
                     li.toolbar__menu-item
                         a.toolbar__menu-link.link(routerLink="/ustawienia", routerLinkActive="toolbar__menu-link--active") Ustawienia
             .toolbar__col-right
-                .toolbar__user-container
+                .toolbar__user-container(*ngIf="user")
                     pko-user-menu([user]="user")
                 .toolbar__logout(role="button", (click)="logout.emit()")
                     img(src="assets/icons/power.svg", alt="Wyloguj")
@@ -18,8 +18,8 @@ header.toolbar([class.toolbar--minified]="minified")
 
 ng-template(#minifiedToolbarRowTmpl)
     .toolbar__row.toolbar__row(@toolbarAnimation)
-        pko-user-menu([user]="user", [minified]="true")
+        pko-user-menu(*ngIf="user", [user]="user", [minified]="true")
         .toolbar__logo
-            img.logo.logo--small(src="assets/pkou-logo.png", alt="PKO Ubezpieczenia", routerLink="/logowanie")
+            img.logo.logo--small(src="assets/pkou-logo.png", alt="PKO Ubezpieczenia", routerLink="/")
         .toolbar__logout(role="button", (click)="logout.emit()")
             img(src="assets/icons/power.svg", alt="Wyloguj")

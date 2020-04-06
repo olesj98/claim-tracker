@@ -1,30 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
-import { ControlsModule } from '@pko/shared/controls';
 import { MessagesRoutingModule } from './messages-routing.module';
 
 import { MessagesComponent } from './containers/messages/messages.component';
-import { MessagesTableComponent } from './components/messages-table/messages-table.component';
-import { MessageDateComponent } from './components/message-date/message-date.component';
-import { MessagesThreadComponent } from './components/messages-thread/messages-thread.component';
+import { MessengerComponent } from './components/messenger/messenger.component';
 import { MessageComponent } from './components/message/message.component';
-import { MessageFormComponent } from './components/message-form/message-form.component';
+import { MessageInputComponent } from './components/message-input/message-input.component';
+
+import { MessagePipes } from './pipes';
 
 @NgModule({
     declarations: [
         MessagesComponent,
-        MessagesTableComponent,
-        MessageDateComponent,
-        MessagesThreadComponent,
+        MessengerComponent,
         MessageComponent,
-        MessageFormComponent
+        MessageInputComponent,
+        ...MessagePipes
     ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        ControlsModule,
+        TranslateModule,
         MessagesRoutingModule
     ]
 })

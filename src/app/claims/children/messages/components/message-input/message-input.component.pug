@@ -1,0 +1,9 @@
+.message-input([formGroup]="message")
+    input.message-input__control.form-control(
+        type="text",
+        spellcheck="false",
+        autocomplete="off",
+        formControlName="body",
+        [placeholder]="'MESSAGES.SEND_PLACEHOLDER' | translate"
+    )
+    button.message-input__send.btn.btn-primary(type="button", (click)="submit()", translate) MESSAGES.SEND

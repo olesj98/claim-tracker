@@ -1,18 +1,13 @@
-import { User } from '@pko/auth/models';
+export enum MessageRecipient {
+    Adjuster = 'ADJUSTER',
+    Client = 'CLIENT'
+}
 
 export interface DraftMessage {
-    subject?: string;
     body: string;
 }
 
-export interface Message {
-    from: User;
-    date: number;
-    body: string;
-}
-
-export interface Thread {
-    id: string;
-    subject: string;
-    messages: Array<Message>;
+export interface Message extends DraftMessage {
+    postDate: number;
+    recipient: MessageRecipient;
 }

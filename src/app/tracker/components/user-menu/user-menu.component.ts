@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { User } from '../../../auth/models';
+import { User } from '@pko/auth';
 
 
 @Component({

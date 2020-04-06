@@ -10,9 +10,8 @@ import { Claim } from '../../models';
 })
 export class ClaimsListComponent {
     @Input() claims: Array<Claim>;
-    @Input() selectedClaimId: string;
 
     @Output() selected: EventEmitter<string> = new EventEmitter<string>();
 
-    trackByClaimId = (index: number, claim: Claim) => claim.id;
+    trackByClaimId = (index: number, claim: Claim) => claim.claimUUID;
 }

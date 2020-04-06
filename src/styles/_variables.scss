@@ -24,6 +24,7 @@ $pko-control-border-color: #bababa;
 
 $pko-border-radius: 4px;
 $pko-control-height: 40px;
+$pko-huge-control-height: 72px;
 
 $pko-h1-size: 48px;
 $pko-h2-size: 33px;
@@ -37,3 +38,8 @@ $pko-caption-size: 13px;
 
 $sm-header-height: 70px;
 $sm-bottom-menu-height: 72px;
+
+$pko-logo-size: (
+    small: 125px,
+    medium: 206px
+)

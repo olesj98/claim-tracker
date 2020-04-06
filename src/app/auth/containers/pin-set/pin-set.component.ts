@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { SignupPIN } from '../../models';
+import { SignupPin } from '../../models';
 import { SignupActions } from '../../actions';
 
 import * as fromAuth from '../../reducers';
@@ -15,7 +15,7 @@ import * as fromAuth from '../../reducers';
 export class PinSetComponent {
     constructor(private _store: Store<fromAuth.State>) { }
 
-    onPINCreated(pin: SignupPIN): void {
+    onPINCreated(pin: SignupPin): void {
         this._store.dispatch(SignupActions.configPIN({ data: pin }));
     }
 }

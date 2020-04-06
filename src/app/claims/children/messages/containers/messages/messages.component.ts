@@ -1,12 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Thread } from '@pko/claims/models';
-import { User } from '@pko/auth/models';
+import { DraftMessage, Message } from '@pko/claims/models';
+import { MessagesActions } from '@pko/claims/actions';
 
 import * as fromClaims from '@pko/claims/reducers';
-import * as fromAuth from '@pko/auth/reducers';
 
 @Component({
     selector: 'pko-messages',
@@ -14,14 +13,18 @@ import * as fromAuth from '@pko/auth/reducers';
     styleUrls: ['./messages.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MessagesComponent {
-    threads$: Observable<Array<Thread>>;
-    user$: Observable<User>;
+export class MessagesComponent implements OnInit {
+    messages$: Observable<Array<Message>>;
 
-    messageFormShowing: boolean;
+    constructor(private _store: Store<fromClaims.State>) {
+        this.messages$ = this._store.pipe(select(fromClaims.getMessagesList));
+    }
 
-    constructor(private _store: Store<fromClaims.State & fromAuth.State>) {
-        this.threads$ = this._store.pipe(select(fromClaims.getThreadsList));
-        this.user$ = this._store.pipe(select(fromAuth.getUser));
+    ngOnInit(): void {
+        this._store.dispatch(MessagesActions.fetch());
+    }
+
+    onSendMessage(message: DraftMessage): void {
+        this._store.dispatch(MessagesActions.send({ message }));
     }
 }

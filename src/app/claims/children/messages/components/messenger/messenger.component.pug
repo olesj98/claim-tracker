@@ -1,0 +1,15 @@
+.messenger
+    .messenger__scrollable
+        ng-container(*ngIf="messages?.length; else emptyMessengerTmpl")
+            ng-container(*ngFor="let message of messages; trackBy: trackByMessage; index as i;")
+                .messenger__announcement(*ngIf="message | isAnotherDay: messages[i - 1]")
+                    span.messenger__announcement-label {{ messages[i - 1] | fromToday }}
+                pko-message(
+                    [message]="message",
+                    [squashed]="message | messageSquashed: messages[i + 1]: messages[i - 1]")
+    .messenger__draft
+        pko-message-input((send)="sendMessage.emit($event)")
+
+ng-template(#emptyMessengerTmpl)
+    .messenger__empty
+        .messenger__empty-label(translate) MESSAGES.EMPTY

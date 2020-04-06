@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClaimsComponent } from './containers/claims/claims.component';
 import { ClaimDetailsComponent } from './containers/claim-details/claim-details.component';
 
+import { ClaimExistsGuard } from './guards';
+
 export const claimsRoutes: Routes = [
     {
         path: '',
@@ -12,6 +14,7 @@ export const claimsRoutes: Routes = [
     {
         path: ':id',
         component: ClaimDetailsComponent,
+        canActivate: [ ClaimExistsGuard ],
         children: [
             {
                 path: '',

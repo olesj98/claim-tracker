@@ -1,22 +1,24 @@
-import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { Action, createReducer } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 
-import { Thread } from '../models';
-import { threads } from '../constants';
+import { Message } from '../models';
+import { MessagesActions } from '../actions';
 
-export interface State extends EntityState<Thread> { }
+export interface State {
+    messages: Array<Message>;
+}
 
-export const adapter: EntityAdapter<Thread> = createEntityAdapter({
-    sortComparer: false,
-    selectId: (thread: Thread) => thread.id
-});
+export const initialState: State = {
+    messages: []
+};
 
-export const initialState: State = adapter.addAll(threads, adapter.getInitialState());
-
-export const messagesReducer = createReducer(initialState);
+export const messagesReducer = createReducer(
+    initialState,
+    on(MessagesActions.fetchSuccess, (state, { messages }) =>
+        ({ ...state, messages: [...messages] }))
+);
 
 export function reducer(state: State | undefined, action: Action) {
     return messagesReducer(state, action);
 }
 
-export const { selectAll: getAll } = adapter.getSelectors();
+export const getAll = (state: State) => state.messages;

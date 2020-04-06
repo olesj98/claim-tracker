@@ -1,4 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { RegistrationPathActions } from '../../actions';
 
 @Component({
     selector: 'pko-signup-path',
@@ -6,8 +9,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
     styleUrls: ['./signup-path.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SignupPathComponent implements OnInit {
-    ngOnInit() {
+export class SignupPathComponent implements OnDestroy {
+    constructor(private _store: Store) { }
 
-    }
+   ngOnDestroy(): void {
+        this._store.dispatch(RegistrationPathActions.flush());
+   }
 }

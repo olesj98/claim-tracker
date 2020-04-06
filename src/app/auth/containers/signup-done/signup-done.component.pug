@@ -2,8 +2,7 @@
     .signup-ok__body
         .signup-ok__icon
             img(src="assets/icons/green-check.svg", alt="OK")
-        h4.signup-ok__title Weryfikacja tożsamości przebiegła pomyślnie
-        p.signup-ok__description.text.text--caption Ustawiony przez Ciebie kod PIN będzie Ci służył do przyszłych logowań do aplikacji w celu sprawdzenia szczegółów Twojej szkody.
+        h4.signup-ok__title(translate) AUTH.VERIFICATION_SUCCESS
+        p.signup-ok__description.text.text--caption(translate) AUTH.VERIFICATION_SUCCESS_INFO
     .signup-ok__footer
-        button.signup-ok__login.btn.btn-primary(routerLink="/") Przejdź do moich szkód
-
+        button.signup-ok__login.btn.btn-primary(routerLink="/login", translate) AUTH.RETURN_TO_LOGIN

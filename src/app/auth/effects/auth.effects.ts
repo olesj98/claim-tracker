@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Action } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Observable, of } from 'rxjs';
+import { EMPTY, Observable, of } from 'rxjs';
 import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
 
 import { AuthService } from '../services';
@@ -15,9 +15,9 @@ export class AuthEffects {
             ofType(LoginActions.login),
             exhaustMap(({ credentials }) =>
                 this._auth.signin(credentials).pipe(
-                    tap(user => localStorage.setItem('_user', JSON.stringify(user))),
-                    map(user => LoginActions.loginSuccess({ user })),
-                    catchError(() => of(LoginActions.loginFailed()))
+                    tap(() => this._router.navigate(['/'])),
+                    map(() => LoginActions.loginSuccess()),
+                    catchError(({ error }) => of(LoginActions.loginFailed({ error })))
                 )
             )
         )
@@ -26,18 +26,14 @@ export class AuthEffects {
     logout$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
             ofType(LoginActions.logout),
-            tap(() => {
-                localStorage.removeItem('_user');
-                this._router.navigate(['/login']);
-            })
-        ), { dispatch: false }
-    );
-
-    signinRedirect$: Observable<Action> = createEffect(() =>
-        this._actions.pipe(
-            ofType(LoginActions.loginSuccess),
-            tap(() => this._router.navigate(['/']))
-        ), { dispatch: false }
+            exhaustMap(() =>
+                this._auth.quit().pipe(
+                    tap(() => this._router.navigate(['/login'])),
+                    map(() => LoginActions.logoutSuccess()),
+                    catchError(() => EMPTY)
+                )
+            )
+        )
     );
 
     constructor(

@@ -1,24 +1,56 @@
 {
-  "ALL": {
-    "NEXT": "Dalej",
-    "BACK": "Powrót"
-  },
-  "AUTH": {
-    "SIGN_IN": "Zaloguj się",
-    "LOG_IN": "Zaloguj",
-    "RESTORE_PIN": "Odzyskaj PIN",
-    "SIGN_UP_TITLE": "Weryfikacja tożsamości",
-    "SIGN_UP_SECOND_TITLE": "Śledź na bieżąco postęp w likwidacji Twojej szkody. Wystarczy, że zweryfikujemy Twoją tożsamość za pomocą poniższego formularza.",
-    "SIGN_UP_DATA": "Podaj nam swoje dane",
-    "SIGN_UP_INFO": "Sprawdzimy zgodność podanych przez Ciebie danych z tymi, które zostały podane podczas zgłoszenia szkody.",
-    "PHONE_NUMBER": "Numer telefonu",
-    "PESEL": "Pesel",
-    "SMS_TITLE": "Wpisz kod SMS",
-    "SMS_SUBTITLE": "Na Twój numer telefonu wysłaliśmy kod, dzięki któremu będziesz mógł potwierdzić swoją tożsamość. Wpisz go poniżej",
-    "SMS_RESEND": "Wyślij kod SMS ponownie"
-  },
-  "VALIDATION": {
-    "REQUIRED": "Pole jest wymagane",
-    "PESEL":  "Nieprawidłowu numer pesel"
-  }
+    "ALL": {
+        "NEXT": "Dalej",
+        "BACK": "Powrót"
+    },
+    "AUTH": {
+        "SIGN_IN": "Zaloguj się",
+        "LOG_IN": "Zaloguj",
+        "RESTORE_PIN": "Odzyskaj PIN",
+        "ENTER_PIN": "Podaj PIN",
+        "SIGN_UP_TITLE": "Weryfikacja tożsamości",
+        "LOGIN_TITLE": "Śledzenie zgłoszonych szkód",
+        "SIGN_UP_SECOND_TITLE": "Śledź na bieżąco postęp w likwidacji Twojej szkody. Wystarczy, że zweryfikujemy Twoją tożsamość za pomocą poniższego formularza.",
+        "SIGN_UP_DATA": "Podaj nam swoje dane",
+        "SIGN_UP_INFO": "Sprawdzimy zgodność podanych przez Ciebie danych z tymi, które zostały podane podczas zgłoszenia szkody.",
+        "PHONE_NUMBER": "Numer telefonu",
+        "PHONE_NUMBER_PLACEHOLDER": "Wpisz numer telefonu podany w zgłoszeniu",
+        "PESEL": "PESEL",
+        "PESEL_PLACEHOLDER": "Wpisz numer PESEL podany w zgłoszeniu",
+        "SMS_TITLE": "Wpisz kod SMS",
+        "SMS_SUBTITLE": "Na Twój numer telefonu wysłaliśmy kod, dzięki któremu będziesz mógł potwierdzić swoją tożsamość. Wpisz go poniżej",
+        "SMS_RESEND": "Wyślij kod SMS ponownie",
+        "SET_PIN": "Ustaw PIN do logowania",
+        "REPEAT_PIN": "Powtórz PIN",
+        "VERIFICATION_SUCCESS": "Weryfikacja tożsamości przebiegła pomyślnie",
+        "VERIFICATION_SUCCESS_INFO": "Ustawiony przez Ciebie kod PIN będzie Ci służył do przyszłych logowań do aplikacji w celu sprawdzenia szczegółów Twojej szkody.",
+        "RETURN_TO_LOGIN": "Przejdź do logowania"
+    },
+    "CLAIM_TYPE": {
+        "VEHICLE": "Szkoda w pojeździe",
+        "LUGGAGE": "Szkoda w bagażu",
+        "PROPERTY": "Szkoda w mieniu",
+        "BODY_DAMAGE": "Szkoda osobowa"
+    },
+    "MESSAGES": {
+        "SEND_PLACEHOLDER": "Napisz wiadomość",
+        "SEND": "Wyślij",
+        "YESTERDAY": "Wczoraj",
+        "EMPTY": "Brak wiadomości"
+    },
+    "CLAIM_DETAILS": {
+        "PATRON": "Opiekun szkody",
+        "CLAIM": "Szkoda",
+        "RETURN": "Powrót do listy szkód"
+    },
+    "FOOTER": {
+        "PKOU": "Infolinia PKO Ubezpieczenia",
+        "PHONE_NUMBER": "+48 81 535 67 66",
+        "OPEN_TIME": "Czynna od poniedziałku do piątku w godzinach 8:00-19:00"
+    },
+    "VALIDATION": {
+        "REQUIRED": "Pole jest wymagane",
+        "PESEL": "Nieprawidłowy numer pesel",
+        "PIN_REPEAT": "Wprowadzone numery PIN nie pasują do siebie"
+    }
 }

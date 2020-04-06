@@ -2,9 +2,7 @@
     pko-login-toolbar
     .ui__content.signin
         .container
-            .signin__top
-                .row
-                    .col-md-6
-                        .signin__form-container
-                            pko-login-form((submitted)="authorize($event)")
-                    .col-md-6
+            .signin__form-container
+                pko-login-form([error]="error$ | async", (submitted)="authorize($event)", (flush)="flush()")
+    .ui__footer
+        pko-footer

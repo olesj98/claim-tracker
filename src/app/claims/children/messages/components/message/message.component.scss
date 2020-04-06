@@ -1,14 +1,101 @@
 @import 'variables';
+@import 'bootstrap/tools';
 
-.msg {
-    padding: 24px 0;
-    border-bottom: 1px solid $pko-divider-color;
+$pko-message-cloud-margin: 12px;
+$pko-message-author-size: 32px;
+$pko-message-border-radius: 10px;
 
-    &__from-label {
-        font-size: $pko-caption-size;
+.message {
+    display: flex;
+
+    &.self &__inner {
+        flex-direction: row-reverse;
     }
 
-    &__content {
-        margin: 1rem 0;
+    &.self &__cloud {
+        background: $pko-primary;
+        color: $pko-white;
+        border-color: $pko-primary;
+        border-radius: $pko-message-border-radius $pko-message-border-radius 0 $pko-message-border-radius;
+    }
+
+    &.self &__container {
+        margin: 0 $pko-message-cloud-margin 0 0;
+        align-items: flex-end;
+    }
+
+    &.squashed &__container {
+        margin-left: $pko-message-author-size + $pko-message-cloud-margin;
+    }
+
+    &.squashed.self &__container {
+        margin: 0 $pko-message-author-size + $pko-message-cloud-margin 0 0;
+    }
+
+    &.between &__cloud {
+        border-radius: 0 $pko-message-border-radius $pko-message-border-radius 0;
+    }
+
+    &.between.self &__cloud {
+        border-radius: $pko-message-border-radius 0 0 $pko-message-border-radius;
+    }
+
+    &:not(.squashed) {
+        margin-bottom: 1.5rem;
+    }
+
+    &.last-before-squashed:not(.self) &__cloud {
+        border-top-left-radius: 0;
+    }
+
+    &.last-before-squashed.self &__cloud {
+        border-top-right-radius: 0;
+    }
+
+    &__inner {
+        display: flex;
+        width: 100%;
+        align-items: flex-end;
+    }
+
+    &__container {
+        max-width: calc(50% - #{$pko-message-author-size + $pko-message-cloud-margin});
+        display: flex;
+        flex-direction: column;
+        margin-left: $pko-message-cloud-margin;
+    }
+
+    &__time {
+        font-size: 13px;
+    }
+
+    &__cloud {
+        border: 1px solid $pko-gray-2;
+        border-radius: $pko-message-border-radius $pko-message-border-radius $pko-message-border-radius 0;
+        padding: 12px;
+        margin-bottom: 6px;
+        background: $pko-white;
+    }
+
+    &__avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: $pko-message-author-size;
+        height: $pko-message-author-size;
+        border-radius: 50%;
+        background: $pko-gray-2;
+        font-size: 13px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &__container {
+            max-width: 100%;
+        }
+
+        &__avatar {
+            background: $pko-gray-3;
+        }
     }
 }

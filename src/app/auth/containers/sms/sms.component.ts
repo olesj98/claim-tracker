@@ -1,10 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
+import { HttpError } from '@pko/core';
+
+import { SmsVerification } from '../../models';
 import { SignupActions } from '../../actions';
 
 import * as fromAuth from '../../reducers';
-import { SmsVerification } from '@pko/auth/models';
 
 @Component({
     selector: 'pko-sms',
@@ -13,7 +16,11 @@ import { SmsVerification } from '@pko/auth/models';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SMSComponent {
-    constructor(private _store: Store<fromAuth.State>) { }
+    error$: Observable<HttpError>;
+
+    constructor(private _store: Store<fromAuth.State>) {
+        this.error$ = this._store.pipe(select(fromAuth.getRegistrationSmsError));
+    }
 
     onCodeReceived(data: SmsVerification): void {
         this._store.dispatch(SignupActions.verifySMS({ data }));

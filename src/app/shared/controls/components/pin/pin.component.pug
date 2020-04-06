@@ -1,5 +1,8 @@
-form.pin-control([formGroup]="form")
-    .pin-control__title.h2
-        ng-content
+.pin-control([formGroup]="form")
     .pin-control__pass(formArrayName="pin")
-        pko-pin-cell(*ngFor="let control of pin.controls;", [control]="control")
+        pko-pin-cell.pin-control__cell(
+            *ngFor="let control of pin.controls; last as last",
+            [control]="$any(control)",
+            [class.pin-control__cell--last]="last",
+            [class]="size"
+        )

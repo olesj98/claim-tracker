@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
-import { User } from '@pko/auth/models';
+import { User } from '@pko/auth';
+
 import { toolbarAnimation } from './toolbar.animations';
 
 @Component({

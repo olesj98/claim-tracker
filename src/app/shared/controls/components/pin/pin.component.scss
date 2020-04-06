@@ -1,11 +1,12 @@
 @import 'variables';
 
 .pin-control {
-    display: inline-flex;
-    flex-direction: column;
+    display: flex;
     align-items: center;
 
     &__pass {
-        display: inline-flex;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 }

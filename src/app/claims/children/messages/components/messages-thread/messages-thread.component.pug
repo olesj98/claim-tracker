@@ -1,7 +1,0 @@
-.thread([class.thread--showing]="!collapsed")
-    .thread__header((click)="collapsed = !collapsed")
-        .thread__subject {{ thread.subject }}
-        .thread__collapse
-            img.thread__arrow(src="assets/icons/expand.svg", alt="Arrow")
-    .thread__body(*ngIf="!collapsed")
-        pko-message(*ngFor="let message of thread.messages; trackBy: trackByMessage", [message]="message", [mayReply]="message.from.id !== user?.id")

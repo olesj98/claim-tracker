@@ -1,80 +1,49 @@
-import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { Subject } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { PeselMaskConfig, PhoneNumberMaskConfig } from '@pko/shared/util';
-import { PeselValidator } from '@pko/auth/validators/pesel/pesel.validator';
-import { ErrorCode, ErrorInfo } from '@pko/core/error';
-import { Signup } from '@pko/auth/models';
+import { peselValidator } from '@pko/shared/controls';
+import { HttpError } from '@pko/core';
+
+import { Signup } from '../../models';
 
 @Component({
-  selector: 'pko-signup-form',
-  templateUrl: './signup-form.component.pug',
-  styleUrls: ['./signup-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'pko-signup-form',
+    templateUrl: './signup-form.component.pug',
+    styleUrls: ['./signup-form.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SignupFormComponent implements OnInit, OnDestroy, DoCheck {
-  @Input() error: ErrorInfo;
-  @Output() submitted: EventEmitter<Signup> = new EventEmitter<Signup>();
-  form: FormGroup;
+export class SignupFormComponent implements OnInit {
+    @Input() error: HttpError;
 
-  readonly authErrorCode = ErrorCode.AUTH;
-  readonly accountLockedCode = ErrorCode.ACCOUNT_LOCKED;
+    @Output() submitted: EventEmitter<Signup> = new EventEmitter<Signup>();
 
-  phoneNumberMask = new PhoneNumberMaskConfig();
-  peselMask = new PeselMaskConfig();
+    form: FormGroup;
+    phoneNumberMask = new PhoneNumberMaskConfig();
+    peselMask = new PeselMaskConfig();
 
-  private readonly destroyed$ = new Subject();
-
-  constructor(private _fb: FormBuilder) { }
-
-  ngOnInit() {
-    this.form = this._fb.group({
-      phoneNumber: [null, Validators.required],
-      pesel: [null, Validators.compose([
-        Validators.required,
-        PeselValidator.validate
-      ])]
-    });
-
-    this.clearExternalErrorOnPhoneNumberChange();
-  }
-
-  ngOnDestroy(): void {
-    this.destroyed$.next();
-    this.destroyed$.complete();
-  }
-
-  ngDoCheck(): void {
-    const isAccountError = [this.authErrorCode, this.accountLockedCode].map(c => c.toString()).includes(this.error?.code);
-
-    if (isAccountError) {
-      this.phoneNumber.setErrors({ [this.error?.code]: true });
+    get phoneNumber(): FormControl {
+        return this.form.get('phoneNumber') as FormControl;
     }
-  }
 
-  submit() {
-    if (this.form.invalid) return;
+    get pesel(): FormControl {
+        return this.form.get('pesel') as FormControl;
+    }
 
-    this.submitted.next(this.form.value);
-  }
+    constructor(private _fb: FormBuilder) { }
 
-  get phoneNumber() {
-    return this.form.get('phoneNumber');
-  }
+    ngOnInit() {
+        this.form = this._fb.group({
+            phoneNumber: [null, Validators.required],
+            pesel: [null, Validators.compose([
+                Validators.required, peselValidator
+            ])]
+        });
+    }
 
-  get pesel() {
-    return this.form.get('pesel');
-  }
-
-  private clearExternalErrorOnPhoneNumberChange() {
-    this.phoneNumber.valueChanges
-      .pipe(
-        takeUntil(this.destroyed$),
-        tap(() => this.error = null)
-      )
-      .subscribe();
-  }
+    submit() {
+        if (this.form.valid) {
+            this.submitted.next(this.form.value);
+        }
+    }
 }

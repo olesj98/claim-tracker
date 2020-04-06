@@ -1,7 +1,15 @@
+export enum ClaimType {
+    VEHICLE = 'VEHICLE',
+    LUGGAGE = 'LUGGAGE',
+    PROPERTY = 'PROPERTY',
+    BODY_DAMAGE = 'BODY_DAMAGE',
+    DEATH = 'DEATH'
+}
+
 export interface Claim {
-    id: string;
-    type: string;
-    status?: string;
-    vehicle: string;
-    registration: string;
+    claimUUID: string;
+    claimType: ClaimType;
+    reportDate: string;
+    details: string;
+    adjusterName: string;
 }

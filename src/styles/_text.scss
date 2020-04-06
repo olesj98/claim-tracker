@@ -1,8 +1,10 @@
-@import 'variables';
-
 .text {
     &--bold {
         font-weight: bold;
+    }
+
+    &--thin {
+        font-weight: 300;
     }
 
     &--caption {

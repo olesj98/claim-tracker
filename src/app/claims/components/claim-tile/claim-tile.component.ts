@@ -18,7 +18,6 @@ import { Claim } from '../../models';
 })
 export class ClaimTileComponent {
     @Input() claim: Claim;
-    @Input() @HostBinding('class.--active') active: boolean;
 
     @Output() selected: EventEmitter<void> = new EventEmitter<void>();
 

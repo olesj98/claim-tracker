@@ -3,9 +3,7 @@
         *ngFor="let claim of claims; trackBy: trackByClaimId",
         class="claims__tile",
         [claim]="claim",
-        [active]="claim.id === selectedClaimId",
-        (selected)="selected.emit(claim.id)"
-    )
+        (selected)="selected.emit(claim.claimUUID)")
 
 ng-template(#emptyClaimsTmpl)
     .claims__empty

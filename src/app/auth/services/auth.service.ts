@@ -1,41 +1,55 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
-import { Credentials, Signup, SignupPIN, SmsVerification, User } from '../models';
+import { environment } from '@pko-env/environment';
+import { Credentials, Signup, SignupPin, SmsVerification, User } from '../models';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-
-    private readonly accountsUri = '/api/accounts';
-
     constructor(private _http: HttpClient) { }
 
-    signin(credentials: Credentials): Observable<User> {
-        return of({
-            id: 'jan_kowalski',
-            name: 'Jan',
-            surname: 'Kowalski'
-        });
+    signin(credentials: Credentials): Observable<void> {
+        const formData = new FormData();
+        formData.append('phoneNumber', credentials.phoneNumber);
+        formData.append('pin', credentials.pin);
+
+        return this._http
+            .post<void>(`${environment.api.url}/tracker/login`, formData);
     }
 
-    verify(data: Signup): Observable<void> {
-        return this._http.post<void>(`${this.accountsUri}/register`, data)
-            .pipe(first());
+    quit(): Observable<void> {
+        return this._http
+            .post<void>(`${environment.api.url}/tracker/logout`, null);
     }
 
-    verifySMS(data: SmsVerification): Observable<void> {
-        return this._http.post<void>(`${this.accountsUri}/pin`, data)
-          .pipe(first());
+    verify(signup: Signup): Observable<void> {
+        const formData = new FormData();
+        formData.append('phoneNumber', signup.phoneNumber);
+        formData.append('pesel', signup.pesel);
+
+        return this._http
+            .post<void>(`${environment.api.url}/registration/login`, formData);
+    }
+
+    verifySMS(smsVerification: SmsVerification): Observable<void> {
+        return this._http
+            .post<void>(`${environment.api.url}/registration/enter_code`, smsVerification);
     }
 
     resendSMS(): Observable<void> {
-        return of(null);
+        return this._http
+            .post<void>(`${environment.api.url}/registration/send_new_code`, null);
     }
 
-    configurePIN(pin: SignupPIN): Observable<void> {
-        return of(null);
+    configurePIN(signupPin: SignupPin): Observable<void> {
+        return this._http
+            .post<void>(`${environment.api.url}/registration/assign_pin`, signupPin);
+    }
+
+    getAuthorizedUser(): Observable<User> {
+        return this._http
+            .get<User>(`${environment.api.url}/tracker/logged_user`);
     }
 }

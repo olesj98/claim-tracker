@@ -1,0 +1,26 @@
+@import 'bootstrap/tools';
+
+.message-input {
+    display: flex;
+
+    &__send {
+        min-width: 128px;
+    }
+
+    &__control {
+        margin-right: 1.75rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+
+        &__send {
+            height: 48px;
+            min-width: 100%;
+        }
+
+        &__control {
+            margin: 0 0 1.5rem 0;
+        }
+    }
+}

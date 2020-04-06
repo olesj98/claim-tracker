@@ -2,10 +2,6 @@
 @import 'variables';
 
 .signin {
-    &__top {
-        border-bottom: 1px solid $pko-divider-color;
-    }
-
     &__form-container {
         max-width: 390px;
         min-width: 390px;
@@ -17,6 +13,7 @@
         &__form-container {
             max-width: 100%;
             min-width: 100%;
+            padding-top: 0;
         }
     }
 }

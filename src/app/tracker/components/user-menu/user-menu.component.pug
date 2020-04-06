@@ -1,3 +1,3 @@
 .user-menu
-    .user-menu__icon KD
-    .user-menu__name(*ngIf="!minified") Konrad Dziejarski-Frankenstein
+    .user-menu__icon {{ user | initials }}
+    .user-menu__name(*ngIf="!minified") {{ user.name }}

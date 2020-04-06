@@ -1,41 +1,37 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SmsVerification } from '@pko/auth/models';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { HttpError } from '@pko/core';
+
+import { SmsVerification } from '../../models';
 
 @Component({
-  selector: 'pko-sms-form',
-  templateUrl: './sms-form.component.pug',
-  styleUrls: ['./sms-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'pko-sms-form',
+    templateUrl: './sms-form.component.pug',
+    styleUrls: ['./sms-form.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SMSFormComponent implements OnInit {
-  @Output() submitted: EventEmitter<SmsVerification> = new EventEmitter<SmsVerification>();
-  @Output() resend: EventEmitter<void> = new EventEmitter<void>();
+    @Input() error: HttpError;
 
-  readonly phoneNumber: string;
-  readonly pesel: string;
+    @Output() submitted: EventEmitter<SmsVerification> = new EventEmitter<SmsVerification>();
+    @Output() resend: EventEmitter<void> = new EventEmitter<void>();
 
-  form: FormGroup;
+    form: FormGroup;
 
-  constructor(private _fb: FormBuilder, private _route: ActivatedRoute, private _router: Router) {
-    this.phoneNumber = _route.snapshot.queryParams.phoneNumber;
-    this.pesel = _route.snapshot.queryParams.pesel;
-  }
+    constructor(private _fb: FormBuilder) { }
 
-  ngOnInit(): void {
-    if (!this.phoneNumber || !this.pesel) this._router.navigate(['/registration']);
+    ngOnInit(): void {
+        this.form = this._fb.group({
+            code: ['', Validators.compose([
+                Validators.required
+            ])]
+        });
+    }
 
-    this.form = this._fb.group({
-      phoneNumber: [this.phoneNumber],
-      pesel: [this.pesel],
-      code: ['', Validators.compose([Validators.required])],
-    });
-  }
-
-  submit() {
-    if (this.form.invalid) return;
-
-    this.submitted.emit(this.form.value);
-  }
+    submit() {
+        if (this.form.valid) {
+            this.submitted.emit(this.form.value);
+        }
+    }
 }
