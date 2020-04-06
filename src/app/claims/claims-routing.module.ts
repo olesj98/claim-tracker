@@ -35,11 +35,6 @@ export const claimsRoutes: Routes = [
                 path: 'wiadomosci',
                 loadChildren: () => import('./children/messages/messages.module')
                     .then(m => m.MessagesModule)
-            },
-            {
-                path: 'opiekun-szkody',
-                loadChildren: () => import('./children/patron/patron.module')
-                    .then(m => m.PatronModule)
             }
         ]
     }
