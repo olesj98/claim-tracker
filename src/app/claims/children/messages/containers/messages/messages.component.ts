@@ -21,7 +21,7 @@ export class MessagesComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this._store.dispatch(MessagesActions.fetch());
+        this._store.dispatch(MessagesActions.enterMessengerView());
     }
 
     onSendMessage(message: DraftMessage): void {

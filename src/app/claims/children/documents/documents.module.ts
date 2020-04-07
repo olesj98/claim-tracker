@@ -5,12 +5,10 @@ import { FileUploadModule } from '../../../shared/file-upload';
 import { DocumentsRoutingModule } from './documents-routing.module';
 
 import { DocumentsComponent } from './containers/documents/documents.component';
-import { DocumentUploadRowComponent } from './components/document-upload-row/document-upload-row.component';
 
 @NgModule({
     declarations: [
-        DocumentsComponent,
-        DocumentUploadRowComponent
+        DocumentsComponent
     ],
     imports: [
         CommonModule,

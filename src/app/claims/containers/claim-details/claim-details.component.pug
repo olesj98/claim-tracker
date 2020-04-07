@@ -8,5 +8,5 @@
             pko-nav-menu
                 pko-nav-menu-item(path="./os-czasu") Oś czasu
                 pko-nav-menu-item(path="./dokumenty") Dokumenty
-                pko-nav-menu-item(path="./wiadomosci") Wiadomości
+                pko-nav-menu-item(path="./wiadomosci", [badge]="claim.unreadMessagesCount") Wiadomości
             router-outlet

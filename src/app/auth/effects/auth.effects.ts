@@ -15,7 +15,6 @@ export class AuthEffects {
             ofType(LoginActions.login),
             exhaustMap(({ credentials }) =>
                 this._auth.signin(credentials).pipe(
-                    tap(() => this._router.navigate(['/'])),
                     map(() => LoginActions.loginSuccess()),
                     catchError(({ error }) => of(LoginActions.loginFailed({ error })))
                 )
@@ -34,6 +33,13 @@ export class AuthEffects {
                 )
             )
         )
+    );
+
+    signRedirects$: Observable<Action> = createEffect(() =>
+        this._actions.pipe(
+            ofType(LoginActions.loginSuccess),
+            tap(() => this._router.navigate(['/']))
+        ), { dispatch: false }
     );
 
     constructor(

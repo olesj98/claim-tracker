@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
     selector: 'pko-file',
@@ -8,7 +8,4 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from 
 })
 export class FileComponent {
     @Input() name: string;
-    @Input() removeable: boolean;
-
-    @Output() remove: EventEmitter<void> = new EventEmitter<void>();
 }

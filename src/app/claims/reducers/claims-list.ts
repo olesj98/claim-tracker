@@ -2,7 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
 import { Claim } from '../models';
-import { ClaimsListActions } from '../actions';
+import { ClaimsListActions, MessagesActions } from '../actions';
 
 export interface State extends EntityState<Claim> {
     selectedClaimId: string;
@@ -25,7 +25,9 @@ export const claimsListReducer = createReducer(
     initialState,
     on(ClaimsListActions.select, (state, { id }) => ({ ...state, selectedClaimId: id })),
     on(ClaimsListActions.fetchSuccess, (state , { claims }) =>
-        adapter.setAll(claims, { ...state, pending: false, hasLoaded: true }))
+        adapter.setAll(claims, { ...state, pending: false, hasLoaded: true })),
+    on(MessagesActions.markAllAsReadSuccess, (state, { id }) =>
+        adapter.updateOne({ id, changes: { unreadMessagesCount: 0 } }, state))
 );
 
 export function reducer(state: State | undefined, action: Action) {

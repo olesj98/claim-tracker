@@ -1,0 +1,6 @@
+.document
+    .document__icon
+        img(src="assets/icons/pdf.svg", [alt]="filename")
+    .document__body
+        .document__name {{ filename }}
+        .document__date {{ postDate | date: 'EEE dd.MM.yy | H:mm' }}

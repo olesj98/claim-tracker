@@ -1,9 +1,0 @@
-.upload-row([class.upload-row--completed]="files?.length")
-    .upload-row__label
-        ng-content
-        .upload-row__toggle(*ngIf="!completed", (click)="collapsed = !collapsed") {{ collapsed ? 'Dodaj' : 'Zwiń' }}
-    .upload-row__body.mt-3(*ngIf="!collapsed || completed")
-        pko-file-upload-zone([fileFor]="fileFor", [multiple]="multiple", *ngIf="!completed; else uploadedFilesTmpl")
-
-ng-template(#uploadedFilesTmpl)
-    pko-file.d-block.mb-3(*ngFor="let file of files", [name]="file")

@@ -11,12 +11,6 @@
         padding: 1rem;
     }
 
-    &__save {
-        margin-top: 1.5rem;
-        display: flex;
-        justify-content: flex-end;
-    }
-
     &__hidden-input {
         position: absolute;
         display: none;
@@ -32,43 +26,14 @@
         padding: 1rem;
     }
 
-    &__files {
-        min-width: 376px;
-        max-width: 376px;
-        padding: 12px 16px;
-        background: $pko-gray-2;
-        border: 2px solid $pko-gray-4;
-        overflow: hidden;
-    }
-
-    &__file {
-        display: block;
-
-        &:not(:last-child) {
-            margin-bottom: 0.75rem;
-        }
-    }
-
     @include media-breakpoint-down(md) {
         &__box {
             flex-direction: column;
         }
 
-        &__files {
-            max-width: 100%;
-            min-width: auto;
-            padding: 24px 0 0 0;
-            border: 0;
-            background: transparent;
-        }
-
         &__info {
             background: $pko-gray-2;
             border: 2px solid $pko-gray-4;
-        }
-
-        &__submit {
-            width: 100%;
         }
     }
 }

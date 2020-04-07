@@ -15,8 +15,17 @@ export class MessagesService {
             .get<Array<Message>>(`${environment.api.url}/tracker/claims/${claimUUID}/messages`);
     }
 
-    sendMessage(draftMessage: DraftMessage, claimUUID: string): Observable<any> {
+    sendMessage(draftMessage: DraftMessage, claimUUID: string): Observable<Message> {
         return this._http
-            .post<any>(`${environment.api.url}/tracker/claims/${claimUUID}/messages`, draftMessage);
+            .post<Message>(`${environment.api.url}/tracker/claims/${claimUUID}/messages`, draftMessage);
+    }
+
+    markAllAsRead(claimUUID: string): Observable<void> {
+        const body = {
+            readMessageDate: new Date().toISOString()
+        };
+
+        return this._http
+            .post<void>(`${environment.api.url}/tracker/claims/${claimUUID}`, body);
     }
 }

@@ -14,7 +14,9 @@ export const initialState: State = {
 export const messagesReducer = createReducer(
     initialState,
     on(MessagesActions.fetchSuccess, (state, { messages }) =>
-        ({ ...state, messages: [...messages] }))
+        ({ ...state, messages: [...messages] })),
+    on(MessagesActions.sendSuccess, (state, { message }) =>
+        ({ ...state, messages: [...state.messages, message] }))
 );
 
 export function reducer(state: State | undefined, action: Action) {

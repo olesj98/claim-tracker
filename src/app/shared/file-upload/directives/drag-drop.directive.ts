@@ -1,7 +1,9 @@
-import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Directive({ selector: '[dragDrop]' })
 export class DragDropDirective {
+    @Input() disabled: boolean;
+
     @Output() dragDrop: EventEmitter<FileList> = new EventEmitter<FileList>();
 
     @HostListener('dragover', ['$event']) ondragover(event: DragEvent) {
@@ -13,7 +15,7 @@ export class DragDropDirective {
         event.preventDefault();
         event.stopPropagation();
 
-        if (event.dataTransfer.files.length) {
+        if (event.dataTransfer.files.length && !this.disabled) {
             this.dragDrop.emit(event.dataTransfer.files);
         }
     }

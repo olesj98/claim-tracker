@@ -1,7 +1,5 @@
 .file
     .file__self
         .file__icon
-            img(src="assets/icons/pdf.svg", alt="File")
+            img(src="assets/icons/pdf.svg", [alt]="name")
         .file__name {{ name }}
-    .file__trash(*ngIf="removeable", (click)="remove.emit()")
-        img(src="assets/icons/trash.svg", alt="Remove")

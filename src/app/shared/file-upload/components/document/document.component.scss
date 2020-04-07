@@ -1,0 +1,23 @@
+@import 'variables';
+
+:host {
+    display: block;
+
+    .document {
+        display: flex;
+        align-items: center;
+
+        &__name {
+            margin-bottom: 0.25rem;
+        }
+
+        &__icon {
+            margin-right: 0.75rem;
+        }
+
+        &__date {
+            font-size: 10px;
+            color: $pko-gray-5;
+        }
+    }
+}
