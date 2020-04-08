@@ -12,6 +12,6 @@ export class ClaimsService {
 
     getClaimsList(): Observable<Array<Claim>> {
         return this._http
-            .get<Array<Claim>>(`${environment.api.url}/tracker/claims`);
+            .get<Array<Claim>>(`api/tracker/claims`);
     }
 }
