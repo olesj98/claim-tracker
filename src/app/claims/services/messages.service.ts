@@ -12,12 +12,12 @@ export class MessagesService {
 
     getMessages(claimUUID: string): Observable<Array<Message>> {
         return this._http
-            .get<Array<Message>>(`${environment.api.url}/tracker/claims/${claimUUID}/messages`);
+            .get<Array<Message>>(`api/tracker/claims/${claimUUID}/messages`);
     }
 
     sendMessage(draftMessage: DraftMessage, claimUUID: string): Observable<Message> {
         return this._http
-            .post<Message>(`${environment.api.url}/tracker/claims/${claimUUID}/messages`, draftMessage);
+            .post<Message>(`api/tracker/claims/${claimUUID}/messages`, draftMessage);
     }
 
     markAllAsRead(claimUUID: string): Observable<void> {
@@ -26,6 +26,6 @@ export class MessagesService {
         };
 
         return this._http
-            .post<void>(`${environment.api.url}/tracker/claims/${claimUUID}`, body);
+            .post<void>(`api/tracker/claims/${claimUUID}`, body);
     }
 }
