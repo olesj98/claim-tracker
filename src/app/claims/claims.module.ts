@@ -12,7 +12,7 @@ import { ClaimDetailsComponent } from './containers/claim-details/claim-details.
 import { ClaimsListComponent } from './components/claims-list/claims-list.component';
 import { ClaimTileComponent } from './components/claim-tile/claim-tile.component';
 
-import { ClaimsEffects, MessagesEffects } from './effects';
+import { ClaimsEffects, MessagesEffects, TimelineEffects } from './effects';
 import { reducers } from './reducers';
 
 @NgModule({
@@ -27,7 +27,8 @@ import { reducers } from './reducers';
         StoreModule.forFeature('claims', reducers),
         EffectsModule.forFeature([
             ClaimsEffects,
-            MessagesEffects
+            MessagesEffects,
+            TimelineEffects
         ]),
         TranslateModule,
         NavigationModule,

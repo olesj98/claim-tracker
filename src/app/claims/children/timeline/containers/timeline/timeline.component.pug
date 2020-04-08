@@ -1,12 +1,2 @@
-pko-timeline-tabs([minified]="minified$ | async")
-    pko-timeline-tab(title="Zarejestrowano zgłoszenie szkody", description="Czw. 23.08.2019  |  16:36", [completed]="true") Zarejestrowano zgłoszenie szkody
-    pko-timeline-tab(title="Dodaliśmy dla Ciebie 2 zadania", description="Czw. 23.08.2019  |  18:23", [completed]="true") Coś bardzo ważnego o zadaniach
-    pko-timeline-tab(title="Dodaj dowód rejestracyjny", action="Dodaj dokument")
-        .h5.mb-3 Dodaj dowód rejestracyjny
-        pko-file-upload-zone(fileFor="dowod_rejestracyjny")
-    pko-timeline-tab(title="Dodano notatkę z policji", description="Wczoraj  |  15:31", [completed]="true") Brawo dodałeś notatkę z policji
-    pko-timeline-tab(title="Dodaj zdjęcia szkody", action="Dodaj zdjęcia")
-        .h5.mb-3 Dodaj zdjęcia szkody
-        pko-file-upload-zone(fileFor="zdjecia_szkody")
-    pko-timeline-tab(title="Zdalne oględziny", description="Oględziny jeszcze nie zostały zlecone", [disabled]="true") Informację o oględzinach
-    pko-timeline-tab(title="Zamknięcie szkody", [disabled]="true") Zamnknięcie szkody
+pko-timeline-tabs([minified]="minified$ | async", *ngIf="timeline$ | async as timeline")
+    pko-timeline-tab(*ngFor="let element of timeline; index as i", [timelineItem]="element") Timeline! {{ i }}

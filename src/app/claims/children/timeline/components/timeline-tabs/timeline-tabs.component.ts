@@ -5,9 +5,14 @@ import {
     QueryList,
     Input,
     OnDestroy,
-    ViewChild
+    ViewChild,
+    AfterContentInit,
+    ChangeDetectorRef
 } from '@angular/core';
 import { CdkPortalOutlet } from '@angular/cdk/portal';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { BottomSheetService } from '@pko/shared/bottom-sheet';
 
@@ -19,44 +24,43 @@ import { TimelineTabComponent } from '../timeline-tab/timeline-tab.component';
     styleUrls: [ './timeline-tabs.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimelineTabsComponent implements OnDestroy {
+export class TimelineTabsComponent implements OnDestroy, AfterContentInit {
     @Input()
     set minified(minified: boolean) {
-        this._minified = minified;
+        this._minified = coerceBooleanProperty(minified);
     }
-
     get minified(): boolean {
         return this._minified;
     }
 
     @ContentChildren(TimelineTabComponent, { descendants: true }) allTabs: QueryList<TimelineTabComponent>;
-    @ViewChild(CdkPortalOutlet, { static: true }) private _portalOutlet: CdkPortalOutlet;
+    @ViewChild(CdkPortalOutlet, { static: false }) private _portalOutlet: CdkPortalOutlet;
 
-    activeTabIndex: number = null;
+    tabActive: TimelineTabComponent = null;
+    destroyed$: Subject<void> = new Subject<void>();
 
     private _minified: boolean;
 
-    get isEmpty(): boolean {
-        return !this._portalOutlet.hasAttached();
+    constructor(
+        private _bottomSheet: BottomSheetService,
+        private _changeDetectorRef: ChangeDetectorRef) {
     }
 
-    constructor(private _bottomSheet: BottomSheetService) { }
+    ngAfterContentInit(): void {
+        this.allTabs.changes
+            .pipe(takeUntil(this.destroyed$))
+            .subscribe(() => this._changeDetectorRef.markForCheck());
+    }
 
-    onTabSelected(tab: TimelineTabComponent, i: number): void {
-        if (!tab.disabled && this.activeTabIndex !== i) {
-            this.activeTabIndex = i;
-
-            if (this.minified) {
-                this._portalOutlet.detach();
-                this._bottomSheet.open(tab.content.templateRef);
-            } else {
-                this._portalOutlet.detach();
-                this._portalOutlet.attachTemplatePortal(tab.content);
-            }
-        }
+    onTabSelected(tab: TimelineTabComponent): void {
+        this.tabActive = tab;
+        this._portalOutlet.detach();
+        this._portalOutlet.attachTemplatePortal(tab.content);
     }
 
     ngOnDestroy(): void {
+        this.destroyed$.next();
+        this.destroyed$.complete();
         this._portalOutlet.dispose();
     }
 }

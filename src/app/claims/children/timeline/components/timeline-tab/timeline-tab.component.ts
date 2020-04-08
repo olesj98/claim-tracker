@@ -1,13 +1,7 @@
-import {
-    Component,
-    ChangeDetectionStrategy,
-    Input,
-    ViewChild,
-    TemplateRef,
-    ViewContainerRef,
-    OnInit
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ViewChild, TemplateRef, ViewContainerRef, OnInit } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
+
+import { TimelineItem } from '@pko/claims/models';
 
 @Component({
     selector: 'pko-timeline-tab',
@@ -15,11 +9,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimelineTabComponent implements OnInit {
-    @Input() disabled: boolean;
-    @Input() title: string;
-    @Input() description: string;
-    @Input() action: string;
-    @Input() completed: boolean;
+    @Input() timelineItem: TimelineItem;
 
     @ViewChild(TemplateRef, { static: true }) private _implicitRef: TemplateRef<any>;
 
