@@ -2,5 +2,8 @@
     .document__icon
         img(src="assets/icons/pdf.svg", [alt]="filename")
     .document__body
-        .document__name {{ filename }}
+        a.document__name(*ngIf="hrefToGet; else fileWithNoPreviewTmpl", [href]="hrefToGet", target="_blank") {{ filename }}
         .document__date(*ngIf="postDate") {{ postDate | date: 'EEE dd.MM.yy | H:mm' }}
+
+ng-template(#fileWithNoPreviewTmpl)
+    .document__name {{ filename }}

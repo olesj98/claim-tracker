@@ -11,6 +11,10 @@
         padding: 1rem;
     }
 
+    &__title {
+        text-align: center;
+    }
+
     &__hidden-input {
         position: absolute;
         display: none;
@@ -31,14 +35,29 @@
         max-width: 340px;
     }
 
+    &__add-from-drive {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__add-from-drive-title {
+        display: inline-flex;
+
+        &.using-gallery {
+            &::before {
+                content: '';
+            }
+        }
+    }
+
     @include media-breakpoint-down(md) {
         &__box {
             flex-direction: column;
         }
 
         &__info {
-            background: $pko-gray-2;
-            border: 2px solid $pko-gray-4;
+            background: transparent;
         }
     }
 }

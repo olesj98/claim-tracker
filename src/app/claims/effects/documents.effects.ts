@@ -13,7 +13,7 @@ import * as fromClaims from '../reducers';
 export class DocumentsEffects {
     fetchStaticDocuments$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
-            ofType(DocumentsActions.enterDocumentsView),
+            ofType(DocumentsActions.enterDocumentsView, DocumentsActions.shareSuccess),
             withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
             switchMap(([action, claim]) =>
                 this._documents.getStaticDocuments(claim).pipe(
@@ -41,8 +41,8 @@ export class DocumentsEffects {
         this._actions.pipe(
             ofType(DocumentsActions.share),
             withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
-            exhaustMap(([{ document: { documentType, file } }, claim]) =>
-                this._documents.shareDocument(claim, documentType, file).pipe(
+            exhaustMap(([{ document: { documentType, files } }, claim]) =>
+                this._documents.shareDocument(claim, documentType, files[0]).pipe(
                     map(() => DocumentsActions.shareSuccess()),
                     catchError(() => of(DocumentsActions.shareFailure()))
                 )

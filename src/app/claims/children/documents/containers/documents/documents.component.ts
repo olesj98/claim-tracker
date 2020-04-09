@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { DocumentsActions } from '@pko/claims/actions';
-import { DocumentReference } from '@pko/claims/models';
+import { DocumentLinkRel, DocumentReference } from '@pko/claims/models';
 import { TrackerLayoutService } from '@pko/tracker/services';
 import { ClaimDocumentTypesDictionaryService } from '@pko/claims/services';
 import { DocumentChangeEvent } from '@pko/shared/file-upload';
@@ -24,6 +24,7 @@ export class DocumentsComponent implements OnInit {
     mobile$: Observable<boolean>;
 
     addDocumentOpened: boolean;
+    DocumentRelGet = DocumentLinkRel.File;
 
     constructor(
         private _store: Store<fromClaims.State>,
@@ -44,5 +45,4 @@ export class DocumentsComponent implements OnInit {
     onDocumentDropped(event: DocumentChangeEvent) {
         this._store.dispatch(DocumentsActions.share({ document: event }));
     }
-
 }

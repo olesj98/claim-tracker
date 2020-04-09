@@ -29,7 +29,7 @@ import { AppComponent } from './app.component';
         StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
             runtimeChecks: {
                 strictStateSerializability: true,
-                strictActionSerializability: false, /* @todo check for better alternative */
+                strictActionSerializability: true,
                 strictStateImmutability: true,
                 strictActionImmutability: true
             }

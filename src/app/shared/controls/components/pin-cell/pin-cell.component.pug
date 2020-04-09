@@ -2,5 +2,7 @@ input.pin-cell.form-control(
     type="text",
     autocomplete="off",
     [formControl]="control",
-    [textMask]="mask"
+    [textMask]="mask",
+    inputmode="numeric",
+    pattern="[0-9]*"
 )

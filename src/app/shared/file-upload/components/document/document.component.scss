@@ -2,19 +2,24 @@
 
 :host {
     display: block;
+}
 
-    .document {
-        display: flex;
-        align-items: center;
+.document {
+    display: flex;
+    align-items: center;
 
-        &__icon {
-            margin-right: 0.75rem;
-        }
+    &__icon {
+        margin-right: 0.75rem;
+    }
 
-        &__date {
-            margin-top: 0.25rem;
-            font-size: 10px;
-            color: $pko-gray-5;
-        }
+    &__date {
+        margin-top: 0.25rem;
+        font-size: 10px;
+        color: $pko-gray-5;
+    }
+
+    &__name {
+        color: $pko-black;
+        font-size: $pko-default-size;
     }
 }

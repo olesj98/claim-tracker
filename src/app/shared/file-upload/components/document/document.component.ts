@@ -9,4 +9,5 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 export class DocumentComponent {
     @Input() filename: string;
     @Input() postDate: string;
+    @Input() hrefToGet: string;
 }

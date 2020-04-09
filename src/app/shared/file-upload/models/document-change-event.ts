@@ -1,4 +1,4 @@
 export interface DocumentChangeEvent {
     documentType: string;
-    file: File;
+    files: Array<File>;
 }

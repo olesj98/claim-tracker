@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve --proxy-config proxy.conf.json",
+        "start": "ng serve --port 4100 --proxy-config proxy.conf.json",
         "build": "ng build",
         "lint": "ng lint",
         "postinstall": "node ./ng-add-pug-loader.js",

@@ -51,8 +51,12 @@
     },
     "FILE_UPLOAD": {
         "DRAG_AND_DROP_OR": "Przeciągnij i upuść plik tutaj lub",
+        "SEND_BY_MOBILE": "Zrób zdjęcie i prześlij do nas",
+        "TAKE_PHOTO": "Zrób zdjęcie",
+        "ADD_FROM_GALLERY": "Dodaj z galerii",
         "ADD_FROM_DRIVE": "Dodaj z dysku",
-        "SELECT_TYPE": "Wybierz typ dokumentu"
+        "SELECT_TYPE": "Wybierz typ dokumentu",
+        "SELECT": "Wybierz"
     },
     "DOCUMENT_TYPE": {
         "CLAIM_REPORT": "Zgłoszenie szkody",

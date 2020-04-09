@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, Inject } from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { DocumentChangeEvent } from '../../models';
+import { DOCUMENT_UPLOAD_CONFIG, DocumentUploadConfig } from '../../providers';
 
 @Component({
     selector: 'pko-file-upload-zone',
@@ -12,40 +13,82 @@ import { DocumentChangeEvent } from '../../models';
 export class FileUploadZoneComponent {
     @Input() fileFor: string;
     @Input() dragDropEnabled: boolean;
-    @Input() withDocumentType: boolean;
     @Input() documentTypes: Array<string>;
     @Input() mobile: boolean;
+    @Input() multiple: boolean;
+    @Input()
+    set withDocumentType(withType: boolean) {
+        this._withDocumentType = withType;
+        this._withDocumentType ?
+            this.documentType.setValidators(Validators.required) :
+            this.documentType.clearValidators();
+    }
+    get withDocumentType(): boolean {
+        return this._withDocumentType;
+    }
 
     @Output() selected: EventEmitter<DocumentChangeEvent> = new EventEmitter<DocumentChangeEvent>();
 
+    acceptDocumentType: string;
+
     form = new FormGroup({
-        documentType: new FormControl(null, Validators.required),
-        file: new FormControl(null, Validators.required)
+        documentType: new FormControl(null),
+        files: new FormArray([])
     });
 
-    onFilesReceived(files: FileList): void {
-        this.form.get('file').setValue(files.item(0));
+    private _withDocumentType: boolean;
 
-        /* @todo improvements */
+    get files(): FormArray {
+        return this.form.get('files') as FormArray;
+    }
 
-        if (this.withDocumentType) {
-            if (this.form.get('documentType').valid) {
-                this.emitSelection();
+    get documentType(): FormControl {
+        return this.form.get('documentType') as FormControl;
+    }
+
+    get documentTypePlaceholder(): string {
+        return this.mobile ?
+            'FILE_UPLOAD.SELECT' : 'FILE_UPLOAD.SELECT_TYPE';
+    }
+
+    get addDocumentTitle(): string {
+        return this.mobile ?
+            'FILE_UPLOAD.SEND_BY_MOBILE' : 'FILE_UPLOAD.DRAG_AND_DROP_OR';
+    }
+
+    get addDocumentActionTitle(): string {
+        return this.mobile ?
+            'FILE_UPLOAD.ADD_FROM_GALLERY' : 'FILE_UPLOAD.ADD_FROM_DRIVE';
+    }
+
+    constructor(@Inject(DOCUMENT_UPLOAD_CONFIG) private _config: DocumentUploadConfig) {
+        this.acceptDocumentType = this._config.extensions
+            .map(ext => `.${ext}`)
+            .join(',');
+    }
+
+    onDocumentsReceived(files: FileList): void {
+        Array.from(files).forEach(file => this.files.push(new FormControl(file)));
+
+        if (this.form.valid) {
+            if (!this.multiple) {
+                this.selected.emit(this.form.value);
             }
-        } else {
-            this.emitSelection();
         }
+
+        this._reset();
     }
 
-    onSelectedFromDrive(e: any): void {
-        this.onFilesReceived(e.target.files);
+    addFromDrive(e: any): void {
+        this.onDocumentsReceived(e.target.files);
     }
 
-    onFilesDropped(fileList: FileList): void {
-        this.onFilesReceived(fileList);
+    onDocumentsDropped(fileList: FileList): void {
+        this.onDocumentsReceived(fileList);
     }
 
-    emitSelection() {
-        this.selected.emit(this.form.value);
+    private _reset(): void {
+        this.documentType.reset();
+        this.files.clear();
     }
 }

@@ -9,11 +9,14 @@ import { FileUploadZoneComponent } from './components/file-upload-zone/file-uplo
 import { DocumentComponent } from './components/document/document.component';
 import { DragDropDirective } from './directives/drag-drop.directive';
 
+import { DOCUMENT_UPLOAD_PIPES } from './pipes';
+
 @NgModule({
     declarations: [
         FileUploadZoneComponent,
         DragDropDirective,
-        DocumentComponent
+        DocumentComponent,
+        ...DOCUMENT_UPLOAD_PIPES
     ],
     imports: [
         CommonModule,
@@ -23,7 +26,8 @@ import { DragDropDirective } from './directives/drag-drop.directive';
     ],
     exports: [
         FileUploadZoneComponent,
-        DocumentComponent
+        DocumentComponent,
+        ...DOCUMENT_UPLOAD_PIPES
     ]
 })
 export class FileUploadModule { }
