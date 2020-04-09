@@ -14,9 +14,9 @@ export class TimelineEffects {
     fetch$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
             ofType(TimelineActions.enterTimelineView),
-            withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaimId))),
-            switchMap(([action, claimUUID]) =>
-                this._timeline.getTimeline(claimUUID).pipe(
+            withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
+            switchMap(([action, claim]) =>
+                this._timeline.getTimeline(claim).pipe(
                     map(timeline => TimelineActions.fetchSuccess({ timeline })),
                     catchError(() => of(TimelineActions.fetchSuccess({ timeline: [] })))
                 )

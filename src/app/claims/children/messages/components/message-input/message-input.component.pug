@@ -4,6 +4,7 @@
         spellcheck="false",
         autocomplete="off",
         formControlName="body",
-        [placeholder]="'MESSAGES.SEND_PLACEHOLDER' | translate"
+        [placeholder]="'MESSAGES.SEND_PLACEHOLDER' | translate",
+        (keydown.enter)="submit()"
     )
     button.message-input__send.btn.btn-primary(type="button", (click)="submit()", translate) MESSAGES.SEND

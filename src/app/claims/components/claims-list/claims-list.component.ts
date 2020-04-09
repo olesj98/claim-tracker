@@ -13,5 +13,5 @@ export class ClaimsListComponent {
 
     @Output() selected: EventEmitter<string> = new EventEmitter<string>();
 
-    trackByClaimId = (index: number, claim: Claim) => claim.claimUUID;
+    trackByClaimId = (index: number, claim: Claim) => claim.businessNumber;
 }

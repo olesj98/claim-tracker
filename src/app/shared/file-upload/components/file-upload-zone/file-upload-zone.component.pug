@@ -1,6 +1,18 @@
-.file-zone
+.file-zone([formGroup]="form")
     .file-zone__box((dragDrop)="onFilesDropped($event)")
         .file-zone__info
-            .text.text--regular.file-zone__title.mb-3 Przeciągnij i upuść plik tutaj lub
-            label.btn.btn-light.file-zone__add-from-drive([for]="fileFor") Dodaj plik
+            .text.text--regular.file-zone__title.mb-3(translate) FILE_UPLOAD.DRAG_AND_DROP_OR
+            label.btn.btn-light.file-zone__add-from-drive([for]="fileFor", translate) FILE_UPLOAD.ADD_FROM_DRIVE
+            ng-container(*ngIf="!mobile")
+                ng-container(*ngTemplateOutlet="fileTypeSelectTmpl")
             input.file-zone__hidden-input(type="file", [id]="fileFor", (change)="onSelectedFromDrive($event)")
+    .file-zone__mobile-select.mt-3(*ngIf="mobile")
+        ng-container(*ngTemplateOutlet="fileTypeSelectTmpl")
+
+ng-template(#fileTypeSelectTmpl)
+    ng-container([formGroup]="form")
+        pko-select.file-zone__type-select(*ngIf="withDocumentType", formControlName="documentType", [placeholder]="'FILE_UPLOAD.SELECT_TYPE' | translate")
+            pko-option(*ngFor="let documentType of documentTypes", [value]="documentType") {{ 'DOCUMENT_TYPE.' + documentType | translate }}
+
+ng-template(#addDocumentMobileActionsTmpl)
+

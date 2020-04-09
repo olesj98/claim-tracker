@@ -12,7 +12,7 @@ export interface State extends EntityState<Claim> {
 
 export const adapter: EntityAdapter<Claim> = createEntityAdapter({
     sortComparer: false,
-    selectId: (claim: Claim) => claim.claimUUID
+    selectId: (claim: Claim) => claim.businessNumber
 });
 
 export const initialState: State = adapter.getInitialState({

@@ -38,10 +38,39 @@
         "YESTERDAY": "Wczoraj",
         "EMPTY": "Brak wiadomości"
     },
+    "DOCUMENTS": {
+        "SHARED_DOCUMENTS": "Dodane przez Ciebie dokumenty",
+        "STATIC_DOCUMENTS": "Zapoznaj się proszę z następującymi dokumentami",
+        "ADD": "Nowy dokument",
+        "ADD_TITLE": "Dodaj nowy dokument"
+    },
     "CLAIM_DETAILS": {
         "PATRON": "Opiekun szkody",
         "CLAIM": "Szkoda",
         "RETURN": "Powrót do listy szkód"
+    },
+    "FILE_UPLOAD": {
+        "DRAG_AND_DROP_OR": "Przeciągnij i upuść plik tutaj lub",
+        "ADD_FROM_DRIVE": "Dodaj z dysku",
+        "SELECT_TYPE": "Wybierz typ dokumentu"
+    },
+    "DOCUMENT_TYPE": {
+        "CLAIM_REPORT": "Zgłoszenie szkody",
+        "COSTS_AND_LOSSES_INCURRED": "Rachunki poniesionych kosztów i strat",
+        "POLICE_NOTE": "Notatka policji",
+        "COURT_JUDGMENT": "Wyrok sądu",
+        "POWER_OF_ATTORNEY": "Pełnomocnictwo",
+        "DEATH_CERTIFICATE": "Akt zgonu",
+        "DOCUMENT_CONFIRMING_THE_RELATIONSHIP_WITH_THE_VICTIM": "Dokument potwierdzający pokrewieństwo z poszkodowanym",
+        "FUNERAL_MEDICAL_BILLS": "Rachunki za koszty pogrzebu/leczenia",
+        "LIST_OF_DAMAGED_ITEMS": "Lista uszkodzonych rzeczy",
+        "PROOF_OF_PURCHASE_OF_DAMAGED_ITEMS": "Dowodu zakupu uszkodzonych rzeczy",
+        "COST_ESTIMATE": "Kosztorys",
+        "REGISTRATION_DOCUMENT_OF_THE_VEHICLE_TWO_PAGES": "Dowód rejestracyjny (dwie strony)",
+        "STATEMENT_FROM_THE_PLACE_OF_THE_INCIDENT": "Oświadczenie z miejsca zdarzenia",
+        "PICTURES_OF_DAMAGES": "Zdjęcia uszkodzeń",
+        "MEDICAL_DOCUMENTS": "Dokumentacja medyczna",
+        "OTHER_DOCUMENTS": "Inne dokumenty"
     },
     "FOOTER": {
         "PKOU": "Infolinia PKO Ubezpieczenia",

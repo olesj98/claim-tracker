@@ -1,15 +1,17 @@
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
-import * as fromRoot from '@pko/core/reducers';
+import { fromRoot } from '@pko/core';
 
 import * as fromClaimsList from './claims-list';
 import * as fromMessages from './messages';
 import * as fromTimeline from './timeline';
+import * as fromDocuments from './documents';
 
 export interface ClaimsState {
     claimsList: fromClaimsList.State;
     messages: fromMessages.State;
     timeline: fromTimeline.State;
+    documents: fromDocuments.State;
 }
 
 export interface State extends fromRoot.State {
@@ -19,7 +21,8 @@ export interface State extends fromRoot.State {
 export const reducers: ActionReducerMap<ClaimsState> = {
     claimsList: fromClaimsList.reducer,
     messages: fromMessages.reducer,
-    timeline: fromTimeline.reducer
+    timeline: fromTimeline.reducer,
+    documents: fromDocuments.reducer
 };
 
 export const getClaimsState = createFeatureSelector<State, ClaimsState>('claims');
@@ -41,3 +44,7 @@ export const getMessagesList = createSelector(getMessagesState, fromMessages.get
 
 export const getTimelineState = createSelector(getClaimsState, state => state.timeline);
 export const getTimelineList = createSelector(getTimelineState, fromTimeline.getAll);
+
+export const getDocumentsState = createSelector(getClaimsState, state => state.documents);
+export const getStaticDocuments = createSelector(getDocumentsState, fromDocuments.getStaticDocuments);
+export const getSharedDocuments = createSelector(getDocumentsState, fromDocuments.getSharedDocuments);

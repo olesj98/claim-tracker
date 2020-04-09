@@ -1,5 +1,9 @@
 @import 'variables';
 
+:host:focus {
+    outline: none;
+}
+
 .select {
     display: flex;
     align-items: center;
@@ -17,6 +21,22 @@
 
     &__value {
         flex: 1;
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__value-text,
+    &__placeholder {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__expand-container {
+        display: flex;
     }
 
     &__placeholder {

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { environment } from '@pko-env/environment';
-
 import { Claim } from '../models';
 
 @Injectable({ providedIn: 'root' })

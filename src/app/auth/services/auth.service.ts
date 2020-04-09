@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { environment } from '@pko-env/environment';
 import { Credentials, Signup, SignupPin, SmsVerification, User } from '../models';
 
 @Injectable({ providedIn: 'root' })

@@ -7,15 +7,12 @@
         display: flex;
         align-items: center;
 
-        &__name {
-            margin-bottom: 0.25rem;
-        }
-
         &__icon {
             margin-right: 0.75rem;
         }
 
         &__date {
+            margin-top: 0.25rem;
             font-size: 10px;
             color: $pko-gray-5;
         }

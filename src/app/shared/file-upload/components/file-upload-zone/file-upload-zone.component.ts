@@ -1,4 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { DocumentChangeEvent } from '../../models';
 
 @Component({
     selector: 'pko-file-upload-zone',
@@ -8,25 +11,30 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from 
 })
 export class FileUploadZoneComponent {
     @Input() fileFor: string;
-    @Input() multiple: boolean;
     @Input() dragDropEnabled: boolean;
+    @Input() withDocumentType: boolean;
+    @Input() documentTypes: Array<string>;
+    @Input() mobile: boolean;
 
-    @Output() selected: EventEmitter<Array<File>> = new EventEmitter<Array<File>>();
+    @Output() selected: EventEmitter<DocumentChangeEvent> = new EventEmitter<DocumentChangeEvent>();
 
-    files: Array<File> = [];
-
-    trackByFilesIndex = (index: number) => index;
+    form = new FormGroup({
+        documentType: new FormControl(null, Validators.required),
+        file: new FormControl(null, Validators.required)
+    });
 
     onFilesReceived(files: FileList): void {
-        if (this.multiple) {
-            this.files = [ ...this.files, ...Array.from(files) ];
-        } else {
-            this.selected.emit(Array.from(files));
-        }
-    }
+        this.form.get('file').setValue(files.item(0));
 
-    removeAt(index: number): void {
-        this.files.splice(index, 1);
+        /* @todo improvements */
+
+        if (this.withDocumentType) {
+            if (this.form.get('documentType').valid) {
+                this.emitSelection();
+            }
+        } else {
+            this.emitSelection();
+        }
     }
 
     onSelectedFromDrive(e: any): void {
@@ -37,9 +45,7 @@ export class FileUploadZoneComponent {
         this.onFilesReceived(fileList);
     }
 
-    submit(): void {
-        if (this.files.length) {
-            this.selected.emit(this.files);
-        }
+    emitSelection() {
+        this.selected.emit(this.form.value);
     }
 }

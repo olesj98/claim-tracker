@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { ControlsModule } from '../controls';
 
 import { FileUploadZoneComponent } from './components/file-upload-zone/file-upload-zone.component';
-import { FileComponent } from './components/file/file.component';
 import { DocumentComponent } from './components/document/document.component';
 import { DragDropDirective } from './directives/drag-drop.directive';
 
@@ -10,15 +13,16 @@ import { DragDropDirective } from './directives/drag-drop.directive';
     declarations: [
         FileUploadZoneComponent,
         DragDropDirective,
-        FileComponent,
         DocumentComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule,
+        TranslateModule,
+        ControlsModule
     ],
     exports: [
         FileUploadZoneComponent,
-        FileComponent,
         DocumentComponent
     ]
 })

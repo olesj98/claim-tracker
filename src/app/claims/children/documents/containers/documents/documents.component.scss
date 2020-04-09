@@ -1,0 +1,13 @@
+@import 'variables';
+
+.documents {
+    &__static-file::ng-deep .document__name {
+        font-size: 13px;
+        color: $pko-primary;
+    }
+
+    &__drop-zone-bg {
+        background-color: $pko-gray-1;
+        padding: 16px;
+    }
+}

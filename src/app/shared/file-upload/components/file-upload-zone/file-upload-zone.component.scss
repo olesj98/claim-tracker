@@ -26,6 +26,11 @@
         padding: 1rem;
     }
 
+    &__type-select {
+        width: 100%;
+        max-width: 340px;
+    }
+
     @include media-breakpoint-down(md) {
         &__box {
             flex-direction: column;

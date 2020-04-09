@@ -2,7 +2,7 @@
     .row(*ngIf="selectedClaim$ | async as claim")
         .col-12
             a.link.link--back(routerLink="/", translate) CLAIM_DETAILS.RETURN
-            .h5.text.text--bold.mt-4.mb-2 {{ 'CLAIM_DETAILS.CLAIM' | translate }}: {{ claim.claimUUID }}
+            .h5.text.text--bold.mt-4.mb-2 {{ 'CLAIM_DETAILS.CLAIM' | translate }}: {{ claim.businessNumber }}
             .text.text--thin.mb-md-4 {{ 'CLAIM_DETAILS.PATRON' | translate }}: {{ claim.adjusterName }}
         .col-12
             pko-nav-menu

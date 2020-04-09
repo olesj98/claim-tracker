@@ -1,10 +1,24 @@
-.row
+.documents.row
     .col-12.mb-4
-        h5.text.text--divider-bottom.mb-3 Dodane przez Ciebie dokumenty
-        pko-document(filename="Oświadczenie spisane na miejscu zdarzenia bądź notatka z policji", postDate="2020-04-06T14:33:52.597")
+        ng-container(*ngIf="staticDocuments$ | async as staticDocuments")
+            ng-container(*ngIf="staticDocuments.length")
+                .h5.text.text--divider-bottom.mb-3(translate) DOCUMENTS.SHARED_DOCUMENTS
+                pko-document.mb-2(
+                    *ngFor="let document of staticDocuments",
+                    [filename]="'DOCUMENT_TYPE.' + document.documentType | translate",
+                    [postDate]="document.createDate")
+        //.mt-4
+        //    button.btn.btn-primary(type="button", translate, (click)="addDocumentOpened = !addDocumentOpened") DOCUMENTS.ADD
+        //    .documents__drop-zone-bg.mt-4(*ngIf="addDocumentOpened")
+        //        .h5.mb-4(translate) DOCUMENTS.ADD_TITLE
+        //        pko-file-upload-zone(
+        //            [withDocumentType]="true",
+        //            [documentTypes]="documentTypes$ |async",
+        //            [mobile]="mobile$ | async",
+        //            (selected)="onDocumentDropped($event)"
+        //        )
     .col-12.mb-4
-        h5.text.text--divider-bottom.mb-3 Zapoznaj się proszę z następującymi dokumentami:
-        pko-file.d-block.mb-3(name="Ogólne Warunki Ubezpieczenia.pdf")
-        pko-file.d-block.mb-3(name="Wyłączenia z ubezpieczeń.pdf")
-        pko-file.d-block.mb-3(name="Zgoda na przetwarzanie danych osobowych.pdf")
-        pko-file.d-block(name="Informacja o administratorze danych osobowych.pdf")
+        ng-container(*ngIf="sharedDocuments$ | async as sharedDocuments")
+            ng-container(*ngIf="sharedDocuments.length")
+                .h5.text.text--divider-bottom.mb-3(translate) DOCUMENTS.STATIC_DOCUMENTS
+                pko-document.documents__static-file.mb-2(*ngFor="let document of sharedDocuments", [filename]="document.name")

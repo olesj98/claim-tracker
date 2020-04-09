@@ -1,3 +1,5 @@
+import { Link } from '@pko/core';
+
 export enum ClaimType {
     VEHICLE = 'VEHICLE',
     LUGGAGE = 'LUGGAGE',
@@ -7,10 +9,11 @@ export enum ClaimType {
 }
 
 export interface Claim {
-    claimUUID: string;
+    businessNumber: string;
     claimType: ClaimType;
     reportDate: string;
     details: string;
     adjusterName: string;
     unreadMessagesCount: number;
+    links: Array<Link>;
 }

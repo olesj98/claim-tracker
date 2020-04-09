@@ -14,9 +14,9 @@ export class MessagesEffects {
     fetch$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
             ofType(MessagesActions.enterMessengerView),
-            withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaimId))),
-            switchMap(([ action, claimUUID ]) =>
-                this._messages.getMessages(claimUUID).pipe(
+            withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
+            switchMap(([ action, claim ]) =>
+                this._messages.getMessages(claim).pipe(
                     map(messages => MessagesActions.fetchSuccess({ messages })),
                     catchError(() => of(MessagesActions.fetchSuccess({ messages: [] })))
                 )
@@ -27,9 +27,9 @@ export class MessagesEffects {
     send$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
             ofType(MessagesActions.send),
-            withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaimId))),
-            concatMap(([{ message }, claimUUID]) =>
-                this._messages.sendMessage(message, claimUUID).pipe(
+            withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
+            concatMap(([{ message }, claim]) =>
+                this._messages.sendMessage(message, claim).pipe(
                     map(response => MessagesActions.sendSuccess({ message: response })),
                     catchError(() => of(MessagesActions.sendFailure({ message })))
                 )
@@ -43,8 +43,8 @@ export class MessagesEffects {
             withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
             filter(([action, claim]) => claim.unreadMessagesCount > 0),
             switchMap(([action, claim]) =>
-                this._messages.markAllAsRead(claim.claimUUID).pipe(
-                    map(() => MessagesActions.markAllAsReadSuccess({ id: claim.claimUUID })),
+                this._messages.markAllAsRead(claim).pipe(
+                    map(() => MessagesActions.markAllAsReadSuccess({ id: claim.businessNumber })),
                     catchError(() => of(MessagesActions.markAllAsReadFailure()))
                 )
             )

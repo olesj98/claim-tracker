@@ -17,11 +17,11 @@ ng-template(
     cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop",
     [cdkConnectedOverlayOrigin]="origin",
     [cdkConnectedOverlayOpen]="panelOpen",
-    [cdkConnectedOverlayMinWidth]="triggerBoundingClientRect?.width",
+    [cdkConnectedOverlayWidth]="triggerBoundingClientRect?.width",
     [cdkConnectedOverlayPositions]="positions",
     (backdropClick)="close()",
     (detach)="close()"
 )
     .select-panel-wrapper
-        .select-panel
+        .select-panel(#panel)
             ng-content
