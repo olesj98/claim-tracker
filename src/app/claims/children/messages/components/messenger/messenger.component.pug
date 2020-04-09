@@ -1,5 +1,5 @@
 .messenger
-    .messenger__scrollable
+    .messenger__scrollable(#scrollable)
         ng-container(*ngIf="messages?.length; else emptyMessengerTmpl")
             ng-container(*ngFor="let message of messages; trackBy: trackByMessage; index as i;")
                 .messenger__announcement(*ngIf="message | isAnotherDay: messages[i - 1]")

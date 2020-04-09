@@ -44,5 +44,6 @@ export class DocumentsComponent implements OnInit {
 
     onDocumentDropped(event: DocumentChangeEvent) {
         this._store.dispatch(DocumentsActions.share({ document: event }));
+        this.addDocumentOpened = false;
     }
 }

@@ -36,7 +36,8 @@ export function reducer(state: State | undefined, action: Action) {
 
 export const {
     selectAll: getClaims,
-    selectEntities: getEntities
+    selectEntities: getEntities,
+    selectTotal: getTotal
 } = adapter.getSelectors();
 
 export const getSelectedClaimId = (state: State) => state.selectedClaimId;

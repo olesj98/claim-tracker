@@ -32,7 +32,8 @@ export const getClaimsList      = createSelector(getClaimsListState, fromClaimsL
 export const getClaimsEntities  = createSelector(getClaimsListState, fromClaimsList.getEntities);
 export const getSelectedClaimId = createSelector(getClaimsListState, fromClaimsList.getSelectedClaimId);
 export const getHasClaimsLoaded = createSelector(getClaimsListState, fromClaimsList.getHasLoaded);
-export const getClaimsPending   = createSelector(getClaimsListState, fromClaimsList.getPending);
+export const getClaimsSize = createSelector(getClaimsListState, fromClaimsList.getTotal);
+export const getHasManyClaims = createSelector(getClaimsSize, size => size > 1);
 export const getSelectedClaim   = createSelector(
     getClaimsEntities,
     getSelectedClaimId,

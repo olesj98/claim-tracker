@@ -1,10 +1,9 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Claim } from '../../models';
-import { ClaimsListActions } from '../../actions';
 
 import * as fromClaims from '../../reducers';
 
@@ -14,7 +13,7 @@ import * as fromClaims from '../../reducers';
     styleUrls: [ './claims.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ClaimsComponent implements OnInit {
+export class ClaimsComponent {
     claims$: Observable<Array<Claim>>;
 
     constructor(
@@ -22,10 +21,6 @@ export class ClaimsComponent implements OnInit {
         private _router: Router) {
 
         this.claims$ = this._store.pipe(select(fromClaims.getClaimsList));
-    }
-
-    ngOnInit(): void {
-        this._store.dispatch(ClaimsListActions.fetch());
     }
 
     onClaimSelected(id: string): void {

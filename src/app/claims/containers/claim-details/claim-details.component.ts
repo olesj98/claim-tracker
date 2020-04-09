@@ -17,6 +17,8 @@ import * as fromClaims from '../../reducers';
 })
 export class ClaimDetailsComponent implements OnInit, OnDestroy {
     selectedClaim$: Observable<Claim>;
+    hasManyClaims$: Observable<boolean>;
+
     destroyed$: Subject<void> = new Subject<void>();
 
     constructor(
@@ -24,6 +26,7 @@ export class ClaimDetailsComponent implements OnInit, OnDestroy {
         private _route: ActivatedRoute) {
 
         this.selectedClaim$ = this._store.pipe(select(fromClaims.getSelectedClaim));
+        this.hasManyClaims$ = this._store.pipe(select(fromClaims.getHasManyClaims));
     }
 
     ngOnInit() {
