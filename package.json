@@ -31,6 +31,7 @@
         "@ngx-translate/http-loader": "^4.0.0",
         "angular2-text-mask": "^9.0.0",
         "bootstrap": "^4.4.1",
+        "iban": "0.0.14",
         "ng-cli-pug-loader": "^0.2.2",
         "rxjs": "~6.5.4",
         "tslib": "^1.10.0",

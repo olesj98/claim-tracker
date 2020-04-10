@@ -1,0 +1,6 @@
+.document-success
+    .document-success__icon
+        img(src="assets/icons/green-check.svg", width="75", height="46", alt="OK")
+    .h3.mt-4.mb-3
+        ng-content
+    p.text.text--caption(*ngIf="caption") {{ caption }}

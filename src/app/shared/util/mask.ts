@@ -16,3 +16,8 @@ export class PeselMaskConfig extends BaseMaskConfig implements TextMaskConfig {
 export class PinCellMaskConfig extends BaseMaskConfig implements TextMaskConfig {
     mask = [/\d/];
 }
+
+export class IbanMaskConfig extends BaseMaskConfig implements TextMaskConfig {
+    mask = [/\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ',
+        /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
+}

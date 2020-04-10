@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'pko-document',
@@ -10,4 +10,7 @@ export class DocumentComponent {
     @Input() filename: string;
     @Input() postDate: string;
     @Input() hrefToGet: string;
+    @Input() removeable: boolean;
+
+    @Output() removed: EventEmitter<void> = new EventEmitter<void>();
 }

@@ -1,0 +1,6 @@
+.content-title
+    .h5 {{ 'TIMELINE.EVENTS.' + selectedTab.eventType | translate }}
+        ng-container([ngSwitch]="selectedTab.eventType")
+            ng-container(*ngSwitchCase="EventType.SEND_DOCUMENT") : {{ selectedTab.name }}
+            pko-document.mt-3(*ngSwitchCase="EventType.SHARED_DOCUMENT", [hrefToGet]="selectedTab.links | documentHref: DocumentLinkRel.TimelineSharedDocument", [filename]="selectedTab.name" )
+

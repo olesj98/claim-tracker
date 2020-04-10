@@ -3,5 +3,7 @@ export enum ClaimLinkRel {
     Timeline = 'claim.timeline',
     Messages = 'claim.messages',
     SharedDocuments = 'claim.sharedDocuments',
-    ClientDocuments = 'claim.clientDocuments'
+    ClientDocuments = 'claim.clientDocuments',
+    AddAccountNumber = 'timeline.add_account_number',
+    AddTimelineDocument = 'timeline.add_document'
 }

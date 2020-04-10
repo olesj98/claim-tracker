@@ -1,2 +1,6 @@
-pko-timeline-tabs([minified]="minified$ | async", *ngIf="timeline$ | async as timeline")
-    pko-timeline-tab(*ngFor="let element of timeline; index as i", [timelineItem]="element") Timeline! {{ i }}
+pko-timeline-tabs(
+    *ngIf="timeline$ | async as timeline",
+    [minified]="minified$ | async",
+    [timeline]="timeline",
+    (interactionEvent)="onEventReceived($event)"
+)

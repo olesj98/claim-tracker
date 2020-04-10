@@ -1,7 +1,8 @@
 {
     "ALL": {
         "NEXT": "Dalej",
-        "BACK": "Powrót"
+        "BACK": "Powrót",
+        "SAVE": "Zapisz"
     },
     "AUTH": {
         "SIGN_IN": "Zaloguj się",
@@ -30,7 +31,8 @@
         "VEHICLE": "Szkoda w pojeździe",
         "LUGGAGE": "Szkoda w bagażu",
         "PROPERTY": "Szkoda w mieniu",
-        "BODY_DAMAGE": "Szkoda osobowa"
+        "BODY_DAMAGE": "Szkoda osobowa",
+        "DEATH": "Szkoda osobowa"
     },
     "MESSAGES": {
         "SEND_PLACEHOLDER": "Napisz wiadomość",
@@ -56,7 +58,24 @@
         "ADD_FROM_GALLERY": "Dodaj z galerii",
         "ADD_FROM_DRIVE": "Dodaj z dysku",
         "SELECT_TYPE": "Wybierz typ dokumentu",
-        "SELECT": "Wybierz"
+        "SELECT": "Wybierz",
+        "THANK_YOU": "Dziękujemy za dodanie dokumentu",
+        "SUCCESS": "Twoje dokumenty zostały do nas poprawnie przesłane."
+    },
+    "TIMELINE": {
+        "CLOSE_CLAIM_DATE": "Podgląd twojej szkody zostanie zamknięty",
+        "SELECT_TO_PROCEED": "Wybierz zadanie lub zdarzenie po lewej stronie aby zobaczyć szczegóły",
+        "ENTER_ACCOUNT_NUMBER": "Wprowadź numer konta",
+        "ACCOUNT_NUMBER_SUCCESS": "Numer konta został do nas poprawnie przesłany",
+        "ACCOUNT_NUMBER_THANK_YOU": "Dziękujemy za dodanie numery konta",
+        "EVENTS": {
+            "BEGIN_PROCESS": "Zarejestrowano zgłoszenie szkody",
+            "SHARED_DOCUMENT": "Udostępniono dokument od Ubezpieczyciela",
+            "SCHEDULED_INSPECTION": "Zlecono oględziny",
+            "SEND_ACCOUNT_NUMBER": "Dodaj numer konta",
+            "SEND_DOCUMENT": "Dodaj dokument",
+            "END_PROCESS": "Zamknięcie podglądu szkody"
+        }
     },
     "DOCUMENT_TYPE": {
         "CLAIM_REPORT": "Zgłoszenie szkody",
@@ -83,7 +102,8 @@
     },
     "VALIDATION": {
         "REQUIRED": "Pole jest wymagane",
-        "PESEL": "Nieprawidłowy numer pesel",
-        "PIN_REPEAT": "Wprowadzone numery PIN nie pasują do siebie"
+        "PESEL": "Nieprawidłowy numer PESEL",
+        "PIN_REPEAT": "Wprowadzone numery PIN nie pasują do siebie",
+        "IBAN": "Nieprawidłowy numer IBAN"
     }
 }

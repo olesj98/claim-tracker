@@ -1,0 +1,13 @@
+@import 'variables';
+
+.timeline-body {
+    &__title {
+        color: $pko-black;
+        font-size: $pko-caption-size;
+    }
+
+    &__subtitle {
+        font-size: 10px;
+        color: $pko-gray-5;
+    }
+}

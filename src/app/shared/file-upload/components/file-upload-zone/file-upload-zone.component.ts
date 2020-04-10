@@ -5,7 +5,7 @@ import { DocumentChangeEvent } from '../../models';
 import { DOCUMENT_UPLOAD_CONFIG, DocumentUploadConfig } from '../../providers';
 
 @Component({
-    selector: 'pko-file-upload-zone',
+    selector: ' pko-file-upload-zone',
     templateUrl: './file-upload-zone.component.pug',
     styleUrls: ['./file-upload-zone.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -33,7 +33,7 @@ export class FileUploadZoneComponent {
 
     form = new FormGroup({
         documentType: new FormControl(null),
-        files: new FormArray([])
+        files: new FormArray([], Validators.required)
     });
 
     private _withDocumentType: boolean;
@@ -68,15 +68,12 @@ export class FileUploadZoneComponent {
     }
 
     onDocumentsReceived(files: FileList): void {
-        Array.from(files).forEach(file => this.files.push(new FormControl(file)));
-
-        if (this.form.valid) {
-            if (!this.multiple) {
-                this.selected.emit(this.form.value);
-            }
+        if (this.multiple) {
+            Array.from(files).forEach(file => this.files.push(new FormControl(file)));
+        } else {
+            this.files.clear();
+            this.files.push(new FormControl(files.item(0)));
         }
-
-        this._reset();
     }
 
     addFromDrive(e: any): void {
@@ -87,7 +84,11 @@ export class FileUploadZoneComponent {
         this.onDocumentsReceived(fileList);
     }
 
-    private _reset(): void {
+    submit(): void {
+        if (this.form.valid) {
+            this.selected.emit(this.form.value);
+        }
+
         this.documentType.reset();
         this.files.clear();
     }

@@ -7,6 +7,7 @@ import { ControlsModule } from '../controls';
 
 import { FileUploadZoneComponent } from './components/file-upload-zone/file-upload-zone.component';
 import { DocumentComponent } from './components/document/document.component';
+import { DocumentUploadSuccessComponent } from './components/document-upload-success/document-upload-success.component';
 import { DragDropDirective } from './directives/drag-drop.directive';
 
 import { DOCUMENT_UPLOAD_PIPES } from './pipes';
@@ -16,6 +17,7 @@ import { DOCUMENT_UPLOAD_PIPES } from './pipes';
         FileUploadZoneComponent,
         DragDropDirective,
         DocumentComponent,
+        DocumentUploadSuccessComponent,
         ...DOCUMENT_UPLOAD_PIPES
     ],
     imports: [
@@ -27,6 +29,7 @@ import { DOCUMENT_UPLOAD_PIPES } from './pipes';
     exports: [
         FileUploadZoneComponent,
         DocumentComponent,
+        DocumentUploadSuccessComponent,
         ...DOCUMENT_UPLOAD_PIPES
     ]
 })

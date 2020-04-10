@@ -1,0 +1,9 @@
+@import 'variables';
+
+.timeline-content {
+    &__empty-title {
+        max-width: 70%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}

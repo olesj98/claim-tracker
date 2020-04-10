@@ -1,22 +1,8 @@
-import {
-    Component,
-    ChangeDetectionStrategy,
-    ContentChildren,
-    QueryList,
-    Input,
-    OnDestroy,
-    ViewChild,
-    AfterContentInit,
-    ChangeDetectorRef
-} from '@angular/core';
-import { CdkPortalOutlet } from '@angular/cdk/portal';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ViewChild, TemplateRef } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
-import { BottomSheetService } from '@pko/shared/bottom-sheet';
-
-import { TimelineTabComponent } from '../timeline-tab/timeline-tab.component';
+import { BottomSheetRef, BottomSheetService } from '@pko/shared/bottom-sheet';
+import { TimelineEventType, TimelineInteractionEvent, TimelineTab } from '@pko/claims/models';
 
 @Component({
     selector: 'pko-timeline-tabs',
@@ -24,43 +10,57 @@ import { TimelineTabComponent } from '../timeline-tab/timeline-tab.component';
     styleUrls: [ './timeline-tabs.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimelineTabsComponent implements OnDestroy, AfterContentInit {
+export class TimelineTabsComponent {
+    @Input()
+    set timeline(timeline: Array<TimelineTab>) {
+        this._timeline = timeline;
+
+        if (this.selectedTab?.taskUUID && this._timeline) {
+            this.selectedTab = this._timeline
+                .find(timelineTab => timelineTab.taskUUID && timelineTab.taskUUID === this.selectedTab.taskUUID);
+        }
+    }
+    get timeline(): Array<TimelineTab> {
+        return this._timeline;
+    }
+
     @Input()
     set minified(minified: boolean) {
         this._minified = coerceBooleanProperty(minified);
+
+        if (!this._minified) {
+            this._destroyBottomSheet();
+        }
     }
     get minified(): boolean {
         return this._minified;
     }
 
-    @ContentChildren(TimelineTabComponent, { descendants: true }) allTabs: QueryList<TimelineTabComponent>;
-    @ViewChild(CdkPortalOutlet, { static: false }) private _portalOutlet: CdkPortalOutlet;
+    @Output() interactionEvent: EventEmitter<TimelineInteractionEvent<any>> = new EventEmitter<TimelineInteractionEvent<any>>();
 
-    tabActive: TimelineTabComponent = null;
-    destroyed$: Subject<void> = new Subject<void>();
+    @ViewChild('contentTmpl') contentRef: TemplateRef<any>;
 
     private _minified: boolean;
+    private _timeline: Array<TimelineTab>;
+    private _bottomSheetRef: BottomSheetRef;
 
-    constructor(
-        private _bottomSheet: BottomSheetService,
-        private _changeDetectorRef: ChangeDetectorRef) {
+    selectedTab: TimelineTab = null;
+    EventType: typeof TimelineEventType = TimelineEventType;
+
+    constructor(private _bottomSheet: BottomSheetService) { }
+
+    onTabSelected(tab: TimelineTab): void {
+        this.selectedTab = tab;
+
+        if (this.minified) {
+            this._bottomSheetRef = this._bottomSheet.open(this.contentRef);
+        }
     }
 
-    ngAfterContentInit(): void {
-        this.allTabs.changes
-            .pipe(takeUntil(this.destroyed$))
-            .subscribe(() => this._changeDetectorRef.markForCheck());
-    }
-
-    onTabSelected(tab: TimelineTabComponent): void {
-        this.tabActive = tab;
-        this._portalOutlet.detach();
-        this._portalOutlet.attachTemplatePortal(tab.content);
-    }
-
-    ngOnDestroy(): void {
-        this.destroyed$.next();
-        this.destroyed$.complete();
-        this._portalOutlet.dispose();
+    private _destroyBottomSheet(): void {
+        if (this._bottomSheetRef) {
+            this._bottomSheetRef.dismiss();
+            this._bottomSheetRef = null;
+        }
     }
 }

@@ -1,0 +1,9 @@
+.account-form([formGroup]="form")
+    .form-group
+        label(translate) TIMELINE.ENTER_ACCOUNT_NUMBER
+        input.form-control(type="text", formControlName="accountNumber", [textMask]="mask")
+        .error-messages(*ngIf="acoountNumber.invalid && acoountNumber.touched")
+            .error-messages__item(*ngIf="acoountNumber.hasError('required')", translate) VALIDATION.REQUIRED
+            .error-messages__item(*ngIf="acoountNumber.hasError('iban') && !acoountNumber.hasError('required')", translate) VALIDATION.IBAN
+    .d-flex.justify-content-end
+        button.btn.btn-primary(type="button", translate, (click)="submit()") ALL.SAVE

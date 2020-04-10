@@ -2,16 +2,17 @@
     .timeline-group__left
         .timeline-group__list
             .timeline-group__unit(
-                *ngFor="let tab of allTabs;let first = first",
-                [class.timeline-group__unit--completed]="tab.timelineItem.done",
-                [class.timeline-group__unit--active]="tabActive?.timelineItem.eventType === tab.timelineItem.eventType"
+                *ngFor="let tab of timeline; let last = last;",
+                [class.timeline-group__unit--completed]="tab.done",
+                [class.timeline-group__unit--disabled]="tab.eventType === EventType.END_PROCESS"
             )
-                .timeline-group__connector(*ngIf="!first")
-                    span.timeline-group__connection-line
                 .timeline-group__tab((click)="onTabSelected(tab)")
-                    .timeline-group__circle
-                    .timeline-group__tab-body
-                        .timeline-group__title {{ tab.timelineItem.name }}
-                        .timeline-group__description(*ngIf="tab.timelineItem.eventDate") {{ tab.timelineItem.eventDate | date: 'EEE dd.MM.yy | H.mm' }}
-    .timeline-group__content
-        ng-template(cdkPortalOutlet)
+                    span.timeline-group__circle
+                    pko-timeline-tab-body.timeline-group__body([tab]="tab")
+                .timeline-group__connector(*ngIf="!last")
+                    span.timeline-group__connection-line
+    .timeline-group__content(*ngIf="!minified")
+        ng-container(*ngTemplateOutlet="contentTmpl")
+
+ng-template(#contentTmpl)
+    pko-timeline-content([selectedTab]="selectedTab", (interactionEvent)="interactionEvent.emit($event)")

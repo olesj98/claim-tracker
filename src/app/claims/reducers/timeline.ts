@@ -1,25 +1,23 @@
-import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { TimelineItem } from '../models';
+import { TimelineTab } from '../models';
 import { TimelineActions } from '../actions';
 
-export interface State extends EntityState<TimelineItem> { }
+export interface State {
+    events: Array<TimelineTab>;
+}
 
-const adapter: EntityAdapter<TimelineItem> = createEntityAdapter({
-    sortComparer: false,
-    selectId: (item: TimelineItem) => item.eventType
-});
-
-const initialState: State = adapter.getInitialState();
+const initialState: State = {
+    events: []
+};
 
 export const timelineReducer = createReducer(
     initialState,
-    on(TimelineActions.fetchSuccess, (state, { timeline }) => adapter.setAll(timeline, state))
+    on(TimelineActions.fetchSuccess, (state, { timeline }) => ({ ...state, events: timeline }))
 );
 
 export function reducer(state: State, action: Action) {
     return timelineReducer(state, action);
 }
 
-export const { selectAll: getAll } = adapter.getSelectors();
+export const getAll = (state: State) => state.events;
