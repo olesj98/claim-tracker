@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>icon_x_96px</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Claim-Tracker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_x_96px" transform="translate(32.000000, 32.000000) rotate(-315.000000) translate(-32.000000, -32.000000) translate(-17.000000, -16.000000)" fill="#003574" fill-rule="nonzero">
+            <rect id="Rectangle" opacity="0" x="1" y="0" width="96" height="96"></rect>
+            <path d="M74.456,28.2 C71.3320012,25.0769445 66.2679988,25.0769445 63.144,28.2 L49,42.344 L34.86,28.2 C33.3596159,26.6990079 31.3242935,25.8557083 29.202,25.8557083 C27.0797065,25.8557083 25.0443841,26.6990079 23.544,28.2 L43.344,48 L23.544,67.8 C25.0443841,69.3009921 27.0797065,70.1442917 29.202,70.1442917 C31.3242935,70.1442917 33.3596159,69.3009921 34.86,67.8 L49,53.656 L63.144,67.8 C66.2679988,70.9230555 71.3320012,70.9230555 74.456,67.8 L54.656,48 L74.456,28.2 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

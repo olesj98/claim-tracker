@@ -17,6 +17,7 @@ import * as fromClaims from '@pko/claims/reducers';
 export class TimelineComponent implements OnInit {
     minified$: Observable<boolean>;
     timeline$: Observable<Array<TimelineTab>>;
+    unreadMessagesCount$: Observable<number>;
 
     constructor(
         private _trackerLayout: TrackerLayoutService,
@@ -24,6 +25,7 @@ export class TimelineComponent implements OnInit {
 
         this.minified$ = this._trackerLayout.minified$;
         this.timeline$ = this._store.pipe(select(fromClaims.getTimelineList));
+        this.unreadMessagesCount$ = this._store.pipe(select(fromClaims.getUnreadMessageCount));
     }
 
     ngOnInit() {

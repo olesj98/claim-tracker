@@ -7,7 +7,8 @@ export const appRoutes: Routes = [];
     imports: [
         RouterModule.forRoot(appRoutes, {
             useHash: true,
-            preloadingStrategy: PreloadAllModules
+            preloadingStrategy: PreloadAllModules,
+            relativeLinkResolution: 'corrected'
         })
     ],
     exports: [

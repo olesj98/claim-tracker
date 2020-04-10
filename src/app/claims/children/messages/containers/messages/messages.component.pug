@@ -1,3 +1,7 @@
 .row.messages-view
     .col-12
-        pko-messenger([messages]="messages$ | async", (sendMessage)="onSendMessage($event)")
+        pko-messenger(
+            [messages]="messages$ | async",
+            [focusMessageInput]="instantFocusRequired$ | async",
+            (sendMessage)="onSendMessage($event)"
+        )

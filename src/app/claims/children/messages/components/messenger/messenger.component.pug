@@ -8,7 +8,7 @@
                     [message]="message",
                     [squashed]="message | messageSquashed: messages[i + 1]: messages[i - 1]")
     .messenger__draft
-        pko-message-input((send)="sendMessage.emit($event)")
+        pko-message-input((send)="sendMessage.emit($event)", [focusMessageInput]="focusMessageInput")
 
 ng-template(#emptyMessengerTmpl)
     .messenger__empty

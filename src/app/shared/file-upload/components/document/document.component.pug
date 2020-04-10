@@ -1,6 +1,5 @@
 .document
     .document__icon
-        img(src="assets/icons/pdf.svg", [alt]="filename")
     .document__body
         .document__info
             a.document__name(*ngIf="hrefToGet; else fileWithNoPreviewTmpl", [href]="hrefToGet", target="_blank") {{ filename }}

@@ -1,4 +1,12 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import {
+    Component,
+    ChangeDetectionStrategy,
+    Output,
+    EventEmitter,
+    ViewChild,
+    ElementRef,
+    Input
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { DraftMessage } from '@pko/claims/models';
@@ -9,7 +17,13 @@ import { DraftMessage } from '@pko/claims/models';
     styleUrls: ['./message-input.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MessageInputComponent implements AfterViewInit {
+export class MessageInputComponent {
+    @Input() set focusMessageInput(shouldFocus: boolean) {
+        if (shouldFocus && this.inputRef) {
+            this.inputRef.nativeElement.focus();
+        }
+    }
+
     @ViewChild('inputRef', { static: true, read: ElementRef }) inputRef: ElementRef;
 
     @Output() send: EventEmitter<DraftMessage> = new EventEmitter<DraftMessage>();
@@ -17,10 +31,6 @@ export class MessageInputComponent implements AfterViewInit {
     message = new FormGroup({
         body: new FormControl(null)
     });
-
-    ngAfterViewInit(): void {
-        this.inputRef.nativeElement.focus();
-    }
 
     submit(): void {
         if (this.message.get('body').value) {

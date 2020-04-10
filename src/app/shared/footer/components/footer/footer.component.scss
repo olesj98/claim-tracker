@@ -1,14 +1,12 @@
 @import 'bootstrap/tools';
 
 .footer {
-    height: 100%;
-
     &__body {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         width: 100%;
-        padding: 0.75rem 0;
+        padding: 1.5rem 0 1rem 0;
     }
 
     @include media-breakpoint-down(sm) {

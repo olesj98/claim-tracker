@@ -4,7 +4,7 @@
     [class.last-before-squashed]="isLastBeforeSquashed",
     [class.squashed]="isSquashed")
     .message__inner
-        .message__avatar(*ngIf="!isSquashed") {{ isSelf ? 'CL' : 'AD' }}
+        .message__avatar(*ngIf="!isSquashed") {{ message.partyName | initials }}
         .message__container
             .message__cloud
                 .message__body {{ message.body }}

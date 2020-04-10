@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { CommonPipesModule } from '@pko/shared/common-pipes';
 import { MessagesRoutingModule } from './messages-routing.module';
 
 import { MessagesComponent } from './containers/messages/messages.component';
@@ -24,6 +25,7 @@ import { MessagePipes } from './pipes';
         CommonModule,
         ReactiveFormsModule,
         TranslateModule,
+        CommonPipesModule,
         MessagesRoutingModule
     ]
 })

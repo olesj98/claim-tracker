@@ -41,13 +41,36 @@
         justify-content: center;
     }
 
+    &__take-pic,
     &__add-from-drive-title {
         display: inline-flex;
+        align-items: center;
+
+        &:before {
+            content: '';
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 14px;
+            height: 14px;
+            margin-right: 0.5rem;
+            background-image: url('/assets/icons/plus.svg');
+        }
 
         &.using-gallery {
             &::before {
-                content: '';
+                width: 22px;
+                height: 22px;
+                background-image: url('/assets/icons/gallery.png');
             }
+        }
+    }
+
+    &__take-pic {
+        &:before {
+            width: 28px;
+            height: 22px;
+            background-image: url('/assets/icons/take_photo.svg');
         }
     }
 

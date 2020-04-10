@@ -18,6 +18,8 @@ import { DraftMessage, Message } from '@pko/claims/models';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MessengerComponent {
+    @Input() focusMessageInput: boolean;
+
     @Input()
     set messages(messages: Array<Message>) {
         this._messages = messages;

@@ -4,13 +4,19 @@
         p.timeline-content__description.my-3(*ngIf="selectedTab.description") {{ selectedTab.description }}
         ng-container([ngSwitch]="selectedTab.eventType")
             ng-container(*ngSwitchCase="EventType.SEND_DOCUMENT")
-                pko-file-upload-zone(*ngIf="!selectedTab.done; else documentUploadSuccessTmpl", [fileFor]="selectedTab.name", [multiple]="true", (selected)="onInteractionEvent($event)")
+                pko-file-upload-zone(
+                    *ngIf="!selectedTab.done; else documentUploadSuccessTmpl",
+                    [fileFor]="selectedTab.name",
+                    [multiple]="true",
+                    [mobile]="minified",
+                    (selected)="onInteractionEvent($event)")
             ng-container(*ngSwitchCase="EventType.SEND_ACCOUNT_NUMBER")
                 pko-timeline-iban-form(*ngIf="!selectedTab.done; else accountSentSuccessTmpl", (submitted)="onInteractionEvent($event)")
 
 ng-template(#selectContentTmpl)
-    .timeline-content__empty
+    .d-flex.align-items-center.flex-column
         .h3.timeline-content__empty-title(translate) TIMELINE.SELECT_TO_PROCEED
+        img(src="assets/icons/easel.svg", [alt]="'TIMELINE.SELECT_TO_PROCEED' | translate", height="140")
 
 ng-template(#documentUploadSuccessTmpl)
     pko-document-upload-success([caption]="'FILE_UPLOAD.SUCCESS' | translate") {{ 'FILE_UPLOAD.THANK_YOU' | translate }}

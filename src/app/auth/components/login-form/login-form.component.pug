@@ -8,7 +8,7 @@ form.signin-form([formGroup]="form", (ngSubmit)="submit()", [ngSwitch]="!phoneVe
                 .error-messages__item(*ngIf="phoneNumber.hasError('minlength')", translate) VALIDATION.REQUIRED
         .signin-form__submit-row
             .signin-form__secondary-action
-                a.signin-form__action.link(routerLink="/", translate) AUTH.RESTORE_PIN
+                a.signin-form__action.link(routerLink="/registration", translate) AUTH.RESTORE_PIN
             button.btn.btn-primary.signin-form__submit-btn(type="button", (click)="verifyPhone()", translate) ALL.NEXT
     .signin-form__step.signin__step--2(*ngSwitchDefault)
         h2.signin-form__title.mb-4(translate) AUTH.ENTER_PIN

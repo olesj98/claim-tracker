@@ -10,6 +10,7 @@ import { TimelineEventType, TimelineInteractionEvent, TimelineTab } from '@pko/c
 })
 export class TimelineContentComponent {
     @Input() selectedTab: TimelineTab;
+    @Input() minified: boolean;
 
     @Output() interactionEvent: EventEmitter<TimelineInteractionEvent<any>> = new EventEmitter<TimelineInteractionEvent<any>>();
 
