@@ -16,8 +16,6 @@ export class FileUploadZoneComponent {
     @Input() dragDropEnabled: boolean;
     @Input() documentTypes: Array<string>;
     @Input() mobile: boolean;
-    @Input() maxSize = 20 * 1024 ** 2;
-    @Input() maxTotalSize = 50 * 1024 ** 2;
     @Input()
     set withDocumentType(withType: boolean) {
         this._withDocumentType = withType;
@@ -33,7 +31,7 @@ export class FileUploadZoneComponent {
     set multiple(multiple: boolean) {
         this._multiple = multiple;
         this._multiple ?
-            this.files.setValidators(fileArraySizeValidator(this.maxTotalSize)) :
+            this.files.setValidators(fileArraySizeValidator(this._config.maxAllSize)) :
             this.files.clearValidators();
     }
     get multiple(): boolean {
@@ -88,11 +86,11 @@ export class FileUploadZoneComponent {
         if (filesArray.length) {
             if (this.multiple) {
                 filesArray.forEach(file => this.files.push(
-                    new FormControl(file, fileValidator(this._config.extensions, this.maxSize))));
+                    new FormControl(file, fileValidator(this._config.extensions, this._config.maxSize))));
             } else {
                 this.files.clear();
                 this.files.push(new FormControl(files.item(0),
-                    fileValidator(this._config.extensions, this.maxSize)));
+                    fileValidator(this._config.extensions, this._config.maxSize)));
             }
         }
     }
