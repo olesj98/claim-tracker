@@ -3,6 +3,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { DocumentChangeEvent } from '../../models';
 import { DOCUMENT_UPLOAD_CONFIG, DocumentUploadConfig } from '../../providers';
+import { fileArraySizeValidator, fileValidator } from '../../validators';
 
 @Component({
     selector: ' pko-file-upload-zone',
@@ -15,7 +16,8 @@ export class FileUploadZoneComponent {
     @Input() dragDropEnabled: boolean;
     @Input() documentTypes: Array<string>;
     @Input() mobile: boolean;
-    @Input() multiple: boolean;
+    @Input() maxSize = 20 * 1024 ** 2;
+    @Input() maxTotalSize = 50 * 1024 ** 2;
     @Input()
     set withDocumentType(withType: boolean) {
         this._withDocumentType = withType;
@@ -25,6 +27,17 @@ export class FileUploadZoneComponent {
     }
     get withDocumentType(): boolean {
         return this._withDocumentType;
+    }
+
+    @Input()
+    set multiple(multiple: boolean) {
+        this._multiple = multiple;
+        this._multiple ?
+            this.files.setValidators(fileArraySizeValidator(this.maxTotalSize)) :
+            this.files.clearValidators();
+    }
+    get multiple(): boolean {
+        return this._multiple;
     }
 
     @Output() selected: EventEmitter<DocumentChangeEvent> = new EventEmitter<DocumentChangeEvent>();
@@ -37,6 +50,7 @@ export class FileUploadZoneComponent {
     });
 
     private _withDocumentType: boolean;
+    private _multiple: boolean;
 
     get files(): FormArray {
         return this.form.get('files') as FormArray;
@@ -68,20 +82,33 @@ export class FileUploadZoneComponent {
     }
 
     onDocumentsReceived(files: FileList): void {
-        if (this.multiple) {
-            Array.from(files).forEach(file => this.files.push(new FormControl(file)));
-        } else {
-            this.files.clear();
-            this.files.push(new FormControl(files.item(0)));
+        const filesArray = Array.from(files)
+            .filter(file => !this.fileExists(file));
+
+        if (filesArray.length) {
+            if (this.multiple) {
+                filesArray.forEach(file => this.files.push(
+                    new FormControl(file, fileValidator(this._config.extensions, this.maxSize))));
+            } else {
+                this.files.clear();
+                this.files.push(new FormControl(files.item(0),
+                    fileValidator(this._config.extensions, this.maxSize)));
+            }
         }
     }
 
     addFromDrive(e: any): void {
         this.onDocumentsReceived(e.target.files);
+        e.target.value = null;
     }
 
     onDocumentsDropped(fileList: FileList): void {
         this.onDocumentsReceived(fileList);
+    }
+
+    fileExists(file: File): boolean {
+        return !!this.files.controls
+            .find(existing => existing.value.name === file.name);
     }
 
     submit(): void {
