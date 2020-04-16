@@ -35,7 +35,10 @@ export const claimsRoutes: Routes = [
             {
                 path: 'wiadomosci',
                 loadChildren: () => import('./children/messages/messages.module')
-                    .then(m => m.MessagesModule)
+                    .then(m => m.MessagesModule),
+                data: {
+                    messagesHidden: true
+                }
             }
         ]
     }

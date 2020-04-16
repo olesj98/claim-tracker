@@ -1,4 +1,4 @@
-.container
+.claim-details.container
     .row(*ngIf="selectedClaim$ | async as claim")
         .col-12
             a.link.link--back(*ngIf="hasManyClaims$ | async", routerLink="/", translate) CLAIM_DETAILS.RETURN
@@ -10,3 +10,7 @@
                 pko-nav-menu-item(path="./dokumenty") Dokumenty
                 pko-nav-menu-item(path="./wiadomosci", [badge]="claim.unreadMessagesCount") Wiadomości
             router-outlet
+    .claim-details__messages(*ngIf="messagesVisible$ | async")
+        .container
+            a.claim-details__envelope(routerLink="../wiadomosci", [queryParams]="{ focus: 'keep' }")
+                span.claim-details__message-badge(*ngIf="unreadMessagesCount$ | async as unreadMessagesCount") {{ unreadMessagesCount }}

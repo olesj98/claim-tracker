@@ -11,13 +11,11 @@ import * as fromClaims from '@pko/claims/reducers';
 @Component({
     selector: 'pko-timeline',
     templateUrl: './timeline.component.pug',
-    styleUrls: ['./timeline.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimelineComponent implements OnInit {
     minified$: Observable<boolean>;
     timeline$: Observable<Array<TimelineTab>>;
-    unreadMessagesCount$: Observable<number>;
 
     constructor(
         private _trackerLayout: TrackerLayoutService,
@@ -25,7 +23,6 @@ export class TimelineComponent implements OnInit {
 
         this.minified$ = this._trackerLayout.minified$;
         this.timeline$ = this._store.pipe(select(fromClaims.getTimelineList));
-        this.unreadMessagesCount$ = this._store.pipe(select(fromClaims.getUnreadMessageCount));
     }
 
     ngOnInit() {

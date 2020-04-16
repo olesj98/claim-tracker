@@ -4,6 +4,3 @@
         [minified]="minified$ | async",
         [timeline]="timeline",
         (interactionEvent)="onEventReceived($event)")
-    .timeline__messages
-        a.timeline__envelope(routerLink="../wiadomosci", [queryParams]="{ focus: 'keep' }")
-            span.timeline__message-badge(*ngIf="unreadMessagesCount$ | async as unreadMessagesCount") {{ unreadMessagesCount }}
