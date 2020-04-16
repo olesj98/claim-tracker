@@ -12,5 +12,5 @@
             router-outlet
     .claim-details__messages(*ngIf="messagesVisible$ | async")
         .container
-            a.claim-details__envelope(routerLink="../wiadomosci", [queryParams]="{ focus: 'keep' }")
+            a.claim-details__envelope(routerLink="./wiadomosci", [queryParams]="{ focus: 'keep' }")
                 span.claim-details__message-badge(*ngIf="unreadMessagesCount$ | async as unreadMessagesCount") {{ unreadMessagesCount }}
