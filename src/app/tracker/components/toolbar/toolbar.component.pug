@@ -3,23 +3,23 @@ header.toolbar([class.toolbar--minified]="minified")
         .toolbar__row(*ngIf="!minified; else minifiedToolbarRowTmpl", @toolbarAnimation)
             .toolbar__col-left
                 a(routerLink="/").toolbar__logo
-                    img.logo.logo--small(src="assets/pkou-logo.png", alt="PKO Ubezpieczenia")
+                    img.logo.logo--small(src="assets/pkou-logo.png", [alt]="'ALL.PKOU' | translate")
                 ul.toolbar__menu
                     li.toolbar__menu-item
-                        a.toolbar__menu-link.link(routerLink="/", routerLinkActive="toolbar__menu-link--active") Moje szkody
+                        a.toolbar__menu-link.link(routerLink="/", routerLinkActive="toolbar__menu-link--active", translate) TOOLBAR.MY_CLAIMS
                     li.toolbar__menu-item
-                        a.toolbar__menu-link.link(routerLink="/ustawienia", routerLinkActive="toolbar__menu-link--active") Ustawienia
+                        a.toolbar__menu-link.link(routerLink="/ustawienia", routerLinkActive="toolbar__menu-link--active", translate) TOOLBAR.SETTINGS
             .toolbar__col-right
                 .toolbar__user-container(*ngIf="user")
                     pko-user-menu([user]="user")
                 .toolbar__logout(role="button", (click)="logout.emit()")
-                    img(src="assets/icons/power.svg", alt="Wyloguj")
-                    .toolbar__logout-label.text.text--caption Wyloguj
+                    img(src="assets/icons/power.svg", [alt]="'TOOLBAR.LOGOUT' | translate")
+                    .toolbar__logout-label.text.text--caption(translate) TOOLBAR.LOGOUT
 
 ng-template(#minifiedToolbarRowTmpl)
     .toolbar__row.toolbar__row(@toolbarAnimation)
         pko-user-menu(*ngIf="user", [user]="user", [minified]="true")
         .toolbar__logo
-            img.logo.logo--small(src="assets/pkou-logo.png", alt="PKO Ubezpieczenia", routerLink="/")
+            img.logo.logo--small(src="assets/pkou-logo.png", [alt]="'ALL.PKOU' | translate", routerLink="/")
         .toolbar__logout(role="button", (click)="logout.emit()")
-            img(src="assets/icons/power.svg", alt="Wyloguj")
+            img(src="assets/icons/power.svg", [alt]="'TOOLBAR.LOGOUT' | translate")

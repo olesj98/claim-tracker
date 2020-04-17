@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { CommonPipesModule } from '@pko/shared/common-pipes';
 import { FooterModule } from '@pko/shared/footer';
@@ -18,6 +19,7 @@ import { TrackerRoutingModule } from './tracker-routing.module';
     ],
     imports: [
         CommonModule,
+        TranslateModule,
         CommonPipesModule,
         FooterModule,
         TrackerRoutingModule

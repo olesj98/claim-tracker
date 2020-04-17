@@ -13,7 +13,8 @@ import * as fromClaims from '../reducers';
 export class TimelineEffects {
     fetch$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
-            ofType(TimelineActions.enterTimelineView,
+            ofType(
+                TimelineActions.enterTimelineView,
                 TimelineActions.sendAccountNumberSuccess,
                 TimelineActions.sendDocumentSuccess),
             withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),

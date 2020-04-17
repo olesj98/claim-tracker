@@ -6,11 +6,10 @@
             .text.text--thin.mb-md-4 {{ 'CLAIM_DETAILS.PATRON' | translate }}: {{ claim.adjusterName }}
         .col-12
             pko-nav-menu
-                pko-nav-menu-item(path="./os-czasu") Oś czasu
-                pko-nav-menu-item(path="./dokumenty") Dokumenty
-                pko-nav-menu-item(path="./wiadomosci", [badge]="claim.unreadMessagesCount") Wiadomości
+                pko-nav-menu-item(path="./os-czasu") {{ 'CLAIM_DETAILS.TIMELINE' | translate }}
+                pko-nav-menu-item(path="./dokumenty") {{ 'CLAIM_DETAILS.DOCUMENTS' | translate }}
+                pko-nav-menu-item(path="./wiadomosci", [badge]="claim.unreadMessagesCount") {{ 'CLAIM_DETAILS.MESSAGES' | translate }}
             router-outlet
     .claim-details__messages(*ngIf="messagesVisible$ | async")
-        .container
-            a.claim-details__envelope(routerLink="./wiadomosci", [queryParams]="{ focus: 'keep' }")
-                span.claim-details__message-badge(*ngIf="unreadMessagesCount$ | async as unreadMessagesCount") {{ unreadMessagesCount }}
+        a.claim-details__envelope(routerLink="./wiadomosci", [queryParams]="{ focus: 'keep' }")
+            span.claim-details__message-badge(*ngIf="unreadMessagesCount$ | async as unreadMessagesCount") {{ unreadMessagesCount }}

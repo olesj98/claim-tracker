@@ -1,12 +1,4 @@
-import {
-    Component,
-    ChangeDetectionStrategy,
-    Input,
-    HostBinding,
-    Output,
-    EventEmitter,
-    HostListener
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 import { Claim } from '../../models';
 

@@ -2,7 +2,13 @@
     "ALL": {
         "NEXT": "Dalej",
         "BACK": "Powrót",
-        "SAVE": "Zapisz"
+        "SAVE": "Zapisz",
+        "PKOU": "PKO Ubezpieczenia"
+    },
+    "TOOLBAR": {
+        "MY_CLAIMS": "Moje szkody",
+        "SETTINGS": "Ustawienia",
+        "LOGOUT": "Wyloguj"
     },
     "AUTH": {
         "SIGN_IN": "Zaloguj się",
@@ -47,9 +53,13 @@
         "ADD_TITLE": "Dodaj nowy dokument"
     },
     "CLAIM_DETAILS": {
+        "SELECT_CLAIM": "Aby przejść dalej wybierz szkodę, która Cię interesuje",
         "PATRON": "Opiekun szkody",
         "CLAIM": "Szkoda",
-        "RETURN": "Powrót do listy szkód"
+        "RETURN": "Powrót do listy szkód",
+        "TIMELINE": "Oś czasu",
+        "DOCUMENTS": "Dokumenty",
+        "MESSAGES": "Wiadomości"
     },
     "FILE_UPLOAD": {
         "DRAG_AND_DROP_OR": "Przeciągnij i upuść plik tutaj lub",

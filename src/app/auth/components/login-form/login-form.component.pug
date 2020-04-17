@@ -1,8 +1,13 @@
-form.signin-form([formGroup]="form", (ngSubmit)="submit()", [ngSwitch]="!phoneVerified")
+.signin-form([formGroup]="form", [ngSwitch]="!phoneVerified")
     .signin-form__step.signin__step--1(*ngSwitchCase="true")
         h2.signin-form__title.mb-4(translate) AUTH.SIGN_IN
         .form-group
-            input.signin-form__phone-control.form-control(type="text", [textMask]="phoneNumberMask", [placeholder]="'AUTH.PHONE_NUMBER_PLACEHOLDER' | translate", formControlName="phoneNumber")
+            input.signin-form__phone-control.form-control(
+                type="text",
+                [textMask]="phoneNumberMask",
+                [placeholder]="'AUTH.PHONE_NUMBER_PLACEHOLDER' | translate",
+                formControlName="phoneNumber",
+                (keydown.enter)="verifyPhone()")
             .error-messages(*ngIf="phoneNumber.touched && phoneNumber.invalid")
                 .error-messages__item(*ngIf="phoneNumber.hasError('required')", translate) VALIDATION.REQUIRED
                 .error-messages__item(*ngIf="phoneNumber.hasError('minlength')", translate) VALIDATION.REQUIRED
@@ -20,4 +25,4 @@ form.signin-form([formGroup]="form", (ngSubmit)="submit()", [ngSwitch]="!phoneVe
             .signin-form__secondary-action
                 .signin-form__action.link.link--back.link--fake(role="button", (click)="restore()", translate) ALL.BACK
                 a.signin-form__action.link(routerLink="/", translate) AUTH.RESTORE_PIN
-            button.btn.btn-primary.signin-form__submit-btn(type="submit", translate) AUTH.LOG_IN
+            button.btn.btn-primary.signin-form__submit-btn(type="button", translate, (click)="submit()") AUTH.LOG_IN

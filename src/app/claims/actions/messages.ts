@@ -9,7 +9,6 @@ export const send = createAction('[Messages] Send', props<{ message: DraftMessag
 export const sendSuccess = createAction('[Messages] Send Success', props<{ message: Message }>());
 export const sendFailure = createAction('[Messages] Send Failure', props<{ message: DraftMessage }>());
 
-export const markAllAsRead = createAction('[Messages] Mark All As Read');
 export const markAllAsReadSuccess = createAction('[Messages] Mark All As Read Success', props<{ id: string }>());
 export const markAllAsReadFailure = createAction('[Messages] Mark All As Read Failure');
 

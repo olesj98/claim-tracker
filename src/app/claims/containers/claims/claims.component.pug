@@ -1,3 +1,3 @@
 .container
-    h5.text.text--bold.mb-3.mb-md-4 Aby przejść dalej wybierz szkodę, która Cię interesuje:
+    h5.text.text--bold.mb-3.mb-md-4 {{ 'CLAIM_DETAILS.SELECT_CLAIM' | translate }}:
     pko-claims-list([claims]="claims$ | async", (selected)="onClaimSelected($event)")
