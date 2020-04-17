@@ -33,6 +33,10 @@ export class MessageInputComponent {
 
     onQuillCreated(quill: Quill): void {
         this._quill = quill;
+
+        if (this.focusMessageInput) {
+            this._quill.focus();
+        }
     }
 
     isMessageEmpty(): boolean {
