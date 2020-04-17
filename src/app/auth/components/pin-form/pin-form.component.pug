@@ -6,7 +6,7 @@ form.pin-form([formGroup]="form")
         .pin-form__pin-container
             h2.mb-4(translate) AUTH.REPEAT_PIN
             .form-group.pin-form__pin
-                pko-pin(formControlName="pinConfirm")
+                pko-pin(formControlName="pinConfirm", [initialFocus]="true")
                 .error-messages.mt-3(*ngIf="form.get('pinConfirm').touched || form.get('pinConfirm').invalid")
                     .error-messages__item(*ngIf="form.get('pinConfirm').hasError('pinCompare')", translate) VALIDATION.PIN_REPEAT
     .pin-form__submit

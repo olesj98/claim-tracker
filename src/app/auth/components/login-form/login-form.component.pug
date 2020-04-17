@@ -13,7 +13,7 @@ form.signin-form([formGroup]="form", (ngSubmit)="submit()", [ngSwitch]="!phoneVe
     .signin-form__step.signin__step--2(*ngSwitchDefault)
         h2.signin-form__title.mb-4(translate) AUTH.ENTER_PIN
         .form-group
-            pko-pin(formControlName="pin", size="m")
+            pko-pin(formControlName="pin", size="m", [initialFocus]="true")
             .error-messages(*ngIf="error")
                 .error-messages__item {{ error.message }}
         .signin-form__submit-row

@@ -30,10 +30,11 @@ export class PinComponent implements ControlValueAccessor, OnInit, AfterViewInit
     set size(size: 's' | 'm' | string) {
         this._size = `size-${(size || 's')}`;
     }
-
     get size(): string {
         return this._size;
     }
+
+    @Input() initialFocus: boolean;
 
     @ViewChildren(PinCellComponent) cells: QueryList<PinCellComponent>;
 
@@ -65,6 +66,10 @@ export class PinComponent implements ControlValueAccessor, OnInit, AfterViewInit
     }
 
     ngAfterViewInit(): void {
+        if (this.initialFocus) {
+            this.cells.first.focus();
+        }
+
         this._getCellToFocus()
             .pipe(takeUntil(this.destroyed$))
             .subscribe(cell => cell?.focus());

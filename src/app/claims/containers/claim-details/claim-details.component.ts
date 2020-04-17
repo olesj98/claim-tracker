@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { filter, map, startWith, takeUntil, tap } from 'rxjs/operators';
+import { filter, map, startWith, takeUntil } from 'rxjs/operators';
 
 import { Claim } from '../../models';
 import { ClaimsListActions } from '../../actions';
