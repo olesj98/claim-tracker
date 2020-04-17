@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 
 import { UserInitialsPipe } from './user-initials.pipe';
+import { SanitazerPipe } from './sanitazer.pipe';
 
 @NgModule({
     declarations: [
-        UserInitialsPipe
+        UserInitialsPipe,
+        SanitazerPipe
     ],
     exports: [
-        UserInitialsPipe
+        UserInitialsPipe,
+        SanitazerPipe
     ]
 })
 export class CommonPipesModule { }

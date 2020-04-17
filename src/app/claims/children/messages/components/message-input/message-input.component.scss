@@ -2,25 +2,42 @@
 
 .message-input {
     display: flex;
+    align-items: center;
 
     &__send {
         min-width: 128px;
     }
 
+    &__quill {
+        position: relative;
+        width: 100%;
+        margin-right: 1.5rem;
+    }
+
+    &__toolbar {
+        display: flex;
+        align-items: center;
+        border: none;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        z-index: 1;
+    }
+
     &__control {
-        margin-right: 1.75rem;
+        padding-right: 114px;
     }
 
     @include media-breakpoint-down(sm) {
         flex-direction: column;
 
+        &__quill {
+            margin: 0 0 1.5rem 0;
+        }
+
         &__send {
             height: 48px;
             min-width: 100%;
-        }
-
-        &__control {
-            margin: 0 0 1.5rem 0;
         }
     }
 }

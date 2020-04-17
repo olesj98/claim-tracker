@@ -1,0 +1,36 @@
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
+.ql-container {
+    font-family: $pko-root-font;
+    font-size: rem($pko-font-size, $pko-root-size);
+
+    &.ql-snow {
+        border: 1px solid $pko-control-border-color;
+        border-radius: $pko-border-radius;
+    }
+}
+
+.ql-toolbar.ql-snow + .ql-container.ql-snow.persistent-border-top {
+    border-top: 1px solid $pko-control-border-color;
+}
+
+.message-editor {
+    background: $pko-white;
+
+    .ql-editor {
+        padding: 9px 129px 9px 15px;
+        max-height: 100px;
+        min-height: 40px;
+    }
+}
+
+.ql-snow.ql-toolbar button.ql-active {
+    color: $pko-primary;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke {
+    stroke: $pko-primary;
+}

@@ -7,5 +7,5 @@
         .message__avatar(*ngIf="!isSquashed") {{ message.partyName | initials }}
         .message__container
             .message__cloud
-                .message__body {{ message.body }}
+                .message__body([innerHTML]="message.body | sanitizer")
             span.message__time(*ngIf="!isSquashed") {{ message.postDate | date: 'HH:mm' }}

@@ -1,15 +1,11 @@
-import {
-    Component,
-    ChangeDetectionStrategy,
-    Output,
-    EventEmitter,
-    ViewChild,
-    ElementRef,
-    Input
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
+import * as Quill from 'quill';
+
 import { DraftMessage } from '@pko/claims/models';
+
+replaceTags();
 
 @Component({
     selector: 'pko-message-input',
@@ -18,13 +14,7 @@ import { DraftMessage } from '@pko/claims/models';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MessageInputComponent {
-    @Input() set focusMessageInput(shouldFocus: boolean) {
-        if (shouldFocus && this.inputRef) {
-            this.inputRef.nativeElement.focus();
-        }
-    }
-
-    @ViewChild('inputRef', { static: true, read: ElementRef }) inputRef: ElementRef;
+    @Input() focusMessageInput: boolean;
 
     @Output() send: EventEmitter<DraftMessage> = new EventEmitter<DraftMessage>();
 
@@ -32,10 +22,31 @@ export class MessageInputComponent {
         body: new FormControl(null)
     });
 
+    private _quill: Quill;
+
     submit(): void {
-        if (this.message.get('body').value) {
+        if (!this.isMessageEmpty()) {
             this.send.emit(this.message.value);
             this.message.reset();
         }
     }
+
+    onQuillCreated(quill: Quill): void {
+        this._quill = quill;
+    }
+
+    isMessageEmpty(): boolean {
+        return this._quill && !this._quill.getText().trim().length;
+    }
+}
+
+function replaceTags() {
+    const bold = Quill.import('formats/bold');
+    const italic = Quill.import('formats/italic');
+
+    bold.tagName = 'b';
+    Quill.register(bold, true);
+
+    italic.tagName = 'i';
+    Quill.register(italic, true);
 }

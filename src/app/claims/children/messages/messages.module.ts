@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { QuillModule } from 'ngx-quill';
 
 import { CommonPipesModule } from '@pko/shared/common-pipes';
 import { MessagesRoutingModule } from './messages-routing.module';
@@ -25,6 +26,14 @@ import { MessagePipes } from './pipes';
         CommonModule,
         ReactiveFormsModule,
         TranslateModule,
+        QuillModule.forRoot({
+            format: 'html',
+            modules: {
+                toolbar: [
+                    [ 'bold', 'underline', 'italic' ]
+                ]
+            }
+        }),
         CommonPipesModule,
         MessagesRoutingModule
     ]

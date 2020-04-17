@@ -39,11 +39,12 @@ import { AppComponent } from './app.component';
             maxAge: 25,
             logOnly: environment.production
         }),
+        ServiceWorkerModule
+            .register('ngsw-worker.js', { enabled: environment.production }),
         CoreModule,
         AuthModule,
         TrackerModule,
         AppRoutingModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     bootstrap: [
         AppComponent

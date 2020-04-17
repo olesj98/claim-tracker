@@ -1,11 +1,14 @@
 .message-input([formGroup]="message")
-    input.message-input__control.form-control(
-        type="text",
-        spellcheck="false",
-        autocomplete="off",
-        formControlName="body",
-        [placeholder]="'MESSAGES.SEND_PLACEHOLDER' | translate",
-        #inputRef,
-        (keydown.enter)="submit()"
-    )
+    .message-input__quill
+        quill-editor(
+            formControlName="body",
+            format="html",
+            [placeholder]="'MESSAGES.SEND_PLACEHOLDER' | translate",
+            classes="persistent-border-top message-editor",
+            (onEditorCreated)="onQuillCreated($event)")
+            .message-input__toolbar(quill-editor-toolbar)
+                span.message-input__formats.ql-formats
+                    button.message-input__format.message-input__format--bold.ql-bold
+                    button.message-input__format.message-input__format--underline.ql-underline
+                    button.message-input__format.message-input__format--italic.ql-italic I
     button.message-input__send.btn.btn-primary(type="button", (click)="submit()", translate) MESSAGES.SEND
