@@ -5,13 +5,11 @@ import { TextMaskModule } from 'angular2-text-mask';
 
 import { SelectModule } from '@pko/shared/select';
 
-import { TextareaComponent } from './components/textarea/textarea.component';
 import { PinComponent } from './components/pin/pin.component';
 import { PinCellComponent } from './components/pin-cell/pin-cell.component';
 
 @NgModule({
     declarations: [
-        TextareaComponent,
         PinComponent,
         PinCellComponent
     ],
@@ -22,7 +20,6 @@ import { PinCellComponent } from './components/pin-cell/pin-cell.component';
         TextMaskModule
     ],
     exports: [
-        TextareaComponent,
         PinComponent,
         SelectModule
     ]
