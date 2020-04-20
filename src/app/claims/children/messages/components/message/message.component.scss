@@ -4,6 +4,7 @@
 $pko-message-cloud-margin: 12px;
 $pko-message-author-size: 32px;
 $pko-message-border-radius: 10px;
+$pko-message-self-bg: #5991DD;
 
 .message {
     display: flex;
@@ -13,9 +14,9 @@ $pko-message-border-radius: 10px;
     }
 
     &.self &__cloud {
-        background: $pko-primary;
+        background: $pko-message-self-bg;
         color: $pko-white;
-        border-color: $pko-primary;
+        border-color: $pko-message-self-bg;
         border-radius: $pko-message-border-radius $pko-message-border-radius 0 $pko-message-border-radius;
     }
 
