@@ -12,12 +12,13 @@
     &__icon {
         margin-right: 0.75rem;
         background: url('assets/icons/file.svg') no-repeat;
-        background-size: 100%;
+        background-size: 36px;
         width: 36px;
         height: 36px;
     }
 
     &__body {
+        flex: 1;
         display: flex;
         justify-content: space-between;
         align-items: center;
