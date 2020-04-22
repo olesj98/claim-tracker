@@ -1,6 +1,6 @@
 .timeline-content
     .timeline-content__selection(*ngIf="isSelected; else selectContentTmpl")
-        pko-timeline-content-title([selectedTab]="selectedTab")
+        pko-timeline-content-title([selectedTab]="selectedTab", [closable]="minified", (dismiss)="dismiss.emit()")
         p.timeline-content__description.my-3(*ngIf="selectedTab.description") {{ selectedTab.description }}
         ng-container([ngSwitch]="selectedTab.eventType")
             ng-container(*ngSwitchCase="EventType.SEND_DOCUMENT")
@@ -10,6 +10,10 @@
                     [multiple]="true",
                     [mobile]="minified",
                     (selected)="onInteractionEvent($event)")
+            ng-container(*ngSwitchCase="EventType.SHARED_DOCUMENT")
+                pko-document.mt-3(
+                    [hrefToGet]="selectedTab.links | documentHref: DocumentLinkRel.TimelineSharedDocument",
+                    [filename]="selectedTab.name")
             ng-container(*ngSwitchCase="EventType.SEND_ACCOUNT_NUMBER")
                 pko-timeline-iban-form(*ngIf="!selectedTab.done; else accountSentSuccessTmpl", (submitted)="onInteractionEvent($event)")
 

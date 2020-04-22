@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
-import { TimelineEventType, DocumentLinkRel, TimelineTab } from '@pko/claims/models';
+import { TimelineEventType, TimelineTab } from '@pko/claims/models';
 
 @Component({
     selector: 'pko-timeline-content-title',
@@ -10,7 +10,9 @@ import { TimelineEventType, DocumentLinkRel, TimelineTab } from '@pko/claims/mod
 })
 export class TimelineContentTitleComponent {
     @Input() selectedTab: TimelineTab;
+    @Input() closable: boolean;
+
+    @Output() dismiss: EventEmitter<void> = new EventEmitter<void>();
 
     EventType: typeof TimelineEventType = TimelineEventType;
-    DocumentLinkRel: typeof DocumentLinkRel = DocumentLinkRel;
 }

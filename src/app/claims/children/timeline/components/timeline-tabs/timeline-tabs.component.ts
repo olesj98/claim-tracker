@@ -29,7 +29,7 @@ export class TimelineTabsComponent {
         this._minified = coerceBooleanProperty(minified);
 
         if (!this._minified) {
-            this._destroyBottomSheet();
+            this.destroyBottomSheet();
         }
     }
     get minified(): boolean {
@@ -57,7 +57,7 @@ export class TimelineTabsComponent {
         }
     }
 
-    private _destroyBottomSheet(): void {
+    destroyBottomSheet(): void {
         if (this._bottomSheetRef) {
             this._bottomSheetRef.dismiss();
             this._bottomSheetRef = null;

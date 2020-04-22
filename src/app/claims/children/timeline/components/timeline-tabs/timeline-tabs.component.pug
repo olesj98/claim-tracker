@@ -15,4 +15,8 @@
         ng-container(*ngTemplateOutlet="contentTmpl")
 
 ng-template(#contentTmpl)
-    pko-timeline-content([selectedTab]="selectedTab", [minified]="minified", (interactionEvent)="interactionEvent.emit($event)")
+    pko-timeline-content(
+        [selectedTab]="selectedTab",
+        [minified]="minified",
+        (dismiss)="destroyBottomSheet()",
+        (interactionEvent)="interactionEvent.emit($event)")
