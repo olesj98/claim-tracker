@@ -4,7 +4,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { HttpError } from '@pko/core';
+import { HttpError, HttpErrorCodes } from '@pko/core';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -16,15 +16,8 @@ export class ErrorInterceptor implements HttpInterceptor {
                 if (error instanceof HttpErrorResponse) {
                     const response: HttpError = error.error;
 
-                    if (response?.type !== 'AUTH') {
-                        switch (error.status) {
-                            case 401: {
-                                this._router.navigate(['/login']);
-                                break;
-                            }
-                            default:
-                                break;
-                        }
+                    if (response?.code === HttpErrorCodes.FORBIDDEN) {
+                        this._router.navigate(['/login']);
                     }
                 }
 

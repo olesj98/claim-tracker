@@ -5,11 +5,11 @@
     position: relative;
 
     &__messages {
-        position: absolute;
-        top: calc(100% - 74px);
-        right: 0;
         display: flex;
         justify-content: flex-end;
+        position: fixed;
+        right: 5%;
+        bottom: 74px;
     }
 
     &__envelope {
@@ -45,13 +45,5 @@
         font-size: 11px;
         color: $pko-white;
         border: 1px solid $pko-white;
-    }
-
-    @include media-breakpoint-down(md) {
-        &__messages {
-            position: fixed;
-            right: 15px;
-            top: calc(100% - 74px - 65px);
-        }
     }
 }
