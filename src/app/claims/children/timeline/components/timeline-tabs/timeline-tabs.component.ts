@@ -40,12 +40,12 @@ export class TimelineTabsComponent {
 
     @ViewChild('contentTmpl') contentRef: TemplateRef<any>;
 
+    selectedTab: TimelineTab = null;
+    EventType: typeof TimelineEventType = TimelineEventType;
+
     private _minified: boolean;
     private _timeline: Array<TimelineTab>;
     private _bottomSheetRef: BottomSheetRef;
-
-    selectedTab: TimelineTab = null;
-    EventType: typeof TimelineEventType = TimelineEventType;
 
     constructor(private _bottomSheet: BottomSheetService) { }
 
