@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { CommonPipesModule } from '@pko/shared/common-pipes';
@@ -19,6 +20,7 @@ import { TrackerRoutingModule } from './tracker-routing.module';
     ],
     imports: [
         CommonModule,
+        OverlayModule,
         TranslateModule,
         CommonPipesModule,
         FooterModule,

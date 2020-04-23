@@ -1,3 +1,14 @@
-.user-menu
-    .user-menu__icon {{ user.name | initials }}
+.user-menu(cdk-overlay-origin, #origin="cdkOverlayOrigin")
+    .user-menu__icon((click)="openContextTip()") {{ user.name | initials }}
     .user-menu__name(*ngIf="!minified") {{ user.name }}
+
+ng-template(
+    cdk-connected-overlay,
+    cdkConnectedOverlayLockPosition,
+    cdkConnectedOverlayHasBackdrop,
+    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop",
+    cdkConnectedOverlayPanelClass="mt-2",
+    [cdkConnectedOverlayOrigin]="origin",
+    [cdkConnectedOverlayOpen]="tooltipShowing",
+    (backdropClick)="closeContextTip()")
+    .user-menu__tooltip.m-0(@userTooltip) {{ user.name }}
