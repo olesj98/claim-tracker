@@ -7,8 +7,6 @@ header.toolbar([class.toolbar--minified]="minified")
                 ul.toolbar__menu
                     li.toolbar__menu-item
                         a.toolbar__menu-link.link(routerLink="/", routerLinkActive="toolbar__menu-link--active", translate) TOOLBAR.MY_CLAIMS
-                    li.toolbar__menu-item
-                        a.toolbar__menu-link.link(routerLink="/ustawienia", routerLinkActive="toolbar__menu-link--active", translate) TOOLBAR.SETTINGS
             .toolbar__col-right
                 .toolbar__user-container(*ngIf="user")
                     pko-user-menu([user]="user")
