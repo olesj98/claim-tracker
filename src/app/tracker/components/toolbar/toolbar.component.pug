@@ -11,7 +11,7 @@ header.toolbar([class.toolbar--minified]="minified")
                 .toolbar__user-container(*ngIf="user")
                     pko-user-menu([user]="user")
                 .toolbar__logout(role="button", (click)="logout.emit()")
-                    img(src="assets/icons/power.svg", [alt]="'TOOLBAR.LOGOUT' | translate")
+                    svg-icon(src="assets/icons/power.svg")
                     .toolbar__logout-label.text.text--caption(translate) TOOLBAR.LOGOUT
 
 ng-template(#minifiedToolbarRowTmpl)
@@ -20,4 +20,4 @@ ng-template(#minifiedToolbarRowTmpl)
         .toolbar__logo
             img.logo.logo--small(src="assets/pkou-logo.png", [alt]="'ALL.PKOU' | translate", routerLink="/")
         .toolbar__logout(role="button", (click)="logout.emit()")
-            img(src="assets/icons/power.svg", [alt]="'TOOLBAR.LOGOUT' | translate")
+            svg-icon(src="assets/icons/power.svg")

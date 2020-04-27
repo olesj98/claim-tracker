@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { TranslateModule } from '@ngx-translate/core';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { CommonPipesModule } from '@pko/shared/common-pipes';
 import { FooterModule } from '@pko/shared/footer';
@@ -22,6 +23,7 @@ import { TrackerRoutingModule } from './tracker-routing.module';
         CommonModule,
         OverlayModule,
         TranslateModule,
+        AngularSvgIconModule,
         CommonPipesModule,
         FooterModule,
         TrackerRoutingModule

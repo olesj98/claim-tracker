@@ -21,14 +21,6 @@
         height: 74px;
         background: $pko-primary;
         border-radius: 50%;
-
-        &:before {
-            content: '';
-            background: url("assets/icons/envelope.svg") no-repeat;
-            background-size: 100%;
-            width: 37px;
-            height: 29px;
-        }
     }
 
     &__message-badge {

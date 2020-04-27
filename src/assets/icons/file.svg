@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96"><defs><style>.a,.b{fill:#003574;}.b{opacity:0;}</style></defs><g transform="translate(-997 -2046.013)"><path class="a" d="M-175.93,92h-30.844v56h46.024V107.172Zm1.172,6.828,7.176,7.172h-7.176ZM-202.774,144V96h24.016v14h14.008v34Zm8.308-26h-4.284a4.149,4.149,0,0,1,4.284-4h25.712v4Zm0,8h-4.284a4.149,4.149,0,0,1,4.284-4h25.712v4Zm14.136,8a3.926,3.926,0,0,1,3.852-4h7.7v4Zm-30.42,18h38v4h-42V102h4Z" transform="translate(1232.75 1970.013)"/><rect class="b" width="96" height="96" transform="translate(997 2046.013)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+    <defs>
+        <style>.svg-icon_file-a, .svg-icon_file-b {
+            fill: #003574;
+        }
+
+        .svg-icon_file-b {
+            opacity: 0;
+        }</style>
+    </defs>
+    <g transform="translate(-997 -2046.013)">
+        <path class="svg-icon_file-a"
+              d="M-175.93,92h-30.844v56h46.024V107.172Zm1.172,6.828,7.176,7.172h-7.176ZM-202.774,144V96h24.016v14h14.008v34Zm8.308-26h-4.284a4.149,4.149,0,0,1,4.284-4h25.712v4Zm0,8h-4.284a4.149,4.149,0,0,1,4.284-4h25.712v4Zm14.136,8a3.926,3.926,0,0,1,3.852-4h7.7v4Zm-30.42,18h38v4h-42V102h4Z"
+              transform="translate(1232.75 1970.013)"/>
+        <rect class="svg-icon_file-b" width="96" height="96" transform="translate(997 2046.013)"/>
+    </g>
+</svg>

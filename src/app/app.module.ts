@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -26,6 +27,7 @@ import { AppComponent } from './app.component';
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        AngularSvgIconModule.forRoot(),
         StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
             runtimeChecks: {
                 strictStateSerializability: true,

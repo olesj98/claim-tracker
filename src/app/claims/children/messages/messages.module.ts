@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { QuillModule } from 'ngx-quill';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { CommonPipesModule } from '@pko/shared/common-pipes';
 import { MessagesRoutingModule } from './messages-routing.module';
@@ -25,6 +26,7 @@ import { MessagePipes } from './pipes';
     imports: [
         CommonModule,
         ReactiveFormsModule,
+        AngularSvgIconModule,
         TranslateModule,
         QuillModule.forRoot({
             format: 'html',

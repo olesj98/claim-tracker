@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { TextMaskModule } from 'angular2-text-mask';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { BottomSheetModule } from '@pko/shared/bottom-sheet';
 import { FileUploadModule } from '@pko/shared/file-upload';
@@ -28,6 +29,7 @@ import { TimelineIbanFormComponent } from './components/timeline-iban-form/timel
     imports: [
         CommonModule,
         ReactiveFormsModule,
+        AngularSvgIconModule,
         TextMaskModule,
         TranslateModule,
         FileUploadModule,

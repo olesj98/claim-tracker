@@ -1,11 +1,12 @@
 .document
     .document__icon
+        svg-icon(src="assets/icons/file.svg", [svgStyle]="{ 'width.px': '36', 'height.px': '36' }" )
     .document__body
         .document__info
             a.document__name(*ngIf="hrefToGet; else fileWithNoPreviewTmpl", [href]="hrefToGet", target="_blank") {{ filename }}
             .document__date(*ngIf="postDate") {{ postDate | date: 'EEE dd.MM.yy | H:mm' }}
         .document__remove(*ngIf="removeable", role="button", (click)="removed.emit()")
-            img(src="assets/icons/trash.svg")
+            svg-icon(src="assets/icons/trash.svg")
 
 ng-template(#fileWithNoPreviewTmpl)
     .document__name {{ filename }}

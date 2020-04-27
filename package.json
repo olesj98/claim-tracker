@@ -29,6 +29,7 @@
         "@ngrx/store-devtools": "^9.0.0",
         "@ngx-translate/core": "^12.1.2",
         "@ngx-translate/http-loader": "^4.0.0",
+        "angular-svg-icon": "^9.2.0",
         "angular2-text-mask": "^9.0.0",
         "bootstrap": "^4.4.1",
         "iban": "0.0.14",

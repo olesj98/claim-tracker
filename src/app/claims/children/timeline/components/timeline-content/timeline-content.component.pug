@@ -20,7 +20,7 @@
 ng-template(#selectContentTmpl)
     .d-flex.align-items-center.flex-column
         .h3.timeline-content__empty-title(translate) TIMELINE.SELECT_TO_PROCEED
-        img(src="assets/icons/easel.svg", [alt]="'TIMELINE.SELECT_TO_PROCEED' | translate", height="140")
+        svg-icon(src="assets/icons/easel.svg", [svgStyle]="{ 'height.px': '140', 'width.px': '140' }")
 
 ng-template(#documentUploadSuccessTmpl)
     pko-document-upload-success([caption]="'FILE_UPLOAD.SUCCESS' | translate") {{ 'FILE_UPLOAD.THANK_YOU' | translate }}

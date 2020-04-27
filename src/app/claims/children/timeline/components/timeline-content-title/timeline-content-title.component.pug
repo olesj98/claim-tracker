@@ -3,4 +3,5 @@
         ng-container([ngSwitch]="selectedTab.eventType")
             ng-container(*ngSwitchCase="EventType.SEND_DOCUMENT") : {{ selectedTab.name }}
     .content-title__dismiss(*ngIf="closable", (click)="dismiss.emit()")
+        svg-icon(src="assets/icons/close.svg", [svgStyle]="{ 'width.px': '16', 'height.px': '16' }")
 

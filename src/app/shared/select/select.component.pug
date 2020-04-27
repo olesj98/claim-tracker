@@ -9,7 +9,7 @@
         .select__placeholder(*ngSwitchCase="true") {{ placeholder || '' }}
         .select__value-text(*ngSwitchDefault) {{ selectedOptionLabel }}
     .select__expand-container
-        img.select__expand(src="assets/icons/expand.svg", alt="Expand")
+        svg-icon.select__expand(src="assets/icons/expand.svg")
 ng-template(
     cdk-connected-overlay,
     cdkConnectedOverlayLockPosition,

@@ -4,6 +4,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { TextMaskModule } from 'angular2-text-mask';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -48,6 +49,7 @@ import { reducers } from './reducers';
         CommonModule,
         ReactiveFormsModule,
         TranslateModule,
+        AngularSvgIconModule,
         TextMaskModule,
         StoreModule.forFeature('auth', reducers),
         EffectsModule.forFeature(AUTH_EFFECTS),

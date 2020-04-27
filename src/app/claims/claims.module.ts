@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { TranslateModule } from '@ngx-translate/core';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { NavigationModule } from '../shared/navigation';
 import { ClaimsRoutingModule } from './claims-routing.module';
@@ -31,6 +32,7 @@ import { reducers } from './reducers';
             TimelineEffects,
             DocumentsEffects
         ]),
+        AngularSvgIconModule,
         TranslateModule,
         NavigationModule,
         ClaimsRoutingModule

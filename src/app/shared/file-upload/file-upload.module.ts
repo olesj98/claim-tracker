@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { ControlsModule } from '../controls';
 
@@ -23,6 +24,7 @@ import { DOCUMENT_UPLOAD_PIPES } from './pipes';
     imports: [
         CommonModule,
         ReactiveFormsModule,
+        AngularSvgIconModule,
         TranslateModule,
         ControlsModule
     ],

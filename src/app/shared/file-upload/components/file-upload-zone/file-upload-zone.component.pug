@@ -3,8 +3,15 @@
         .file-zone__info
             .text.text--regular.file-zone__title.mb-3 {{ addDocumentTitle | translate }}
             label.btn.btn-light.file-zone__add-from-drive([for]="fileFor")
+                ng-container([ngSwitch]="mobile")
+                    svg-icon(
+                        *ngSwitchCase="true",
+                        src="assets/icons/easel.svg",
+                        [svgStyle]="{ 'width.px': '28', 'height.px': '28', 'fill': '#003574' }")
+                    svg-icon(*ngSwitchDefault, src="assets/icons/plus.svg", [svgStyle]="{ 'width.px': '16', 'height.px': '16' }")
                 span.file-zone__add-from-drive-title([class.using-gallery]="mobile") {{ addDocumentActionTitle | translate }}
             label.btn.btn-light(*ngIf="mobile", [for]="fileFor + '_capture'")
+                svg-icon(src="assets/icons/take_photo.svg", [svgStyle]="{ 'width.px': '28', 'height.px': '28' }")
                 span.file-zone__take-pic(translate) FILE_UPLOAD.TAKE_PHOTO
             ng-container(*ngIf="!mobile")
                 ng-container(*ngTemplateOutlet="fileTypeSelectTmpl")

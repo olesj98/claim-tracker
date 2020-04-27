@@ -4,7 +4,10 @@
     [class.last-before-squashed]="isLastBeforeSquashed",
     [class.squashed]="isSquashed")
     .message__inner
-        .message__avatar(*ngIf="!isSquashed") {{ message.partyName | initials }}
+        .message__avatar(*ngIf="!isSquashed", [ngSwitch]="isSelf")
+            ng-container(*ngSwitchCase="true")
+                svg-icon(src="assets/icons/avatar.svg", [svgStyle]="{ 'width.px': '24', 'height.px': '24' }" )
+            ng-container(*ngSwitchCase="false") {{ message.partyName | initials }}
         .message__container
             .message__cloud
                 .message__body([innerHTML]="message.body | sanitizer")

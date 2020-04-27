@@ -12,4 +12,5 @@
             router-outlet
     .claim-details__messages(*ngIf="messagesVisible$ | async")
         a.claim-details__envelope(routerLink="./wiadomosci", [queryParams]="{ focus: 'keep' }")
+            svg-icon(src="assets/icons/envelope.svg", [svgStyle]="{ 'width.px': '37', 'height.px': '29' }" )
             span.claim-details__message-badge(*ngIf="unreadMessagesCount$ | async as unreadMessagesCount") {{ unreadMessagesCount }}
