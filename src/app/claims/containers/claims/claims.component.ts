@@ -10,7 +10,6 @@ import * as fromClaims from '../../reducers';
 @Component({
     selector: 'pko-claims',
     templateUrl: './claims.component.pug',
-    styleUrls: [ './claims.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClaimsComponent {

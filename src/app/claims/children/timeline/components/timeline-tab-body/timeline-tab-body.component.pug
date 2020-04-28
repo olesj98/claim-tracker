@@ -1,6 +1,6 @@
 .timeline-body
     .timeline-body__title {{ 'TIMELINE.EVENTS.' + tab.eventType | translate }}
-        span(*ngIf="tab.name") : {{ tab.name }}
+        ng-container(*ngIf="tab.name") : {{ tab.name }}
     .timeline-body__subtitle(*ngIf="tab.eventDate", [ngSwitch]="tab.eventType")
         ng-container(*ngSwitchCase="EventType.END_PROCESS")
             span {{ 'TIMELINE.CLOSE_CLAIM_DATE' | translate }} {{ tab.eventDate | date: tabDateFormat }}

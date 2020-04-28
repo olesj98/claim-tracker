@@ -5,6 +5,8 @@
 }
 
 .select {
+    $self: &;
+
     display: flex;
     align-items: center;
     user-select: none;
@@ -13,10 +15,10 @@
     &--opened {
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
-    }
 
-    &--opened &__expand {
-        transform: rotate(-180deg);
+        #{ $self }__expand {
+            transform: rotate(-180deg);
+        }
     }
 
     &__value {

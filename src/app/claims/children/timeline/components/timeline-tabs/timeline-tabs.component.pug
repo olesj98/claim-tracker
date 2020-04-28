@@ -1,20 +1,15 @@
-.timeline-group([class.timeline-group--minified]="minified")
-    .timeline-group__left
-        .timeline-group__list
-            .timeline-group__unit(
-                *ngFor="let tab of timeline; let last = last;",
-                [class.timeline-group__unit--completed]="tab.done",
-                [class.timeline-group__unit--disabled]="tab.eventType === EventType.END_PROCESS"
-            )
-                .timeline-group__tab((click)="onTabSelected(tab)")
-                    span.timeline-group__circle
-                    pko-timeline-tab-body.timeline-group__body([tab]="tab")
-                .timeline-group__connector(*ngIf="!last")
-                    span.timeline-group__connection-line
-    .timeline-group__content(*ngIf="!minified")
-        ng-container(*ngTemplateOutlet="contentTmpl")
+.feed([class.feed--minified]="minified")
+    .feed__tabs
+        .feed__tab(*ngFor="let tab of timeline; last as last", [class.feed__tab--done]="tab.done")
+            .feed__tab-body((click)="onTabSelected(tab)")
+                span.feed__indicator
+                pko-timeline-tab-body.feed__tab-content([tab]="tab")
+            .feed__connector(*ngIf="!last")
+                span.feed__connector-line
+    .feed__content(*ngIf="!minified")
+        ng-container(*ngTemplateOutlet="feedTabContentTmpl")
 
-ng-template(#contentTmpl)
+ng-template(#feedTabContentTmpl)
     pko-timeline-content(
         [selectedTab]="selectedTab",
         [minified]="minified",

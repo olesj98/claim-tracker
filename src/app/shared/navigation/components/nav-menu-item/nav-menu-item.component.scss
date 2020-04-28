@@ -2,6 +2,8 @@
 @import 'mixins';
 
 .nav-tab {
+    $self: &;
+
     display: flex;
     height: 100%;
     justify-content: center;
@@ -30,12 +32,14 @@
         color: $pko-white;
     }
 
-    &--active &__badge {
-        display: none;
-    }
+    &--active {
+        &:before {
+            @include make-menu-border;
+        }
 
-    &--active:before {
-        @include make-menu-border;
+        #{ $self }__badge {
+            display: none;
+        }
     }
 
     &:hover {

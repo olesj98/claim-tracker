@@ -1,8 +1,8 @@
 .message(
-    [class.self]="isSelf",
-    [class.between]="isBetween",
-    [class.last-before-squashed]="isLastBeforeSquashed",
-    [class.squashed]="isSquashed")
+    [class.message--slf]="isSelf",
+    [class.message--btw]="isBetween",
+    [class.message--bfs]="isLastBeforeSquashed",
+    [class.message--sqh]="isSquashed")
     .message__inner
         .message__avatar(*ngIf="!isSquashed", [ngSwitch]="isSelf")
             ng-container(*ngSwitchCase="true")

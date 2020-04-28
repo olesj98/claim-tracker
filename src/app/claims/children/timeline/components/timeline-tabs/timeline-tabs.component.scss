@@ -1,31 +1,69 @@
 @import 'variables';
 
-.timeline-group {
+.feed {
+    $self: &;
+
     display: flex;
 
-    &--minified &__left {
-        max-width: 100%;
+    &--minified {
+        #{ $self }__tabs {
+            max-width: 100%;
+        }
+
+        #{ $self }__tab-body {
+            border: 1px solid $pko-gray-3;
+            background: $pko-white;
+            padding: 32px 16px;
+            margin-bottom: 0;
+        }
+
+        #{ $self }__connector {
+            padding: 0;
+            margin-left: 28px;
+        }
+
+        #{ $self }__content {
+            display: none;
+        }
     }
 
-    &--minified &__tab {
-        border: 1px solid $pko-gray-3;
-        background: $pko-white;
-        padding: 32px 16px;
-        margin-bottom: 0;
-    }
-
-    &--minified &__connector {
-        padding: 0;
-        margin-left: 28px;
-    }
-
-    &--minified &__content {
-        display: none;
-    }
-
-    &__left {
+    &__tabs {
         flex-grow: 1;
         max-width: 320px;
+    }
+
+    &__tab-body {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    &__tab-content {
+        flex: 1;
+    }
+
+    &__tab {
+        &--done {
+            #{ $self }__connector-line {
+                border-left-style: solid;
+                border-left-color: rgba($pko-primary, 0.4);
+            }
+
+            #{ $self }__indicator {
+                background: $pko-success;
+                border-color: $pko-success;
+
+                &:before {
+                    content: '';
+                    background: url('assets/icons/done-white.svg') no-repeat;
+                    background-size: 16px 16px;
+                    width: 16px;
+                    height: 16px;
+                    display: inline-block;
+                }
+            }
+        }
     }
 
     &__content {
@@ -36,46 +74,7 @@
         margin-left: 1.5rem;
     }
 
-    &__tab {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        margin-bottom: 8px;
-    }
-
-    &__body {
-        flex: 1;
-    }
-
-    &__unit--disabled &__tab {
-        cursor: default;
-    }
-
-
-    &__unit--completed:not(&__unit--disabled) &__circle {
-        background: $pko-success;
-        border-color: $pko-success;
-
-        &:before {
-            content: '';
-            background: url("assets/icons/done-white.svg") no-repeat;
-            background-size: 16px 16px;
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-        }
-    }
-
-    &__unit--disabled &__circle {
-        background: transparent;
-    }
-
-    &__unit--completed &__connection-line {
-        border-left-style: solid;
-        border-left-color: rgba($pko-primary, 0.4);
-    }
-
-    &__circle {
+    &__indicator {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -84,7 +83,7 @@
         width: 24px;
         height: 24px;
         border: 1px solid $pko-primary;
-        background: $pko-primary;
+        background: transparent;
         border-radius: 50%;
         margin-right: 1.75rem;
     }
@@ -94,7 +93,7 @@
         margin-left: 12px;
     }
 
-    &__connection-line {
+    &__connector-line {
         min-height: 36px;
         border-left-style: dotted;
         border-left-width: 2px;

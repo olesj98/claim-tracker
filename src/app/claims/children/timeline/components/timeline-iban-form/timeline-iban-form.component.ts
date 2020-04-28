@@ -8,7 +8,6 @@ import { SendAccountNumberBody } from '@pko/claims/models';
 @Component({
     selector: 'pko-timeline-iban-form',
     templateUrl: './timeline-iban-form.component.pug',
-    styleUrls: ['./timeline-iban-form.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimelineIbanFormComponent {

@@ -20,7 +20,7 @@
     .form-group.mt-3(*ngIf="withDocumentType && mobile")
         label(translate) FILE_UPLOAD.SELECT_TYPE
         ng-container(*ngTemplateOutlet="fileTypeSelectTmpl")
-    .form-group([class.mt-3]="!mobile", *ngIf="files.length")
+    .form-group.mt-3(*ngIf="files.length")
         .file-zone__document.mb-2(*ngFor="let document of files.controls; index as i")
             pko-document([filename]="document.value.name", [removeable]="true", (removed)="files.removeAt(i)")
             .error-messages(*ngIf="document.invalid")

@@ -34,4 +34,10 @@
         color: $pko-black;
         font-size: $pko-default-size;
     }
+
+    @include media-breakpoint-down(sm) {
+        &__body {
+            justify-content: space-between;
+        }
+    }
 }

@@ -7,50 +7,68 @@ $pko-message-border-radius: 10px;
 $pko-message-self-bg: #5991DD;
 
 .message {
+    $self: &;
+
     display: flex;
 
-    &.self &__inner {
-        flex-direction: row-reverse;
-    }
-
-    &.self &__cloud {
-        background: $pko-message-self-bg;
-        color: $pko-white;
-        border-color: $pko-message-self-bg;
-        border-radius: $pko-message-border-radius $pko-message-border-radius 0 $pko-message-border-radius;
-    }
-
-    &.self &__container {
-        margin: 0 $pko-message-cloud-margin 0 0;
-        align-items: flex-end;
-    }
-
-    &.squashed &__container {
-        margin-left: $pko-message-author-size + $pko-message-cloud-margin;
-    }
-
-    &.squashed.self &__container {
-        margin: 0 $pko-message-author-size + $pko-message-cloud-margin 0 0;
-    }
-
-    &.between &__cloud {
-        border-radius: 0 $pko-message-border-radius $pko-message-border-radius 0;
-    }
-
-    &.between.self &__cloud {
-        border-radius: $pko-message-border-radius 0 0 $pko-message-border-radius;
-    }
-
-    &:not(.squashed) {
+    &:not(#{ $self }--sqh) {
         margin-bottom: 1.5rem;
     }
 
-    &.last-before-squashed:not(.self) &__cloud {
-        border-top-left-radius: 0;
+    &--slf {
+        #{ $self }__inner {
+            flex-direction: row-reverse;
+        }
+
+        #{ $self }__cloud {
+            background: $pko-message-self-bg;
+            color: $pko-white;
+            border-color: $pko-message-self-bg;
+            border-radius: $pko-message-border-radius $pko-message-border-radius 0 $pko-message-border-radius;
+        }
+
+        #{ $self }__container {
+            margin: 0 $pko-message-cloud-margin 0 0;
+            align-items: flex-end;
+        }
     }
 
-    &.last-before-squashed.self &__cloud {
-        border-top-right-radius: 0;
+    &--sqh {
+        #{ $self }__container {
+            margin-left: $pko-message-author-size + $pko-message-cloud-margin;
+        }
+
+        &#{ $self }--slf {
+            #{ $self }__container {
+                margin: 0 $pko-message-author-size + $pko-message-cloud-margin 0 0;
+            }
+        }
+    }
+
+    &--btw {
+        #{ $self }__cloud {
+            border-radius: 0 $pko-message-border-radius $pko-message-border-radius 0;
+        }
+
+        &#{ $self }--slf {
+            #{ $self }__cloud {
+                border-radius: $pko-message-border-radius 0 0 $pko-message-border-radius;
+            }
+        }
+    }
+
+    &--bfs {
+        &#{ $self }--slf {
+            #{ $self }__cloud {
+                border-top-right-radius: 0;
+            }
+        }
+
+        &:not(#{ $self }--slf) {
+            #{ $self }__cloud {
+                border-top-left-radius: 0;
+            }
+        }
     }
 
     &__inner {

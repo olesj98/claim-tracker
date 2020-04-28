@@ -12,6 +12,10 @@
     width: 285px;
     height: 120px;
     padding: 12px;
+
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+    }
 }
 
 .claim {
@@ -38,14 +42,8 @@
         text-transform: uppercase;
     }
 
-    &__vehicle {
+    &__details {
         font-size: 11px;
         color: $pko-gray-7;
-    }
-}
-
-@include media-breakpoint-down(sm) {
-    :host {
-        width: 100%;
     }
 }

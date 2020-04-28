@@ -12,7 +12,6 @@ import * as fromAuth from '../../reducers';
 @Component({
     selector: 'pko-signup',
     templateUrl: './signup.component.pug',
-    styleUrls: ['./signup.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignupComponent {
