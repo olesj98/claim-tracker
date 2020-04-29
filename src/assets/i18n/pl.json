@@ -58,7 +58,9 @@
         "RETURN": "Powrót do listy szkód",
         "TIMELINE": "Oś czasu",
         "DOCUMENTS": "Dokumenty",
-        "MESSAGES": "Wiadomości"
+        "MESSAGES": "Wiadomości",
+        "CURRENT_TASK": "Zadanie do wykonania",
+        "PROCESSING": "Status: Analizujemy Twoją Sprawę"
     },
     "FILE_UPLOAD": {
         "DRAG_AND_DROP_OR": "Przeciągnij i upuść plik tutaj lub",
@@ -72,15 +74,16 @@
         "SUCCESS": "Twoje dokumenty zostały do nas poprawnie przesłane."
     },
     "TIMELINE": {
-        "CLOSE_CLAIM_DATE": "Podgląd twojej szkody zostanie zamknięty",
+        "CLOSE_CLAIM_DATE": "Podgląd Twojej szkody będzie dostępny do",
         "SELECT_TO_PROCEED": "Wybierz zadanie lub zdarzenie po lewej stronie aby zobaczyć szczegóły",
         "ENTER_ACCOUNT_NUMBER": "Wprowadź numer konta",
         "ACCOUNT_NUMBER_SUCCESS": "Numer konta został do nas poprawnie przesłany",
         "ACCOUNT_NUMBER_THANK_YOU": "Dziękujemy za dodanie numery konta",
         "EVENTS": {
             "BEGIN_PROCESS": "Zarejestrowano zgłoszenie szkody",
-            "SHARED_DOCUMENT": "Udostępniono dokument od Ubezpieczyciela",
-            "SCHEDULED_INSPECTION": "Zlecono oględziny",
+            "DOCUMENT_SHARED": "Udostępniono dokument od Ubezpieczyciela",
+            "INSPECTION_SCHEDULED": "Zlecono oględziny",
+            "MEDICAL_OPINION_SCHEDULED": "Zlecono opinię medyczną",
             "SEND_ACCOUNT_NUMBER": "Dodaj numer konta",
             "SEND_DOCUMENT": "Dodaj dokument",
             "END_PROCESS": "Zamknięcie podglądu szkody"

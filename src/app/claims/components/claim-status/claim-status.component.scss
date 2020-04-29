@@ -1,0 +1,18 @@
+@import 'variables';
+
+.claim-status {
+    display: flex;
+    align-items: center;
+
+    &__indicator {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 1px solid $pko-primary;
+        margin-right: 1rem;
+    }
+
+    &__title {
+        font-weight: bold;
+    }
+}

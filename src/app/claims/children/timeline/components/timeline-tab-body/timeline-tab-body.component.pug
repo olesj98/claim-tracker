@@ -3,6 +3,7 @@
         ng-container(*ngIf="tab.name") : {{ tab.name }}
     .timeline-body__subtitle(*ngIf="tab.eventDate", [ngSwitch]="tab.eventType")
         ng-container(*ngSwitchCase="EventType.END_PROCESS")
-            span {{ 'TIMELINE.CLOSE_CLAIM_DATE' | translate }} {{ tab.eventDate | date: tabDateFormat }}
+            span {{ 'TIMELINE.CLOSE_CLAIM_DATE' | translate }}
+                time {{ tab.eventDate | date: tabDateFormat }}
         ng-container(*ngSwitchDefault)
-            span {{ tab.eventDate | date: tabDateFormat }}
+            time {{ tab.eventDate | date: tabDateFormat }}

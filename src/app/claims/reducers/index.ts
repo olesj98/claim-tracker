@@ -28,13 +28,13 @@ export const reducers: ActionReducerMap<ClaimsState> = {
 export const getClaimsState = createFeatureSelector<State, ClaimsState>('claims');
 
 export const getClaimsListState = createSelector(getClaimsState, state => state.claimsList);
-export const getClaimsList      = createSelector(getClaimsListState, fromClaimsList.getClaims);
-export const getClaimsEntities  = createSelector(getClaimsListState, fromClaimsList.getEntities);
+export const getClaimsList = createSelector(getClaimsListState, fromClaimsList.getClaims);
+export const getClaimsEntities = createSelector(getClaimsListState, fromClaimsList.getEntities);
 export const getSelectedClaimId = createSelector(getClaimsListState, fromClaimsList.getSelectedClaimId);
 export const getHasClaimsLoaded = createSelector(getClaimsListState, fromClaimsList.getHasLoaded);
 export const getClaimsSize = createSelector(getClaimsListState, fromClaimsList.getTotal);
 export const getHasManyClaims = createSelector(getClaimsSize, size => size > 1);
-export const getSelectedClaim   = createSelector(
+export const getSelectedClaim = createSelector(
     getClaimsEntities,
     getSelectedClaimId,
     (entities, id) => entities[id]
@@ -44,8 +44,9 @@ export const getUnreadMessageCount = createSelector(getSelectedClaim, claim => c
 export const getMessagesState = createSelector(getClaimsState, state => state.messages);
 export const getMessagesList = createSelector(getMessagesState, fromMessages.getAll);
 
-export const getTimelineState = createSelector(getClaimsState, state => state.timeline);
-export const getTimelineList = createSelector(getTimelineState, fromTimeline.getAll);
+export const getFeedsState = createSelector(getClaimsState, state => state.timeline);
+export const getFeedsList = createSelector(getFeedsState, fromTimeline.getAll);
+export const getLatestFeed = createSelector(getFeedsState, fromTimeline.getCurrentTask);
 
 export const getDocumentsState = createSelector(getClaimsState, state => state.documents);
 export const getStaticDocuments = createSelector(getDocumentsState, fromDocuments.getStaticDocuments);

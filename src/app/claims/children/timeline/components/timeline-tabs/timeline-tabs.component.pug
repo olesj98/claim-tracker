@@ -1,6 +1,9 @@
 .feed([class.feed--minified]="minified")
     .feed__tabs
-        .feed__tab(*ngFor="let tab of timeline; last as last", [class.feed__tab--done]="tab.done")
+        .feed__tab(
+            *ngFor="let tab of timeline; last as last",
+            [class.feed__tab--done]="tab.done",
+            [class.feed__tab--disabled]="tab.eventType === EventType.END_PROCESS")
             .feed__tab-body((click)="onTabSelected(tab)")
                 span.feed__indicator
                 pko-timeline-tab-body.feed__tab-content([tab]="tab")

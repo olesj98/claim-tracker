@@ -4,8 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { filter, map, startWith, takeUntil } from 'rxjs/operators';
 
-import { Claim } from '../../models';
-import { ClaimsListActions } from '../../actions';
+import { Claim, TimelineTab } from '../../models';
+import { ClaimDetailsActions, ClaimsListActions } from '../../actions';
 
 import * as fromClaims from '../../reducers';
 
@@ -20,6 +20,7 @@ export class ClaimDetailsComponent implements OnInit, OnDestroy {
     hasManyClaims$: Observable<boolean>;
     unreadMessagesCount$: Observable<number>;
     messagesVisible$: Observable<boolean>;
+    currentTask$: Observable<TimelineTab>;
 
     destroyed$: Subject<void> = new Subject<void>();
 
@@ -31,6 +32,7 @@ export class ClaimDetailsComponent implements OnInit, OnDestroy {
         this.selectedClaim$ = this._store.pipe(select(fromClaims.getSelectedClaim));
         this.hasManyClaims$ = this._store.pipe(select(fromClaims.getHasManyClaims));
         this.unreadMessagesCount$ = this._store.pipe(select(fromClaims.getUnreadMessageCount));
+        this.currentTask$ = this._store.pipe(select(fromClaims.getLatestFeed));
         this.messagesVisible$ = this.isNotMessagesRoute();
     }
 
@@ -57,5 +59,6 @@ export class ClaimDetailsComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.destroyed$.next();
         this.destroyed$.complete();
+        this._store.dispatch(ClaimDetailsActions.flush());
     }
 }

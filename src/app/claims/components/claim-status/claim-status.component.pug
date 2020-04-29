@@ -1,0 +1,7 @@
+.claim-status
+    ng-container(*ngIf="task; else claimProcessingTmpl")
+        .claim-status__indicator
+        .claim-status__title {{ 'CLAIM_DETAILS.CURRENT_TASK' | translate }}: {{ 'TIMELINE.EVENTS.' + task.eventType | translate }}
+
+ng-template(#claimProcessingTmpl)
+    .claim-status__title(translate) CLAIM_DETAILS.PROCESSING

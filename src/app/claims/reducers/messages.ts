@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
 import { Message } from '../models';
-import { MessagesActions } from '../actions';
+import { ClaimDetailsActions, MessagesActions } from '../actions';
 
 export interface State {
     messages: Array<Message>;
@@ -16,7 +16,8 @@ export const messagesReducer = createReducer(
     on(MessagesActions.fetchSuccess, (state, { messages }) =>
         ({ ...state, messages: [...messages] })),
     on(MessagesActions.sendSuccess, (state, { message }) =>
-        ({ ...state, messages: [...state.messages, message] }))
+        ({ ...state, messages: [...state.messages, message] })),
+    on(ClaimDetailsActions.flush, () => initialState)
 );
 
 export function reducer(state: State | undefined, action: Action) {

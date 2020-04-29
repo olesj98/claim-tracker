@@ -1,6 +1,6 @@
 .documents.row
-    .col-12.mb-4
-        .h5.text.text--divider-bottom.mb-3(translate) DOCUMENTS.SHARED_DOCUMENTS
+    section.col-12.mb-4
+        h5.text.text--divider-bottom.mb-3(translate) DOCUMENTS.SHARED_DOCUMENTS
         pko-document.mb-2(
             *ngFor="let document of staticDocuments$ | async as staticDocuments",
             [filename]="'DOCUMENT_TYPE.' + document.documentType | translate",
@@ -16,10 +16,10 @@
                     [documentTypes]="documentTypes$ | async",
                     [mobile]="mobile$ | async",
                     (selected)="onDocumentDropped($event)")
-    .col-12.mb-4
+    section.col-12.mb-4
         ng-container(*ngIf="sharedDocuments$ | async as sharedDocuments")
             ng-container(*ngIf="sharedDocuments.length")
-                .h5.text.text--divider-bottom.mb-3(translate) DOCUMENTS.STATIC_DOCUMENTS
+                h5.text.text--divider-bottom.mb-3(translate) DOCUMENTS.STATIC_DOCUMENTS
                 pko-document.documents__static-file.mb-2(
                     *ngFor="let document of sharedDocuments",
                     [filename]="document.name",

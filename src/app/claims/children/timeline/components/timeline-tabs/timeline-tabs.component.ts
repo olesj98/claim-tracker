@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ViewCh
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { BottomSheetRef, BottomSheetService } from '@pko/shared/bottom-sheet';
-import { TimelineInteractionEvent, TimelineTab } from '@pko/claims/models';
+import { TimelineEventType, TimelineInteractionEvent, TimelineTab } from '@pko/claims/models';
 
 @Component({
     selector: 'pko-timeline-tabs',
@@ -41,6 +41,7 @@ export class TimelineTabsComponent {
     @ViewChild('feedTabContentTmpl') contentRef: TemplateRef<any>;
 
     selectedTab: TimelineTab = null;
+    EventType: typeof TimelineEventType = TimelineEventType;
 
     private _minified: boolean;
     private _timeline: Array<TimelineTab>;

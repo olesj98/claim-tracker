@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
 import { DocumentReference } from '../models';
-import { DocumentsActions } from '../actions';
+import { ClaimDetailsActions, DocumentsActions } from '../actions';
 
 export interface State {
     staticDocuments: Array<DocumentReference>;
@@ -18,7 +18,8 @@ export const documentsReducer = createReducer(
     on(DocumentsActions.fetchStaticDocumentsSuccess, (state, { documents }) =>
         ({ ...state, staticDocuments: documents })),
     on(DocumentsActions.fetchSharedDocumentsSuccess, (state, { documents }) =>
-        ({ ...state, sharedDocuments: documents }))
+        ({ ...state, sharedDocuments: documents })),
+    on(ClaimDetailsActions.flush, () => initialState)
 );
 
 export function reducer(state: State, action: Action) {

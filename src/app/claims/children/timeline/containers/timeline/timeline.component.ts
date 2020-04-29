@@ -22,7 +22,7 @@ export class TimelineComponent implements OnInit {
         private _store: Store<fromClaims.State>) {
 
         this.minified$ = this._trackerLayout.minified$;
-        this.timeline$ = this._store.pipe(select(fromClaims.getTimelineList));
+        this.timeline$ = this._store.pipe(select(fromClaims.getFeedsList));
     }
 
     ngOnInit() {

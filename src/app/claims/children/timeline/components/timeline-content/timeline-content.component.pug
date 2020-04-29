@@ -10,7 +10,7 @@
                     [multiple]="true",
                     [mobile]="minified",
                     (selected)="onInteractionEvent($event)")
-            ng-container(*ngSwitchCase="EventType.SHARED_DOCUMENT")
+            ng-container(*ngSwitchCase="EventType.DOCUMENT_SHARED")
                 pko-document.mt-3(
                     [hrefToGet]="selectedTab.links | documentHref: DocumentLinkRel.TimelineSharedDocument",
                     [filename]="selectedTab.name")
