@@ -81,6 +81,8 @@ $pko-message-self-bg: #5991DD;
         max-width: calc(50% - #{$pko-message-author-size + $pko-message-cloud-margin});
         display: flex;
         flex-direction: column;
+        overflow-x: hidden;
+        word-break: break-word;
         margin-left: $pko-message-cloud-margin;
     }
 
