@@ -16,7 +16,7 @@
         "RESTORE_PIN": "Odzyskaj PIN",
         "ENTER_PIN": "Podaj PIN",
         "SIGN_UP_TITLE": "Weryfikacja tożsamości",
-        "LOGIN_TITLE": "Śledzenie zgłoszonych szkód",
+        "LOGIN_TITLE": "Sprawdź status szkody",
         "SIGN_UP_SECOND_TITLE": "Śledź na bieżąco postęp w likwidacji Twojej szkody. Wystarczy, że zweryfikujemy Twoją tożsamość za pomocą poniższego formularza.",
         "SIGN_UP_DATA": "Podaj nam swoje dane",
         "SIGN_UP_INFO": "Sprawdzimy zgodność podanych przez Ciebie danych z tymi, które zostały podane podczas zgłoszenia szkody.",
@@ -52,7 +52,7 @@
         "ADD_TITLE": "Dodaj nowy dokument"
     },
     "CLAIM_DETAILS": {
-        "SELECT_CLAIM": "Aby przejść dalej wybierz szkodę, która Cię interesuje",
+        "SELECT_CLAIM": "Wybierz szkodę, aby sprawdzić szczegóły",
         "PATRON": "Opiekun szkody",
         "CLAIM": "Szkoda",
         "RETURN": "Powrót do listy szkód",
@@ -71,11 +71,11 @@
         "SELECT_TYPE": "Wybierz typ dokumentu",
         "SELECT": "Wybierz",
         "THANK_YOU": "Dziękujemy za dodanie dokumentu",
-        "SUCCESS": "Twoje dokumenty zostały do nas poprawnie przesłane."
+        "SUCCESS": "Twoje dokumenty zostały do nas przesłane."
     },
     "TIMELINE": {
         "CLOSE_CLAIM_DATE": "Podgląd Twojej szkody będzie dostępny do",
-        "SELECT_TO_PROCEED": "Wybierz zadanie lub zdarzenie po lewej stronie aby zobaczyć szczegóły",
+        "SELECT_TO_PROCEED": "Wybierz zadanie lub zdarzenie z osi czasu, aby poznać szczegóły",
         "ENTER_ACCOUNT_NUMBER": "Wprowadź numer konta",
         "ACCOUNT_NUMBER_SUCCESS": "Numer konta został do nas poprawnie przesłany",
         "ACCOUNT_NUMBER_THANK_YOU": "Dziękujemy za dodanie numery konta",
@@ -86,7 +86,13 @@
             "MEDICAL_OPINION_SCHEDULED": "Zlecono opinię medyczną",
             "SEND_ACCOUNT_NUMBER": "Dodaj numer konta",
             "SEND_DOCUMENT": "Dodaj dokument",
-            "END_PROCESS": "Zamknięcie podglądu szkody"
+            "END_PROCESS": "Zakończenie procesu likwidacji"
+        },
+        "CONTENT": {
+            "BEGIN_PROCESS": "Zgłoszenie Twojej szkody zostało zarejestrowane. Po lewej stronie znajduję się oś czasu, dzięki której możesz śledzić etapy likwidacji. Wybierz zadanie lub zdarzenie, aby poznać szczegóły.",
+            "MEDICAL_OPINION_SCHEDULED": "Opinia medyczna została zlecona. Oczekuj na kontakt z naszej strony.",
+            "INSPECTION_SCHEDULED": "Oględziny zostały zlecone. Oczekuj na kontakt z naszej strony.",
+            "DOCUMENT_SHARED": "Ubezpieczyciel udostępnił dokument. Zapoznaj się z jego treścią."
         }
     },
     "DOCUMENT_TYPE": {

@@ -11,6 +11,5 @@ import { TimelineEventType, TimelineTab } from '@pko/claims/models';
 export class TimelineTabBodyComponent {
     @Input() tab: TimelineTab;
 
-    tabDateFormat = 'EEE dd.MM.yy | H.mm';
     EventType: typeof TimelineEventType = TimelineEventType;
 }

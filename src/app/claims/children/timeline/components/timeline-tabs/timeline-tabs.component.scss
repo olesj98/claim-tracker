@@ -44,13 +44,17 @@
     }
 
     &__tab {
+        &--disabled {
+            pointer-events: none;
+        }
+
         &--done {
             #{ $self }__connector-line {
                 border-left-style: solid;
                 border-left-color: rgba($pko-primary, 0.4);
             }
 
-            &:not(#{ $self }__tab--disabled) #{ $self }__indicator {
+            &:not(#{ $self }__tab--end) #{ $self }__indicator {
                 background: $pko-success;
                 border-color: $pko-success;
 
@@ -65,7 +69,7 @@
             }
         }
 
-        &--disabled {
+        &--end {
             #{ $self }__indicator {
                 background: $pko-primary;
             }

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ViewChild, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, TemplateRef, ViewChild } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { BottomSheetRef, BottomSheetService } from '@pko/shared/bottom-sheet';
@@ -50,10 +50,23 @@ export class TimelineTabsComponent {
     constructor(private _bottomSheet: BottomSheetService) { }
 
     onTabSelected(tab: TimelineTab): void {
-        this.selectedTab = tab;
+        if (!this.isTabDisabled(tab)) {
+            this.selectedTab = tab;
 
-        if (this.minified) {
-            this._bottomSheetRef = this._bottomSheet.open(this.contentRef);
+            if (this.minified) {
+                this._bottomSheetRef = this._bottomSheet.open(this.contentRef);
+            }
+        }
+    }
+
+    isTabDisabled(tab: TimelineTab): boolean {
+        switch (tab.eventType) {
+            case TimelineEventType.END_PROCESS: {
+                return !tab.eventDate;
+            }
+            default: {
+                return false;
+            }
         }
     }
 
