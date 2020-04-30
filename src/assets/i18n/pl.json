@@ -46,8 +46,8 @@
         "EMPTY": "Brak wiadomości"
     },
     "DOCUMENTS": {
-        "SHARED_DOCUMENTS": "Dodane przez Ciebie dokumenty",
-        "STATIC_DOCUMENTS": "Zapoznaj się proszę z następującymi dokumentami",
+        "SHARED_DOCUMENTS": "Przekazane dokumenty",
+        "STATIC_DOCUMENTS": "Zapoznaj się z dokumentami",
         "ADD": "Nowy dokument",
         "ADD_TITLE": "Dodaj nowy dokument"
     },
