@@ -18,11 +18,7 @@ export class MessagesService {
         return this._http.post<Message>(hrefGet(claim.links, ClaimLinkRel.Messages), draftMessage);
     }
 
-    markAllAsRead(claim: Claim): Observable<void> {
-        const body = {
-            readMessageDate: new Date().toISOString()
-        };
-
-        return this._http.post<void>(hrefGet(claim.links, ClaimLinkRel.Self), body);
+    markAllAsRead(claim: Claim, readMessageDate: string): Observable<void> {
+        return this._http.post<void>(hrefGet(claim.links, ClaimLinkRel.Self), { readMessageDate });
     }
 }

@@ -39,11 +39,13 @@ export class MessagesEffects {
 
     markAllAsRead$: Observable<Action> = createEffect(() =>
         this._actions.pipe(
-            ofType(MessagesActions.enterMessengerView),
-            withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
-            filter(([action, claim]) => claim.unreadMessagesCount > 0),
-            switchMap(([action, claim]) =>
-                this._messages.markAllAsRead(claim).pipe(
+            ofType(MessagesActions.fetchSuccess),
+            withLatestFrom(
+                this._store.pipe(select(fromClaims.getSelectedClaim)),
+                this._store.pipe(select(fromClaims.getLatestNotifiedMessage))),
+            filter(([action, claim, readMessageDate]) => claim.unreadMessagesCount > 0 && !!readMessageDate),
+            switchMap(([action, claim, readMessageDate]) =>
+                this._messages.markAllAsRead(claim, readMessageDate).pipe(
                     map(() => MessagesActions.markAllAsReadSuccess({ id: claim.businessNumber })),
                     catchError(() => of(MessagesActions.markAllAsReadFailure()))
                 )

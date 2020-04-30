@@ -14,9 +14,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             catchError(error => {
                 if (error instanceof HttpErrorResponse) {
-                    const response: HttpError = error.error;
-
-                    if (response?.code === HttpErrorCodes.FORBIDDEN) {
+                    if (error.status === 403) {
                         this._router.navigate(['/login']);
                     }
                 }

@@ -7,7 +7,7 @@ import { isSameDay } from '@pko/shared/util';
 export class IsAnotherDayPipe implements PipeTransform {
     transform(message: Message, previousMessage?: Message): boolean {
         if (previousMessage) {
-            return !isSameDay(message.postDate, previousMessage.postDate);
+            return !isSameDay(new Date(message.postDate), new Date(previousMessage.postDate));
         }
     }
 }

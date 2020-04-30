@@ -9,6 +9,7 @@ export interface DraftMessage {
 
 export interface Message extends DraftMessage {
     partyName: string;
-    postDate: number;
+    postDate: string;
+    notificationDate: string;
     recipient: MessageRecipient;
 }

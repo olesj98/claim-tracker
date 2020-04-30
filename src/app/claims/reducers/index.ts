@@ -43,6 +43,7 @@ export const getUnreadMessageCount = createSelector(getSelectedClaim, claim => c
 
 export const getMessagesState = createSelector(getClaimsState, state => state.messages);
 export const getMessagesList = createSelector(getMessagesState, fromMessages.getAll);
+export const getLatestNotifiedMessage = createSelector(getMessagesList, fromMessages.getLatestByNotificationDate);
 
 export const getFeedsState = createSelector(getClaimsState, state => state.timeline);
 export const getFeedsList = createSelector(getFeedsState, fromTimeline.getAll);

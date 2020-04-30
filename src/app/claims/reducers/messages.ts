@@ -25,3 +25,9 @@ export function reducer(state: State | undefined, action: Action) {
 }
 
 export const getAll = (state: State) => state.messages;
+export const getLatestByNotificationDate = (state: Array<Message>) => {
+    return state
+        .slice()
+        .map(message => message.notificationDate)
+        .sort((a: string, b: string) => new Date(b).getTime() - new Date(a).getTime())[0];
+};

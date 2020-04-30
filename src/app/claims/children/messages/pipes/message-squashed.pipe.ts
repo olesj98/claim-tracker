@@ -7,10 +7,10 @@ import { Message } from '@pko/claims/models';
 export class MessageSquashedPipe implements PipeTransform {
     transform(message: Message, nextMessage?: Message, previousMessage?: Message): [boolean, boolean, boolean] {
         const isSquashed = nextMessage && nextMessage.recipient === message.recipient &&
-            isSameDay(message.postDate, nextMessage.postDate);
+            isSameDay(new Date(message.postDate), new Date(nextMessage.postDate));
 
         const hasPreviousMessageToday = previousMessage && previousMessage.recipient === message.recipient &&
-            isSameDay(message.postDate, previousMessage.postDate);
+            isSameDay(new Date(message.postDate), new Date(previousMessage.postDate));
 
         const isBetween = isSquashed && hasPreviousMessageToday;
 
