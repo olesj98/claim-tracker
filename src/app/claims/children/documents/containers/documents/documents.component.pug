@@ -13,6 +13,7 @@
                 pko-file-upload-zone(
                     fileFor="add_new_document",
                     [withDocumentType]="true",
+                    [multiple]="true",
                     [documentTypes]="documentTypes$ | async",
                     [mobile]="mobile$ | async",
                     (selected)="onDocumentDropped($event)")

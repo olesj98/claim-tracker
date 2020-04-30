@@ -58,11 +58,6 @@ export class FileUploadZoneComponent {
         return this.form.get('documentType') as FormControl;
     }
 
-    get documentTypePlaceholder(): string {
-        return this.mobile ?
-            'FILE_UPLOAD.SELECT' : 'FILE_UPLOAD.SELECT_TYPE';
-    }
-
     get addDocumentTitle(): string {
         return this.mobile ?
             'FILE_UPLOAD.SEND_BY_MOBILE' : 'FILE_UPLOAD.DRAG_AND_DROP_OR';

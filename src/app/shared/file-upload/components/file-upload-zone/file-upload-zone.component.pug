@@ -1,6 +1,8 @@
 .file-zone([formGroup]="form")
     .file-zone__box((dragDrop)="onDocumentsDropped($event)")
         .file-zone__info
+            pko-select.file-zone__type-select.mb-3(*ngIf="withDocumentType", formControlName="documentType", [placeholder]="'FILE_UPLOAD.SELECT_TYPE' | translate")
+                pko-option(*ngFor="let documentType of documentTypes", [value]="documentType") {{ 'DOCUMENT_TYPE.' + documentType | translate }}
             .text.text--regular.file-zone__title.mb-3 {{ addDocumentTitle | translate }}
             label.btn.btn-light.file-zone__add-from-drive([for]="fileFor")
                 ng-container([ngSwitch]="mobile")
@@ -13,13 +15,8 @@
             label.btn.btn-light(*ngIf="mobile", [for]="fileFor + '_capture'")
                 svg-icon(src="assets/icons/take_photo.svg", [svgStyle]="{ 'width.px': '28', 'height.px': '28' }")
                 span.file-zone__take-pic(translate) FILE_UPLOAD.TAKE_PHOTO
-            ng-container(*ngIf="withDocumentType && !mobile")
-                ng-container(*ngTemplateOutlet="fileTypeSelectTmpl")
             input.file-zone__hidden-input(type="file", [id]="fileFor", [accept]="acceptDocumentType", [multiple]="multiple", (change)="addFromDrive($event)")
             input.file-zone__hidden-input(type="file", [id]="fileFor + '_capture'" accept="image/*", capture, (change)="addFromDrive($event)")
-    .form-group.mt-3(*ngIf="withDocumentType && mobile")
-        label(translate) FILE_UPLOAD.SELECT_TYPE
-        ng-container(*ngTemplateOutlet="fileTypeSelectTmpl")
     .form-group.mt-3(*ngIf="files.length")
         .file-zone__document.mb-2(*ngFor="let document of files.controls; index as i")
             pko-document([filename]="document.value.name", [removeable]="true", (removed)="files.removeAt(i)")
@@ -31,8 +28,3 @@
             .error-messages__item(*ngIf="files.getError('files') as filesError") {{ 'VALIDATION.FILES_SIZE' | translate: { size: filesError.size.expected } }}
     .d-flex.justify-content-end.mt-3
         button.file-zone__submit.btn.btn-primary(type="button", translate, [disabled]="!form.valid", (click)="submit()") ALL.SAVE
-
-ng-template(#fileTypeSelectTmpl)
-    ng-container([formGroup]="form")
-        pko-select.file-zone__type-select(formControlName="documentType", [placeholder]="documentTypePlaceholder | translate")
-            pko-option(*ngFor="let documentType of documentTypes", [value]="documentType") {{ 'DOCUMENT_TYPE.' + documentType | translate }}

@@ -42,7 +42,7 @@ export class DocumentsEffects {
             ofType(DocumentsActions.share),
             withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
             exhaustMap(([{ document: { documentType, files } }, claim]) =>
-                this._documents.shareDocument(claim, documentType, files[0]).pipe(
+                this._documents.shareDocument(claim, documentType, files).pipe(
                     map(() => DocumentsActions.shareSuccess()),
                     catchError(() => of(DocumentsActions.shareFailure()))
                 )

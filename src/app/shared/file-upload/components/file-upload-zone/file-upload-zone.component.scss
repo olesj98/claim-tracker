@@ -7,8 +7,12 @@
         min-height: 195px;
         border: 2px dashed $pko-gray-4;
         background: transparent;
-        transition: background-color .3s linear;
+        transition: background-color .3s linear, border-color .2s ease-in-out;
         padding: 1rem;
+
+        &.dragover {
+            border-color: $pko-primary;
+        }
     }
 
     &__title {

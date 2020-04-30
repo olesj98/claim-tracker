@@ -18,11 +18,11 @@ export class DocumentsService {
         return this._http.get<Array<DocumentReference>>(hrefGet(claim.links, ClaimLinkRel.SharedDocuments));
     }
 
-    shareDocument(claim: Claim, documentType: string, file: File): Observable<void> {
+    shareDocument(claim: Claim, documentType: string, files: Array<File>): Observable<void> {
         const formData = new FormData();
 
         formData.append('documentType', documentType);
-        formData.append('file', file, file.name);
+        files.forEach(file => formData.append('files', file, file.name));
 
         return this._http.post<void>(hrefGet(claim.links, ClaimLinkRel.ClientDocuments), formData);
     }
