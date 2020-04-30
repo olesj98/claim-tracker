@@ -3,6 +3,7 @@
         "NEXT": "Dalej",
         "BACK": "Powrót",
         "SAVE": "Zapisz",
+        "SEND": "Wyślij",
         "PKOU": "PKO Ubezpieczenia"
     },
     "TOOLBAR": {
@@ -41,7 +42,6 @@
     },
     "MESSAGES": {
         "SEND_PLACEHOLDER": "Napisz wiadomość",
-        "SEND": "Wyślij",
         "YESTERDAY": "Wczoraj",
         "EMPTY": "Brak wiadomości"
     },

@@ -27,4 +27,4 @@
         .error-messages(*ngIf="files.invalid")
             .error-messages__item(*ngIf="files.getError('files') as filesError") {{ 'VALIDATION.FILES_SIZE' | translate: { size: filesError.size.expected } }}
     .d-flex.justify-content-end.mt-3
-        button.file-zone__submit.btn.btn-primary(type="button", translate, [disabled]="!form.valid", (click)="submit()") ALL.SAVE
+        button.file-zone__submit.btn.btn-primary(type="button", translate, [disabled]="!form.valid", (click)="submit()") ALL.SEND
