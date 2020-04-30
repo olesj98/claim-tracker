@@ -51,3 +51,4 @@ export const getLatestFeed = createSelector(getFeedsState, fromTimeline.getCurre
 export const getDocumentsState = createSelector(getClaimsState, state => state.documents);
 export const getStaticDocuments = createSelector(getDocumentsState, fromDocuments.getStaticDocuments);
 export const getSharedDocuments = createSelector(getDocumentsState, fromDocuments.getSharedDocuments);
+export const getDocumentTypes = createSelector(getDocumentsState, fromDocuments.getDocumentTypes);

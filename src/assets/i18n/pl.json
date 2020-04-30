@@ -90,21 +90,21 @@
         }
     },
     "DOCUMENT_TYPE": {
-        "CLAIM_REPORT": "Zgłoszenie szkody",
         "COSTS_LOSSES_INCURRED": "Rachunki poniesionych kosztów i strat",
         "POLICE_NOTE": "Notatka policji",
         "RELATIONSHIP_WITH_INJURED_CONFIRMATION": "Dokument potwierdzający pokrewieństwo z poszkodowanym",
         "COURT_JUDGMENT": "Wyrok sądu",
         "POWER_OF_ATTORNEY": "Pełnomocnictwo",
         "DEATH_CERTIFICATE": "Akt zgonu",
-        "FUNERAL_MEDICAL_BILLS": "Rachunki za koszty pogrzebu",
-        "DAMAGED_ITEMS_LIST": "Lista uszkodzonych rzeczy",
-        "DAMAGED_ITEMS_PURCHASE_PROOF": "Dowodu zakupu uszkodzonych rzeczy",
-        "COST_ESTIMATE": "Kosztorys",
-        "VEHICLE_REGISTRATION_CERTIFICATE": "Dowód rejestracyjny (dwie strony)",
+        "FUNERAL_BILLS": "Rachunki za koszty pogrzebu",
+        "MEDICAL_BILLS": "Rachunki za koszty leczenia",
+        "VEHICLE_REGISTRATION_CERTIFICATE": "Dowód rejestracyjny",
         "STATEMENT_FROM_ACCIDENT_PLACE": "Oświadczenie z miejsca zdarzenia",
-        "DAMAGE_PHOTOS": "Zdjęcia uszkodzeń",
         "MEDICAL_DOCUMENTATION": "Dokumentacja medyczna",
+        "CLAIM_REPORT_FORM": "Druk zgłoszenia szkody",
+        "ACCOUNT_NUMBER_FOR_WITHDRAWAL": "Numer konta do wypłaty",
+        "WORKSHOP_AUTHORIZATION": "Upoważnienie na warsztat",
+        "VAT_STATEMENT": "Oświadczenie VAT",
         "OTHER": "Inne dokumenty"
     },
     "FOOTER": {

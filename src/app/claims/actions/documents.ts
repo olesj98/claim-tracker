@@ -16,3 +16,5 @@ export const share = createAction('[Documents] Share',
     props<{ document: DocumentChangeEvent }>());
 export const shareSuccess = createAction('[Documents] Share Success');
 export const shareFailure = createAction('[Documents] Share Failure');
+
+export const fetchDocumentTypesSuccess = createAction('[Documents] Fetch Document Types Success', props<{ types: Array<string> }>());

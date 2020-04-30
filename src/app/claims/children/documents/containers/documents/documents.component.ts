@@ -19,7 +19,6 @@ import * as fromClaims from '@pko/claims/reducers';
 export class DocumentsComponent implements OnInit {
     sharedDocuments$: Observable<Array<DocumentReference>>;
     staticDocuments$: Observable<Array<DocumentReference>>;
-
     documentTypes$: Observable<Array<string>>;
     mobile$: Observable<boolean>;
 
@@ -33,8 +32,8 @@ export class DocumentsComponent implements OnInit {
 
         this.sharedDocuments$ = this._store.pipe(select(fromClaims.getSharedDocuments));
         this.staticDocuments$ = this._store.pipe(select(fromClaims.getStaticDocuments));
+        this.documentTypes$ = this._store.pipe(select(fromClaims.getDocumentTypes));
 
-        this.documentTypes$ = this._documentTypes.getDocumentTypes();
         this.mobile$ = this._trackerLayout.minified$;
     }
 
