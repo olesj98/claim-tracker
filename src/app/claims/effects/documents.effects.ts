@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action, select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { catchError, distinctUntilKeyChanged, exhaustMap, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { catchError, exhaustMap, map, switchMap, withLatestFrom } from 'rxjs/operators';
 
 import { ClaimDocumentTypesDictionaryService, DocumentsService } from '../services';
 import { DocumentsActions } from '../actions';
@@ -54,9 +54,7 @@ export class DocumentsEffects {
         this._actions.pipe(
             ofType(DocumentsActions.enterDocumentsView),
             withLatestFrom(this._store.pipe(select(fromClaims.getSelectedClaim))),
-            map(([action, claim]) => claim),
-            distinctUntilKeyChanged('businessNumber'),
-            switchMap(claim =>
+            switchMap(([action, claim]) =>
                 this._documentTypes.getDocumentTypes(claim).pipe(
                     map(types => DocumentsActions.fetchDocumentTypesSuccess({ types })),
                     catchError(() => of(DocumentsActions.fetchDocumentTypesSuccess({ types: [] })))
