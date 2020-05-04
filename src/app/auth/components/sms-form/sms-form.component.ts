@@ -13,6 +13,7 @@ import { SmsVerification } from '../../models';
 })
 export class SMSFormComponent implements OnInit {
     @Input() error: HttpError;
+    @Input() allowResend: boolean;
 
     @Output() submitted: EventEmitter<SmsVerification> = new EventEmitter<SmsVerification>();
     @Output() resend: EventEmitter<void> = new EventEmitter<void>();

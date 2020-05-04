@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { Action } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
-import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
+import { catchError, exhaustMap, filter, map, tap } from 'rxjs/operators';
+
+import { HttpErrorCodes } from '@pko/core';
 
 import { SignupActions } from '../actions';
 import { AuthService } from '../services';
@@ -31,6 +33,14 @@ export class VerifySMSEffects {
                     catchError(() => of(SignupActions.resendSMSFailure()))
                 )
             )
+        )
+    );
+
+    allowResendSMS$: Observable<Action> = createEffect(() =>
+        this._actions.pipe(
+            ofType(SignupActions.verifySMSFailed),
+            filter(({ error }) => error?.code === HttpErrorCodes.TOO_MANY_VERIFICATIONS),
+            map(() => SignupActions.allowResendSms())
         )
     );
 

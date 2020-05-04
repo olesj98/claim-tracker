@@ -15,6 +15,8 @@ export const resendSMS = createAction('[Auth] Resend SMS');
 export const resendSMSSuccess = createAction('[Auth] Resend SMS Success');
 export const resendSMSFailure = createAction('[Auth] Resend SMS Failure');
 
+export const allowResendSms = createAction('[Auth] Allow Resend SMS');
+
 export const configPIN = createAction('[Auth] Configure PIN', props<{ data: SignupPin }>());
 export const configPINSuccess = createAction('[Auth] Configure PIN Success');
 export const configPINFailed = createAction('[Auth] Configure PIN Failed');

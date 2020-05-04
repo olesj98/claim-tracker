@@ -17,9 +17,11 @@ import * as fromAuth from '../../reducers';
 })
 export class SMSComponent {
     error$: Observable<HttpError>;
+    resend$: Observable<boolean>;
 
     constructor(private _store: Store<fromAuth.State>) {
         this.error$ = this._store.pipe(select(fromAuth.getRegistrationSmsError));
+        this.resend$ = this._store.pipe(select(fromAuth.getRegistrationSmsResend));
     }
 
     onCodeReceived(data: SmsVerification): void {

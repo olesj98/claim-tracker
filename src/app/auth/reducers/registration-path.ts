@@ -6,22 +6,34 @@ import { RegistrationPathActions, SignupActions } from '../actions';
 
 export interface State {
     verificationError: HttpError | null;
-    smsError: HttpError | null;
+    sms: {
+        error: HttpError | null;
+        resend: boolean;
+    };
 }
 
 export const initialState: State = {
     verificationError: null,
-    smsError: null
+    sms: {
+        error: null,
+        resend: false
+    }
 };
 
 export const registrationPathReducer = createReducer(
     initialState,
     on(SignupActions.verifyFailed, (state, { error }) => ({ ...state, verificationError: error })),
-    on(SignupActions.verifySMSFailed, (state, { error }) => ({ ...state, smsError: error })),
+    on(SignupActions.verifySMSFailed, (state, { error }) =>
+        ({ ...state, sms: { ...state.sms, error } })),
     on(SignupActions.verifySuccess, state => ({ ...state, verificationError: null })),
-    on(SignupActions.verifySMSSuccess, SignupActions.resendSMSSuccess, state => ({ ...state, smsError: null })),
+    on(SignupActions.verifySMSSuccess, SignupActions.resendSMSSuccess, state =>
+        ({ ...state, sms: { ...state.sms, error: null } })),
+    on(SignupActions.resendSMSSuccess, state =>
+        ({ ...state, sms: { ...state.sms, resend: false } })),
+    on(SignupActions.allowResendSms, state =>
+        ({ ...state, sms: { ...state.sms, resend: true } })),
     on(RegistrationPathActions.flush, state =>
-        ({ ...state, verificationError: null, smsError: null }))
+        ({ ...state, verificationError: null, sms: { ...state.sms, error: null } }))
 );
 
 export function reducer(state: State, action: Action) {
@@ -29,4 +41,5 @@ export function reducer(state: State, action: Action) {
 }
 
 export const getVerificationError = (state: State) => state.verificationError;
-export const getSmsError = (state: State) => state.smsError;
+export const getSmsError = (state: State) => state.sms.error;
+export const getSmsResend = (state: State) => state.sms.resend;

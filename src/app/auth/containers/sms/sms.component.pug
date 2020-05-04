@@ -1,6 +1,7 @@
 .sms-container
     pko-sms-form.sms-container__form(
         [error]="error$ | async",
+        [allowResend]="resend$ | async",
         (submitted)="onCodeReceived($event)",
         (resend)="onResendSMS()"
     )
