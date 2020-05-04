@@ -10,7 +10,7 @@
     &__row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
         margin-top: 1.75rem;
     }
 
@@ -30,7 +30,7 @@
         }
 
         &__logo {
-            display: none;
+            width: map-get($pko-logo-size, small);
         }
 
         &__row {

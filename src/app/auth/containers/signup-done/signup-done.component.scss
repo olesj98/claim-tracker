@@ -19,6 +19,12 @@
         margin-bottom: 2rem;
     }
 
+    &__login {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     @include media-breakpoint-down(sm) {
         height: 100%;
 
