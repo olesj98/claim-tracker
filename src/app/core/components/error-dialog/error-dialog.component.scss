@@ -11,6 +11,10 @@
         max-width: 385px;
     }
 
+    &__message {
+        text-align: center;
+    }
+
     @include media-breakpoint-down(sm) {
         &__ok {
             max-width: 100%;

@@ -28,8 +28,6 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        Promise.resolve().then(() =>
-            this._dialogOrBottomSheetTrigger$.next());
         return next.handle(req).pipe(
             catchError(error => {
                 if (error instanceof HttpErrorResponse) {
