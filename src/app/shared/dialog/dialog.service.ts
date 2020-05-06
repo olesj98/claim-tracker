@@ -114,8 +114,6 @@ export class DialogService implements OnDestroy {
             new ComponentPortal(componentRef, config.viewContainerRef, injector));
         dialogRef.instance = contentRef.instance;
 
-        dialogRef
-
         return dialogRef;
     }
 
