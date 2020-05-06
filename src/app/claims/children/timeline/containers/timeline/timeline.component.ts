@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 
-import { TrackerLayoutService } from '@pko/tracker/services';
+import { LayoutService } from '@pko/core';
 import { TimelineActions } from '@pko/claims/actions';
 import { TimelineEventType, TimelineInteractionEvent, TimelineTab } from '@pko/claims/models';
 
@@ -18,10 +18,10 @@ export class TimelineComponent implements OnInit {
     timeline$: Observable<Array<TimelineTab>>;
 
     constructor(
-        private _trackerLayout: TrackerLayoutService,
+        private _layout: LayoutService,
         private _store: Store<fromClaims.State>) {
 
-        this.minified$ = this._trackerLayout.minified$;
+        this.minified$ = this._layout.isTabletOrSmallerDevice();
         this.timeline$ = this._store.pipe(select(fromClaims.getFeedsList));
     }
 

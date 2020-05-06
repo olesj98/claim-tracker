@@ -26,7 +26,7 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
 import { SMSFormComponent } from './components/sms-form/sms-form.component';
 import { PinFormComponent } from './components/pin-form/pin-form.component';
 
-import { XsrfInterceptor, ErrorInterceptor } from './services';
+import { XsrfInterceptor, AuthInterceptor } from './services';
 import { AUTH_EFFECTS } from './effects';
 import { reducers } from './reducers';
 
@@ -59,7 +59,7 @@ import { reducers } from './reducers';
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: XsrfInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
     ]
 })
 export class AuthModule { }

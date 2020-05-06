@@ -2,9 +2,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
+import { LayoutService } from '@pko/core';
 import { DocumentsActions } from '@pko/claims/actions';
 import { DocumentLinkRel, DocumentReference } from '@pko/claims/models';
-import { TrackerLayoutService } from '@pko/tracker/services';
 import { ClaimDocumentTypesDictionaryService } from '@pko/claims/services';
 import { DocumentChangeEvent } from '@pko/shared/file-upload';
 
@@ -27,14 +27,14 @@ export class DocumentsComponent implements OnInit {
 
     constructor(
         private _store: Store<fromClaims.State>,
-        private _trackerLayout: TrackerLayoutService,
+        private _layout: LayoutService,
         private _documentTypes: ClaimDocumentTypesDictionaryService) {
 
         this.sharedDocuments$ = this._store.pipe(select(fromClaims.getSharedDocuments));
         this.staticDocuments$ = this._store.pipe(select(fromClaims.getStaticDocuments));
         this.documentTypes$ = this._store.pipe(select(fromClaims.getDocumentTypes));
 
-        this.mobile$ = this._trackerLayout.minified$;
+        this.mobile$ = this._layout.isTabletOrSmallerDevice();
     }
 
     ngOnInit() {

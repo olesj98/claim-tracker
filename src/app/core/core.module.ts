@@ -1,29 +1,17 @@
 import { LOCALE_ID, NgModule, Optional, SkipSelf } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import localePl from '@angular/common/locales/pl';
 
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslationConfigModule } from '@pko/translation';
 
 registerLocaleData(localePl, 'pl');
 
-export const httpLoaderFactory = (http: HttpClient) => {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-};
-
 @NgModule({
     imports: [
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: httpLoaderFactory,
-                deps: [ HttpClient ]
-            },
-            defaultLanguage: 'pl',
-            useDefaultLang: true
-        })
+        AngularSvgIconModule.forRoot(),
+        TranslationConfigModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },

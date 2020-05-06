@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -13,6 +12,7 @@ import { environment } from '@pko-env/environment';
 
 import { CoreModule, fromRoot } from '@pko/core';
 import { AuthModule } from '@pko/auth';
+import { ErrorHandlerModule } from '@pko/error-handler';
 
 import { TrackerModule } from './tracker/tracker.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,6 @@ import { AppComponent } from './app.component';
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        AngularSvgIconModule.forRoot(),
         StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
             runtimeChecks: {
                 strictStateSerializability: true,
@@ -45,8 +44,9 @@ import { AppComponent } from './app.component';
             .register('ngsw-worker.js', { enabled: environment.production }),
         CoreModule,
         AuthModule,
+        ErrorHandlerModule,
         TrackerModule,
-        AppRoutingModule,
+        AppRoutingModule
     ],
     bootstrap: [
         AppComponent
