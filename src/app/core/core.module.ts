@@ -2,20 +2,32 @@ import { LOCALE_ID, NgModule, Optional, SkipSelf } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { TranslationConfigModule } from '@pko/translation';
-
 import localePl from '@angular/common/locales/pl';
+
+import { TranslationConfigModule } from '@pko/translation';
+import { DialogModule } from '@pko/shared/dialog';
+import { BottomSheetModule } from '@pko/shared/bottom-sheet';
+
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+
+import { CORE_INTERCEPTORS } from './interceptors';
 
 registerLocaleData(localePl, 'pl');
 
 @NgModule({
+    declarations: [
+        ErrorDialogComponent
+    ],
     imports: [
         AngularSvgIconModule.forRoot(),
-        TranslationConfigModule
+        TranslationConfigModule,
+        DialogModule,
+        BottomSheetModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        { provide: LOCALE_ID, useValue: 'pl-PL' }
+        { provide: LOCALE_ID, useValue: 'pl-PL' },
+        ...CORE_INTERCEPTORS
     ]
 })
 export class CoreModule {
