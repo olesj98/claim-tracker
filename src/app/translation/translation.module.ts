@@ -13,6 +13,10 @@ import { EmptyMissingTranslationHandler } from './empty-missing-translation-hand
                 useFactory: defaultTranslationLoaderFactory,
                 deps: [ HttpClient ]
             },
+            missingTranslationHandler: {
+                provide: MissingTranslationHandler,
+                useClass: EmptyMissingTranslationHandler
+            },
             defaultLanguage: 'pl',
             useDefaultLang: true
         })
