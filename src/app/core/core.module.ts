@@ -10,13 +10,17 @@ import localePl from '@angular/common/locales/pl';
 
 registerLocaleData(localePl, 'pl');
 
+export function defaultTranslationLoader(http: HttpClient): TranslateHttpLoader {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
     imports: [
         AngularSvgIconModule.forRoot(),
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
-                useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/'),
+                useFactory: defaultTranslationLoader,
                 deps: [ HttpClient ]
             },
             defaultLanguage: 'pl',
