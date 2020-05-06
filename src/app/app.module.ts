@@ -12,7 +12,6 @@ import { environment } from '@pko-env/environment';
 
 import { CoreModule, fromRoot } from '@pko/core';
 import { AuthModule } from '@pko/auth';
-import { ErrorHandlerModule } from '@pko/error-handler';
 
 import { TrackerModule } from './tracker/tracker.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,7 +43,6 @@ import { AppComponent } from './app.component';
             .register('ngsw-worker.js', { enabled: environment.production }),
         CoreModule,
         AuthModule,
-        ErrorHandlerModule,
         TrackerModule,
         AppRoutingModule
     ],
