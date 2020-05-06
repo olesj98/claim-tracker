@@ -1,4 +1,4 @@
-@import '../variables';
+$pko-bottom-sheet-width-increment: 64px;
 
 .bottom-sheet-container {
     padding: 1rem 1.5rem;
@@ -13,4 +13,19 @@
     border-top-right-radius: 8px;
     background: $pko-white;
     color: $pko-black;
+
+    @include media-breakpoint-up(sm) {
+        min-width: calc(100vw - #{$pko-bottom-sheet-width-increment * 2});
+        max-width: calc(100vw - #{$pko-bottom-sheet-width-increment * 2});
+    }
+
+    @include media-breakpoint-up(lg) {
+        min-width: $pko-bottom-sheet-width-increment * 10;
+        max-width: calc(100vw - #{$pko-bottom-sheet-width-increment * 4});
+    }
+
+    @include media-breakpoint-up(xl) {
+        min-width: $pko-bottom-sheet-width-increment * 12;
+        max-width: calc(100vw - #{$pko-bottom-sheet-width-increment * 6});
+    }
 }
