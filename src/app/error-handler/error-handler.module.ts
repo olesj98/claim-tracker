@@ -6,14 +6,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DialogModule } from '@pko/shared/dialog';
 import { BottomSheetModule } from '@pko/shared/bottom-sheet';
 
-import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
-
 import { ERROR_HANDLER_INTEPCEPTORS } from './intepceptors';
 
 @NgModule({
-    declarations: [
-        ErrorDialogComponent
-    ],
     imports: [
         CommonModule,
         AngularSvgIconModule,
