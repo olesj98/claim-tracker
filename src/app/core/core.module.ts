@@ -16,7 +16,7 @@ registerLocaleData(localePl, 'pl');
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
-                useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
+                useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/'),
                 deps: [ HttpClient ]
             },
             defaultLanguage: 'pl',
