@@ -1,10 +1,12 @@
 {
     "ALL": {
+        "MISSING": "-",
         "NEXT": "Dalej",
         "BACK": "Powrót",
         "SAVE": "Zapisz",
         "SEND": "Wyślij",
-        "PKOU": "PKO Ubezpieczenia"
+        "PKOU": "PKO Ubezpieczenia",
+        "OK": "OK"
     },
     "TOOLBAR": {
         "MY_CLAIMS": "Moje szkody",
@@ -125,5 +127,8 @@
         "FILE_EXTENSION": "Niepoprawne rozszerzenie pliku. Dopuszczalne rozszerzenia to: {{ exts }}",
         "FILE_SIZE": "Maksymalny rozmiar załącznika to {{ size }}",
         "FILES_SIZE": "Maksymalny rozmiar wszystkich załączników to {{ size }}"
+    },
+    "ERROR": {
+        "UNEXPECTED": "Wystąpił nieoczekiwany błąd"
     }
 }

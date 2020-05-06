@@ -4,8 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { LoginActions, fromAuth, UserActions, User } from '@pko/auth';
-
-import { TrackerLayoutService } from '../../services';
+import { LayoutService } from '@pko/core';
 
 @Component({
     selector: 'pko-tracker',
@@ -21,12 +20,12 @@ export class TrackerComponent implements OnInit, OnDestroy {
 
     constructor(
         private _store: Store<fromAuth.State>,
-        private _trackerLayout: TrackerLayoutService,
+        private _layout: LayoutService,
         private _changeDetectionRef: ChangeDetectorRef) {
 
         this.user$ = this._store.pipe(select(fromAuth.getUser));
 
-        this._trackerLayout.minified$
+        this._layout.isTabletOrSmallerDevice()
             .pipe(takeUntil(this.destroyed$))
             .subscribe(minified => {
                 this.minified = minified;
