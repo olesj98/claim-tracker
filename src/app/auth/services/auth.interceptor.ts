@@ -4,10 +4,8 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { HttpError, HttpErrorCodes } from '@pko/core';
-
 @Injectable()
-export class ErrorInterceptor implements HttpInterceptor {
+export class AuthInterceptor implements HttpInterceptor {
     constructor(private _router: Router) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
