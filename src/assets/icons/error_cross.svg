@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="96" viewBox="0 0 96 96"><defs><style>.a{fill:#edeeef;opacity:0;}.b{clip-path:url(#a);}.c{fill:#ca171d;}</style><clipPath id="a"><rect class="a" width="96" height="96" transform="translate(225 1391.385)"/></clipPath></defs><g transform="translate(-225 -1391.385)"><g class="b"><path class="c" d="M49.469,4A11.109,11.109,0,0,0,38.378,15.122V37.259H16.086A11.088,11.088,0,0,0,4.995,48.35H38.378V81.844A11.123,11.123,0,0,0,49.469,70.72V48.35H71.54A11.088,11.088,0,0,0,82.631,37.259H49.469Z" transform="translate(272.341 1378.026) rotate(45)"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="96"
+     viewBox="0 0 96 96">
+    <defs>
+        <clipPath id="a">
+            <rect fill="#edeeef" style="opacity: 0" width="96" height="96" transform="translate(225 1391.385)"/>
+        </clipPath>
+    </defs>
+    <g transform="translate(-225 -1391.385)">
+        <g style="clip-path: url(#a)">
+            <path fill="#ca171d"
+                  d="M49.469,4A11.109,11.109,0,0,0,38.378,15.122V37.259H16.086A11.088,11.088,0,0,0,4.995,48.35H38.378V81.844A11.123,11.123,0,0,0,49.469,70.72V48.35H71.54A11.088,11.088,0,0,0,82.631,37.259H49.469Z"
+                  transform="translate(272.341 1378.026) rotate(45)"/>
+        </g>
+    </g>
+</svg>

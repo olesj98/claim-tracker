@@ -33,10 +33,13 @@
     &__name {
         color: $pko-black;
         font-size: $pko-default-size;
-        cursor: pointer;
 
-        &:hover {
-            text-decoration: underline;
+        &--reader {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

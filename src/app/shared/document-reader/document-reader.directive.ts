@@ -4,9 +4,7 @@ import { catchError, exhaustMap, filter, mapTo } from 'rxjs/operators';
 
 import { DocumentReaderService } from './document-reader.service';
 
-@Directive({
-    selector: '[documentReader]'
-})
+@Directive({ selector: '[documentReader]' })
 export class DocumentReaderDirective implements OnDestroy {
     @Input() documentReader: string;
 
