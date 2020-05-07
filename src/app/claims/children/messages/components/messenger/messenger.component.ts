@@ -34,7 +34,6 @@ export class MessengerComponent implements AfterViewInit {
     @Output() sendMessage: EventEmitter<DraftMessage> = new EventEmitter<DraftMessage>();
 
     @ViewChild('scrollable', { static: true, read: ElementRef }) scrollable: ElementRef;
-    @ViewChild('messenger', { static: true, read: ElementRef }) messenger: ElementRef;
 
     private _messages: Array<Message>;
 
@@ -45,11 +44,9 @@ export class MessengerComponent implements AfterViewInit {
     ngAfterViewInit(): void {
         if (this.scrollToBottom) {
             this._ngZone.runOutsideAngular(() =>
-                Promise.resolve().then(() =>
-                    this.messenger.nativeElement.scrollIntoView({
-                        block: 'end'
-                    })
-                )
+                Promise.resolve().then(() => {
+                    window.scrollTo(0, document.body.scrollHeight);
+                })
             );
         }
     }
