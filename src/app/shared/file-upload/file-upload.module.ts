@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { ControlsModule } from '../controls';
+import { DocumentReaderModule } from '../document-reader';
 
 import { FileUploadZoneComponent } from './components/file-upload-zone/file-upload-zone.component';
 import { DocumentComponent } from './components/document/document.component';
@@ -26,7 +27,8 @@ import { DOCUMENT_UPLOAD_PIPES } from './pipes';
         ReactiveFormsModule,
         AngularSvgIconModule,
         TranslateModule,
-        ControlsModule
+        ControlsModule,
+        DocumentReaderModule
     ],
     exports: [
         FileUploadZoneComponent,

@@ -33,6 +33,11 @@
     &__name {
         color: $pko-black;
         font-size: $pko-default-size;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     @include media-breakpoint-down(sm) {

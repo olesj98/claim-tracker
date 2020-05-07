@@ -129,6 +129,6 @@
         "FILES_SIZE": "Maksymalny rozmiar wszystkich załączników to {{ size }}"
     },
     "ERROR": {
-        "UNEXPECTED": "Wystąpił nieoczekiwany błąd"
+        "UNEXPECTED": "Wystąpił nieoczekiwany błąd. Skontaktuj się z nami lub spróbuj później."
     }
 }
