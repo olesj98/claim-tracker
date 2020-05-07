@@ -8,7 +8,7 @@
                 [placeholder]="'AUTH.PHONE_NUMBER_PLACEHOLDER' | translate",
                 formControlName="phoneNumber",
                 (keydown.enter)="verifyPhone()")
-            .error-messages(*ngIf="phoneNumber.touched && phoneNumber.invalid")
+            .error-messages.error-messages--static(*ngIf="phoneNumber.touched && phoneNumber.invalid")
                 .error-messages__item(*ngIf="phoneNumber.hasError('required')", translate) VALIDATION.REQUIRED
                 .error-messages__item(*ngIf="phoneNumber.hasError('minlength')", translate) VALIDATION.REQUIRED
         .signin-form__submit-row

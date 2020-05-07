@@ -23,6 +23,11 @@
 .error-messages {
     margin-top: 0.5rem;
 
+    &--static {
+        position: absolute;
+        width: 100%;
+    }
+
     &__item {
         text-align: left;
         font-size: $pko-caption-size;
