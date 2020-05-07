@@ -7,7 +7,8 @@
         .message__avatar(*ngIf="!isSquashed", [ngSwitch]="isSelf")
             ng-container(*ngSwitchCase="true")
                 svg-icon(src="assets/icons/avatar.svg", [svgStyle]="{ 'width.px': '24', 'height.px': '24' }" )
-            ng-container(*ngSwitchCase="false") {{ message.partyName | initials }}
+            ng-container(*ngSwitchCase="false")
+                img(src="assets/icons/pko-small.png", height="24")
         .message__container
             .message__cloud
                 .message__body([innerHTML]="message.body | sanitizer")
