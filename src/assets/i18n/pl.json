@@ -122,7 +122,7 @@
     "VALIDATION": {
         "REQUIRED": "Pole jest wymagane",
         "PESEL": "Nieprawidłowy numer PESEL",
-        "PIN_REPEAT": "Wprowadzone numery PIN nie pasują do siebie",
+        "PIN_REPEAT": "Wprowadzone numery PIN różnią się.",
         "IBAN": "Nieprawidłowy numer IBAN",
         "FILE_EXTENSION": "Niepoprawne rozszerzenie pliku. Dopuszczalne rozszerzenia to: {{ exts }}",
         "FILE_SIZE": "Maksymalny rozmiar załącznika to {{ size }}",
