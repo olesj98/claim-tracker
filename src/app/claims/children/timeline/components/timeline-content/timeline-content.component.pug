@@ -2,7 +2,7 @@
     .timeline-content__selection(*ngIf="isSelected; else selectContentTmpl")
         pko-timeline-content-title(
             [selectedTab]="selectedTab",
-            [closable]="minified",
+            [minified]="minified",
             (dismiss)="dismiss.emit()")
         p.timeline-content__description.my-3(*ngIf="!selectedTab.done && selectedTab.description") {{ selectedTab.description }}
         ng-container([ngSwitch]="selectedTab.eventType")

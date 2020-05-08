@@ -10,7 +10,7 @@ import { TimelineEventType, TimelineTab } from '@pko/claims/models';
 })
 export class TimelineContentTitleComponent {
     @Input() selectedTab: TimelineTab;
-    @Input() closable: boolean;
+    @Input() minified: boolean;
 
     @Output() dismiss: EventEmitter<void> = new EventEmitter<void>();
 
@@ -18,5 +18,9 @@ export class TimelineContentTitleComponent {
 
     get isTask(): boolean {
         return !!this.selectedTab.taskUUID;
+    }
+
+    get translationPostfix(): string {
+        return this.minified ? '_MOBILE' : '';
     }
 }

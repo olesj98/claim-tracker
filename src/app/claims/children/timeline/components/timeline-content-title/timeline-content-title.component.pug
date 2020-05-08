@@ -1,6 +1,8 @@
 .content-title
     .content-title__header([ngSwitch]="selectedTab.eventType")
         .content-title__text.h5.mb-3([hidden]="isTask && selectedTab.done")
+            ng-container(*ngSwitchCase="EventType.BEGIN_PROCESS")
+                p.m-0 {{ ('TIMELINE.CONTENT.BEGIN_PROCESS' + translationPostfix) | translate }}
             ng-container(*ngSwitchCase="EventType.END_PROCESS")
                 p.m-0 {{ 'TIMELINE.CLOSE_CLAIM_DATE' | translate }} {{ selectedTab.eventDate | date: 'dd.MM.yyyy' }}
             ng-container(*ngSwitchCase="EventType.SEND_DOCUMENT")
@@ -9,6 +11,5 @@
                 p.m-0 {{ 'TIMELINE.EVENTS.SEND_ACCOUNT_NUMBER' | translate }}
             ng-container(*ngSwitchDefault)
                 p.m-0 {{ 'TIMELINE.CONTENT.' + selectedTab.eventType | translate }}
-    .content-title__dismiss(*ngIf="closable", (click)="dismiss.emit()")
+    .content-title__dismiss(*ngIf="minified", (click)="dismiss.emit()")
         svg-icon(src="assets/icons/close.svg", [svgStyle]="{ 'width.px': '16', 'height.px': '16' }")
-

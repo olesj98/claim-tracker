@@ -4,7 +4,7 @@
     .document__body
         .document__info
             .document__name.document__name--reader(*ngIf="hrefToGet; else fileWithNoPreviewTmpl", [documentReader]="hrefToGet") {{ filename }}
-            .document__date(*ngIf="postDate") {{ postDate | date: 'EEE dd.MM.yy | H:mm' }}
+            time.document__date(*ngIf="postDate") {{ postDate | date: 'EEE dd.MM.yyyy | H:mm' }}
         .document__remove(*ngIf="removeable", role="button", (click)="removed.emit()")
             svg-icon(src="assets/icons/trash.svg")
 

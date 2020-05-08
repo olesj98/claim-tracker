@@ -92,6 +92,7 @@
         },
         "CONTENT": {
             "BEGIN_PROCESS": "Zgłoszenie Twojej szkody zostało zarejestrowane. Po lewej stronie znajduję się oś czasu, dzięki której możesz śledzić etapy likwidacji. Wybierz zadanie lub zdarzenie, aby poznać szczegóły.",
+            "BEGIN_PROCESS_MOBILE": "Zgłoszenie Twojej szkody zostało zarejestrowane. Na osi czasu możesz śledzić etapy likwidacji.  Wybierz zadanie lub zdarzenie, aby poznać szczegóły.",
             "MEDICAL_OPINION_SCHEDULED": "Opinia medyczna została zlecona. Oczekuj na kontakt z naszej strony.",
             "INSPECTION_SCHEDULED": "Oględziny zostały zlecone. Oczekuj na kontakt z naszej strony.",
             "DOCUMENT_SHARED": "Ubezpieczyciel udostępnił dokument. Zapoznaj się z jego treścią."
