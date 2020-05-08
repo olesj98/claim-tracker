@@ -47,11 +47,9 @@ export function isSizeOk(fileSize: number, maxSize: number): ValidationErrors | 
 }
 
 export function isExtensionOk(filename: string, extensions: Array<string>): ValidationErrors | null {
-    const fileRegex = new RegExp(
-        extensions
-            .map(extension => `.${extension}`)
-            .join('|'), 'i'
-    );
+    extensions = formatExtenssions(extensions);
+
+    const fileRegex = new RegExp(extensions.join('|'), 'i');
 
     if (!fileRegex.test(filename)) {
         return {
@@ -75,4 +73,8 @@ export function bytesToSize(bytes: number, precision = 0): string {
         return `${bytes}${sizes[i]}`;
     }
     return (bytes / Math.pow(1024, i)).toFixed(precision) + sizes[i];
+}
+
+export function formatExtenssions(exts: Array<string>): Array<string> {
+    return exts.map(ext => ext.startsWith('.') ? ext : `.${ext}`);
 }
