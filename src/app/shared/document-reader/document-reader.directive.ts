@@ -37,8 +37,13 @@ export class DocumentReaderDirective implements OnDestroy {
         const a: HTMLLinkElement = this._document.createElement('a');
         a.target = '_blank';
         a.href = url;
+        a.style.display = 'none';
+        a.style.position = 'absolute';
+        a.style.opacity = '0';
 
+        this._document.body.appendChild(a);
         a.click();
+        a.parentElement.removeChild(a);
     }
 
     ngOnDestroy(): void {
