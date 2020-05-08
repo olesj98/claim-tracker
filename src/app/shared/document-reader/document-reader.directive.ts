@@ -18,11 +18,21 @@ export class DocumentReaderDirective implements OnDestroy {
             exhaustMap(() =>
                 this._reader.read(this.documentReader).pipe(
                     mapTo(this.documentReader),
-                    catchError(() => of(null))
+                    catchError(e => {
+                        try {
+                            alert(JSON.stringify(e));
+                        } catch (e) {
+                            alert(e);
+                        }
+                        return of(null);
+                    })
                 )
             )
         )
-            .subscribe(url => url && window.open(url));
+            .subscribe(url => {
+                alert(url);
+                url && window.open(url);
+            });
     }
 
     @HostListener('click') onclick(): void {
