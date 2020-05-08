@@ -1,8 +1,9 @@
-import { Directive, HostListener, Input, OnDestroy } from '@angular/core';
+import { Directive, HostListener, Inject, Input, OnDestroy } from '@angular/core';
 import { of, Subject, Subscription } from 'rxjs';
 import { catchError, exhaustMap, filter, mapTo } from 'rxjs/operators';
 
 import { DocumentReaderService } from './document-reader.service';
+import { DOCUMENT } from '@angular/common';
 
 @Directive({ selector: '[documentReader]' })
 export class DocumentReaderDirective implements OnDestroy {
@@ -12,33 +13,32 @@ export class DocumentReaderDirective implements OnDestroy {
 
     private _readSubscription: Subscription;
 
-    constructor(private _reader: DocumentReaderService) {
+    constructor(
+        reader: DocumentReaderService,
+        @Inject(DOCUMENT) private _document: any) {
+
         this._readSubscription = this.read$.pipe(
             filter(() => !!this.documentReader),
             exhaustMap(() =>
-                this._reader.read(this.documentReader).pipe(
+                reader.read(this.documentReader).pipe(
                     mapTo(this.documentReader),
-                    catchError(e => {
-                        try {
-                            alert(JSON.stringify(e));
-                        } catch (e) {
-                            alert(e);
-                        }
-                        return of(null);
-                    })
+                    catchError(() => of(null))
                 )
             )
         )
-            .subscribe(url => {
-                alert(url);
-                if (url) {
-                    window.open(url);
-                }
-            });
+            .subscribe(url => url && this._openDocument(url));
     }
 
     @HostListener('click') onclick(): void {
         this.read$.next();
+    }
+
+    private _openDocument(url: string): void {
+        const a: HTMLLinkElement = this._document.createElement('a');
+        a.target = '_blank';
+        a.href = url;
+
+        a.click();
     }
 
     ngOnDestroy(): void {
