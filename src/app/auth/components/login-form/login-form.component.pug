@@ -10,7 +10,7 @@
                 (keydown.enter)="verifyPhone()")
             .error-messages.error-messages--static(*ngIf="phoneNumber.touched && phoneNumber.invalid")
                 .error-messages__item(*ngIf="phoneNumber.hasError('required')", translate) VALIDATION.REQUIRED
-                .error-messages__item(*ngIf="phoneNumber.hasError('minlength')", translate) VALIDATION.REQUIRED
+                .error-messages__item(*ngIf="phoneNumber.hasError('minlength')", translate) VALIDATION.INVALID_PHONE_NUMBER
         .signin-form__submit-row
             .signin-form__secondary-action
                 a.signin-form__action.link(routerLink="/registration", translate) AUTH.RESTORE_PIN

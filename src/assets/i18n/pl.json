@@ -122,6 +122,7 @@
     },
     "VALIDATION": {
         "REQUIRED": "Pole jest wymagane",
+        "INVALID_PHONE_NUMBER": "Nieprawidłowy numer telefonu",
         "PESEL": "Nieprawidłowy numer PESEL",
         "PIN_REPEAT": "Wprowadzone numery PIN różnią się.",
         "IBAN": "Niepoprawny numer konta bankowego.",
