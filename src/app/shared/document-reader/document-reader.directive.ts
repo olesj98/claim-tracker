@@ -31,7 +31,9 @@ export class DocumentReaderDirective implements OnDestroy {
         )
             .subscribe(url => {
                 alert(url);
-                url && window.open(url);
+                if (url) {
+                    window.open(url);
+                }
             });
     }
 
