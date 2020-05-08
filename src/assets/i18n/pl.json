@@ -82,7 +82,7 @@
         "ACCOUNT_NUMBER_THANK_YOU": "Dziękujemy za dodanie numery konta",
         "EVENTS": {
             "BEGIN_PROCESS": "Zarejestrowano zgłoszenie szkody",
-            "DOCUMENT_SHARED": "Udostępniono dokument od Ubezpieczyciela",
+            "DOCUMENT_SHARED": "Dodano dokument od Ubezpieczyciela",
             "INSPECTION_SCHEDULED": "Zlecono oględziny",
             "MEDICAL_OPINION_SCHEDULED": "Zlecono opinię medyczną",
             "SEND_ACCOUNT_NUMBER": "Dodaj numer konta",
