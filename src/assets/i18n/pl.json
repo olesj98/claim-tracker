@@ -123,7 +123,7 @@
         "REQUIRED": "Pole jest wymagane",
         "PESEL": "Nieprawidłowy numer PESEL",
         "PIN_REPEAT": "Wprowadzone numery PIN różnią się.",
-        "IBAN": "Nieprawidłowy numer IBAN",
+        "IBAN": "Niepoprawny numer konta bankowego.",
         "FILE_EXTENSION": "Niepoprawny plik. Dopuszczalne rozszerzenia to: {{ exts }}",
         "FILE_SIZE": "Maksymalny rozmiar załącznika to {{ size }}",
         "FILES_SIZE": "Maksymalny rozmiar wszystkich załączników to {{ size }}"
