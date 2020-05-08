@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, Inject } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 import { DocumentChangeEvent } from '../../models';
 import { DOCUMENT_UPLOAD_CONFIG, DocumentUploadConfig } from '../../providers';
@@ -31,8 +31,8 @@ export class FileUploadZoneComponent {
     set multiple(multiple: boolean) {
         this._multiple = multiple;
         this._multiple ?
-            this.files.setValidators(fileArraySizeValidator(this._config.maxAllSize)) :
-            this.files.clearValidators();
+            this.files.setValidators(this.multipleFilesComposition) :
+            this.files.setValidators(Validators.required);
     }
     get multiple(): boolean {
         return this._multiple;
@@ -66,6 +66,13 @@ export class FileUploadZoneComponent {
     get addDocumentActionTitle(): string {
         return this.mobile ?
             'FILE_UPLOAD.ADD_FROM_GALLERY' : 'FILE_UPLOAD.ADD_FROM_DRIVE';
+    }
+
+    get multipleFilesComposition(): ValidatorFn {
+        return Validators.compose([
+            Validators.required,
+            fileArraySizeValidator(this._config.maxAllSize)
+        ]);
     }
 
     constructor(@Inject(DOCUMENT_UPLOAD_CONFIG) private _config: DocumentUploadConfig) {
