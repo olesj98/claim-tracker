@@ -79,6 +79,7 @@
         "SELECT_TO_PROCEED": "Wybierz zadanie lub zdarzenie z osi czasu, aby poznać szczegóły",
         "ENTER_ACCOUNT_NUMBER": "Wprowadź numer konta",
         "ACCOUNT_NUMBER_SUCCESS": "Numer konta został do nas poprawnie przesłany",
+        "TASK_DONE": "To zadanie zostało już wykonane. Jeżeli masz pytanie, skorzystaj z zakładki Wiadomości.",
         "ACCOUNT_NUMBER_THANK_YOU": "Dziękujemy za dodanie numery konta",
         "EVENTS": {
             "BEGIN_PROCESS": "Zarejestrowano zgłoszenie szkody",

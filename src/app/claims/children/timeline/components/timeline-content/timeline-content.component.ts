@@ -10,6 +10,7 @@ import { TimelineEventType, TimelineInteractionEvent, TimelineTab, DocumentLinkR
 })
 export class TimelineContentComponent {
     @Input() selectedTab: TimelineTab;
+    @Input() recentlyDone: boolean;
     @Input() minified: boolean;
 
     @Output() interactionEvent: EventEmitter<TimelineInteractionEvent<any>> = new EventEmitter<TimelineInteractionEvent<any>>();

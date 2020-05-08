@@ -16,6 +16,7 @@
 ng-template(#feedTabContentTmpl)
     pko-timeline-content(
         [selectedTab]="selectedTab",
+        [recentlyDone]="selectedTabWasRecentlyDone",
         [minified]="minified",
         (dismiss)="destroyBottomSheet()",
         (interactionEvent)="interactionEvent.emit($event)")

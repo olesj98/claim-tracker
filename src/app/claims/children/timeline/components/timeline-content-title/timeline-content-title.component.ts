@@ -15,4 +15,8 @@ export class TimelineContentTitleComponent {
     @Output() dismiss: EventEmitter<void> = new EventEmitter<void>();
 
     EventType: typeof TimelineEventType = TimelineEventType;
+
+    get isTask(): boolean {
+        return !!this.selectedTab.taskUUID;
+    }
 }

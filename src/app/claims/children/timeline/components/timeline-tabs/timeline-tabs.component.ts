@@ -16,8 +16,7 @@ export class TimelineTabsComponent {
         this._timeline = timeline;
 
         if (this.selectedTab?.taskUUID && this._timeline) {
-            this.selectedTab = this._timeline
-                .find(timelineTab => timelineTab.taskUUID && timelineTab.taskUUID === this.selectedTab.taskUUID);
+            this.checkIfSelectedTaskWasRecentlyDone();
         }
     }
     get timeline(): Array<TimelineTab> {
@@ -41,6 +40,7 @@ export class TimelineTabsComponent {
     @ViewChild('feedTabContentTmpl') contentRef: TemplateRef<any>;
 
     selectedTab: TimelineTab = null;
+    selectedTabWasRecentlyDone: boolean;
     EventType: typeof TimelineEventType = TimelineEventType;
 
     private _minified: boolean;
@@ -51,6 +51,7 @@ export class TimelineTabsComponent {
 
     onTabSelected(tab: TimelineTab): void {
         if (!this.isTabDisabled(tab)) {
+            this.selectedTabWasRecentlyDone = false;
             this.selectedTab = tab;
 
             if (this.minified) {
@@ -75,5 +76,14 @@ export class TimelineTabsComponent {
             this._bottomSheetRef.dismiss();
             this._bottomSheetRef = null;
         }
+    }
+
+    checkIfSelectedTaskWasRecentlyDone(): void {
+        const potentiallyDoneTabOrNull = this._timeline
+            .find(timelineTab => timelineTab.taskUUID && timelineTab.taskUUID === this.selectedTab.taskUUID);
+
+        this.selectedTabWasRecentlyDone = potentiallyDoneTabOrNull &&
+            potentiallyDoneTabOrNull.done && !this.selectedTab.done;
+        this.selectedTab = potentiallyDoneTabOrNull;
     }
 }

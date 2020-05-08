@@ -1,7 +1,10 @@
 .timeline-content
     .timeline-content__selection(*ngIf="isSelected; else selectContentTmpl")
-        pko-timeline-content-title([selectedTab]="selectedTab", [closable]="minified", (dismiss)="dismiss.emit()")
-        p.timeline-content__description.my-3(*ngIf="selectedTab.description") {{ selectedTab.description }}
+        pko-timeline-content-title(
+            [selectedTab]="selectedTab",
+            [closable]="minified",
+            (dismiss)="dismiss.emit()")
+        p.timeline-content__description.my-3(*ngIf="!selectedTab.done && selectedTab.description") {{ selectedTab.description }}
         ng-container([ngSwitch]="selectedTab.eventType")
             ng-container(*ngSwitchCase="EventType.SEND_DOCUMENT")
                 pko-file-upload-zone(
@@ -23,7 +26,15 @@ ng-template(#selectContentTmpl)
         svg-icon(src="assets/icons/easel.svg", [svgStyle]="{ 'height.px': '140', 'width.px': '140' }")
 
 ng-template(#documentUploadSuccessTmpl)
-    pko-document-upload-success([caption]="'FILE_UPLOAD.SUCCESS' | translate") {{ 'FILE_UPLOAD.THANK_YOU' | translate }}
+    ng-container([ngSwitch]="recentlyDone")
+        pko-document-upload-success(
+            *ngSwitchCase="true",
+            [caption]="'FILE_UPLOAD.SUCCESS' | translate") {{ 'FILE_UPLOAD.THANK_YOU' | translate }}
+        pko-document-upload-success(*ngSwitchDefault) {{ 'TIMELINE.TASK_DONE' | translate }}
 
 ng-template(#accountSentSuccessTmpl)
-    pko-document-upload-success([caption]="'TIMELINE.ACCOUNT_NUMBER_SUCCESS' | translate") {{ 'TIMELINE.ACCOUNT_NUMBER_THANK_YOU' | translate }}
+    ng-container([ngSwitch]="recentlyDone")
+        pko-document-upload-success(
+            *ngSwitchCase="true",
+            [caption]="'TIMELINE.ACCOUNT_NUMBER_SUCCESS' | translate") {{ 'TIMELINE.ACCOUNT_NUMBER_THANK_YOU' | translate }}
+        pko-document-upload-success(*ngSwitchDefault) {{ 'TIMELINE.TASK_DONE' | translate }}
