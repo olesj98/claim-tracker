@@ -1,4 +1,11 @@
-import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input } from '@angular/core';
+import {
+    Component,
+    ChangeDetectionStrategy,
+    Output,
+    EventEmitter,
+    Input,
+    ChangeDetectorRef, OnInit
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import * as Quill from 'quill';
@@ -13,7 +20,7 @@ replaceTags();
     styleUrls: ['./message-input.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MessageInputComponent {
+export class MessageInputComponent implements OnInit {
     @Input() focusMessageInput: boolean;
 
     @Output() send: EventEmitter<DraftMessage> = new EventEmitter<DraftMessage>();
@@ -24,8 +31,20 @@ export class MessageInputComponent {
 
     private _quill: Quill;
 
+    get body(): FormControl {
+        return this.message.get('body') as FormControl;
+    }
+
+    constructor(private _changeDetectorRef: ChangeDetectorRef) { }
+
+    ngOnInit(): void {
+        this.body.valueChanges
+            .pipe()
+            .subscribe(() => this._changeDetectorRef.markForCheck());
+    }
+
     submit(): void {
-        if (!this.isMessageEmpty()) {
+        if (!this.isMessageEmpty() && this.isQuillValueOk(2500)) {
             this.send.emit(this.message.value);
             this.message.reset();
         }
@@ -41,6 +60,18 @@ export class MessageInputComponent {
 
     isMessageEmpty(): boolean {
         return this._quill && !this._quill.getText().trim().length;
+    }
+
+    isQuillValueOk(maxlength: number): boolean {
+        const html = this._quill.container.firstChild.innerHTML;
+
+        if (html.length > maxlength) {
+            this.body.setErrors({ messageMaxLength: true });
+            this.body.markAsTouched();
+            return false;
+        }
+
+        return true;
     }
 }
 

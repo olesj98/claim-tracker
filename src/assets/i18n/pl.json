@@ -129,7 +129,8 @@
         "IBAN": "Niepoprawny numer konta bankowego.",
         "FILE_EXTENSION": "Niepoprawny plik. Dopuszczalne rozszerzenia to: {{ exts }}",
         "FILE_SIZE": "Maksymalny rozmiar załącznika to {{ size }}",
-        "FILES_SIZE": "Maksymalny rozmiar wszystkich załączników to {{ size }}"
+        "FILES_SIZE": "Maksymalny rozmiar wszystkich załączników to {{ size }}",
+        "MESSAGE_TOO_LONG": "Wiadomość jest zbyt długa."
     },
     "ERROR": {
         "UNEXPECTED": "Wystąpił nieoczekiwany błąd. Skontaktuj się z nami lub spróbuj później."

@@ -1,14 +1,18 @@
-.message-input([formGroup]="message")
-    .message-input__quill
-        quill-editor(
+form.message-input([formGroup]="message")
+    .message-input__quill([class.message-input__quill--warning]="body.touched && body.invalid")
+        quill-editor.message-input__editor(
+            #quill
             formControlName="body",
             format="html",
             [placeholder]="'MESSAGES.SEND_PLACEHOLDER' | translate",
+            [sanitize]="true",
             classes="persistent-border-top message-editor",
             (onEditorCreated)="onQuillCreated($event)")
             .message-input__toolbar(quill-editor-toolbar)
                 span.message-input__formats.ql-formats
                     button.message-input__format.message-input__format--bold.ql-bold
                     button.message-input__format.message-input__format--underline.ql-underline
-                    button.message-input__format.message-input__format--italic.ql-italic I
+                    button.message-input__format.message-input__format--italic.ql-italic
+        .error-messages.error-messages--static(*ngIf="body.touched && body.invalid")
+            .error-messages__item(*ngIf="body.hasError('messageMaxLength')", translate) VALIDATION.MESSAGE_TOO_LONG
     button.message-input__send.btn.btn-primary(type="button", (click)="submit()", translate) ALL.SEND

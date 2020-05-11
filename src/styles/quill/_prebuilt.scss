@@ -34,3 +34,8 @@
 .ql-snow.ql-toolbar button.ql-active .ql-stroke {
     stroke: $pko-primary;
 }
+
+quill-editor.ng-invalid.ng-touched .ql-toolbar.ql-snow + .ql-container.ql-snow.persistent-border-top,
+quill-editor.ng-invalid.ng-touched .ql-container.ql-snow {
+    border-color: $pko-danger;
+}
