@@ -50,6 +50,8 @@ export class LoginFormComponent implements OnInit {
     }
 
     verifyPhone() {
+        this.phoneNumber.markAsTouched();
+
         if (this.phoneNumber.valid) {
             this.phoneVerified = true;
         }
