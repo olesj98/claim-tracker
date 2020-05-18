@@ -30,10 +30,15 @@ export class SignupFormComponent implements OnInit {
         return this.form.get('pesel') as FormControl;
     }
 
+    get termsAccepted(): FormControl {
+        return this.form.get('termsAccepted') as FormControl;
+    }
+
     constructor(private _fb: FormBuilder) { }
 
     ngOnInit() {
         this.form = this._fb.group({
+            termsAccepted: [false, Validators.requiredTrue],
             phoneNumber: [null, Validators.required],
             pesel: [null, Validators.compose([
                 Validators.required, peselValidator
@@ -42,6 +47,8 @@ export class SignupFormComponent implements OnInit {
     }
 
     submit() {
+        this.form.markAllAsTouched();
+
         if (this.form.valid) {
             this.submitted.next(this.form.value);
         }

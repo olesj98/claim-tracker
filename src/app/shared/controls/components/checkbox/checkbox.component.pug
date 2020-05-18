@@ -1,0 +1,14 @@
+label.checkbox([class.checkbox--checked]="checked")
+    .checkbox__container
+        input.checkbox__native(
+            type="checkbox",
+            [required]="required",
+            [checked]="checked",
+            [attr.value]="value",
+            [disabled]="disabled",
+            (change)="onInteractionEvent($event)",
+            (click)="onInputClick($event)")
+        .checkbox__frame
+        .checkbox__background
+    span.checkbox__label
+        ng-content

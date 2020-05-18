@@ -1,0 +1,72 @@
+@import 'variables';
+
+$checkbox-size: 18px;
+
+.checkbox {
+    $self: &;
+
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+
+    &__container {
+        display: inline-block;
+        height: $checkbox-size;
+        line-height: 0;
+        margin-right: 8px;
+        order: 0;
+        position: relative;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: $checkbox-size;
+        flex-shrink: 0;
+    }
+
+    &__native {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+        outline: 0;
+        -webkit-appearance: none;
+    }
+
+    &__frame,
+    &__background {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        border-radius: 2px;
+        box-sizing: border-box;
+        pointer-events: none;
+    }
+
+    &__frame {
+        border: 1px solid $pko-control-border-color;
+    }
+
+    &--checked {
+        #{ $self }__background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $pko-primary;
+
+            &:before {
+                display: inline-block;
+                content: '';
+                background: url("assets/icons/done-white.svg") no-repeat;
+                background-size: 14px 14px;
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+}

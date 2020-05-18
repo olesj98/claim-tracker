@@ -32,7 +32,9 @@
         "REPEAT_PIN": "Powtórz PIN",
         "VERIFICATION_SUCCESS": "Dostęp został nadany",
         "VERIFICATION_SUCCESS_INFO": "Zapamiętaj swój kod PIN. Poprosimy Cię o jego wpisanie przy logowaniu do formularza.",
-        "RETURN_TO_LOGIN": "Przejdź do logowania"
+        "RETURN_TO_LOGIN": "Przejdź do logowania",
+        "ACCEPT": "Akceptuję",
+        "TERMS_LINK": "regulamin"
     },
     "CLAIM_TYPE": {
         "VEHICLE": "Szkoda w pojeździe",

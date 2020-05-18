@@ -7,11 +7,13 @@ import { SelectModule } from '@pko/shared/select';
 
 import { PinComponent } from './components/pin/pin.component';
 import { PinCellComponent } from './components/pin-cell/pin-cell.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 
 @NgModule({
     declarations: [
         PinComponent,
-        PinCellComponent
+        PinCellComponent,
+        CheckboxComponent
     ],
     imports: [
         CommonModule,
@@ -21,6 +23,7 @@ import { PinCellComponent } from './components/pin-cell/pin-cell.component';
     ],
     exports: [
         PinComponent,
+        CheckboxComponent,
         SelectModule
     ]
 })
