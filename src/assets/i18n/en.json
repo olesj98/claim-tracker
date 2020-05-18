@@ -80,7 +80,7 @@
         "ENTER_ACCOUNT_NUMBER": "Enter your account number",
         "ACCOUNT_NUMBER_SUCCESS": "The account number has been correctly transmitted to us",
         "TASK_DONE": "This job has already been done. If you have a question, use the Messages tab.",
-        "ACCOUNT_NUMBER_THANK_YOU": "Thank you for adding your account number"
+        "ACCOUNT_NUMBER_THANK_YOU": "Thank you for adding your account number",
         "EVENTS": {
             "BEGIN_PROCESS": "Registered damage report",
             "DOCUMENT_SHARED": "Added a document from the Insurer",
