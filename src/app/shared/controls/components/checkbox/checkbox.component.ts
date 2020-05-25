@@ -56,7 +56,6 @@ export class CheckboxComponent implements ControlValueAccessor, OnDestroy {
     onTouched: () => any = () => {};
     onChange: (value: boolean) => void = () => {};
 
-
     constructor(
         private _elementRef: ElementRef,
         private _changeDetectorRef: ChangeDetectorRef,

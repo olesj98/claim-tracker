@@ -32,7 +32,9 @@
         "REPEAT_PIN": "Repeat PIN",
         "VERIFICATION_SUCCESS": "Access has been granted",
         "VERIFICATION_SUCCESS_INFO": "Remember your PIN code. You will be asked to enter this password when logging in to the form.",
-        "RETURN_TO_LOGIN": "Go to the login"
+        "RETURN_TO_LOGIN": "Go to the login",
+        "ACCEPT": "Accept",
+        "TERMS_LINK": "terms and conditions"
     },
     "CLAIM_TYPE": {
         "VEHICLE": "It is a pity in a vehicle",
