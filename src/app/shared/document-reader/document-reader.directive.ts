@@ -1,9 +1,8 @@
-import { Directive, HostListener, Inject, Input, OnDestroy } from '@angular/core';
+import { Directive, HostListener, Input, OnDestroy } from '@angular/core';
 import { of, Subject, Subscription } from 'rxjs';
-import { catchError, exhaustMap, filter, mapTo } from 'rxjs/operators';
+import { catchError, exhaustMap, filter } from 'rxjs/operators';
 
 import { DocumentReaderService } from './document-reader.service';
-import { DOCUMENT } from '@angular/common';
 
 @Directive({ selector: '[documentReader]' })
 export class DocumentReaderDirective implements OnDestroy {
@@ -13,32 +12,29 @@ export class DocumentReaderDirective implements OnDestroy {
 
     private _readSubscription: Subscription;
 
-    constructor(
-        reader: DocumentReaderService,
-        @Inject(DOCUMENT) private _document: any) {
-
+    constructor(reader: DocumentReaderService) {
         this._readSubscription = this.read$.pipe(
             filter(() => !!this.documentReader),
             exhaustMap(() =>
                 reader.read(this.documentReader).pipe(
-                    mapTo(this.documentReader),
                     catchError(() => of(null))
                 )
             )
         )
-            .subscribe(url => url && this._openDocument(url));
+            .subscribe(response => response && this._openDocument(response));
     }
 
     @HostListener('click') onclick(): void {
         this.read$.next();
     }
 
-    private _openDocument(url: string): void {
-        const a: HTMLLinkElement = this._document.createElement('a');
-        a.target = '_blank';
-        a.href = url;
+    private _openDocument(document: Blob): void {
+        const objectUrl = URL.createObjectURL(document);
+        const newTab = window.open(objectUrl, '_blank');
 
-        a.click();
+        if (!newTab) {
+            window.location.href = objectUrl;
+        }
     }
 
     ngOnDestroy(): void {

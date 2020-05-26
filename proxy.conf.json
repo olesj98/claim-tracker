@@ -1,6 +1,6 @@
 {
     "/": {
-        "target": "http://localhost:8005",
+        "target": "http://pkou.apreel.net:8005",
         "secure": false
     }
 }
