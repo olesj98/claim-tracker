@@ -2,6 +2,14 @@
 
 $checkbox-size: 18px;
 
+:host(.ng-touched.ng-invalid) {
+    .checkbox {
+        &__frame {
+            border-color: $pko-danger;
+        }
+    }
+}
+
 .checkbox {
     $self: &;
 
@@ -50,6 +58,7 @@ $checkbox-size: 18px;
 
     &__frame {
         border: 1px solid $pko-control-border-color;
+        transition: border-color 0.15s ease-in-out;
     }
 
     &--checked {

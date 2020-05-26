@@ -59,10 +59,10 @@
         "PATRON": "Opiekun szkody",
         "CLAIM": "Szkoda",
         "RETURN": "Powrót do listy szkód",
-        "TIMELINE": "Oś czasu",
+        "TIMELINE": "Twoja szkoda",
         "DOCUMENTS": "Dokumenty",
         "MESSAGES": "Wiadomości",
-        "CURRENT_TASK": "Twoje zadanie do wykonania",
+        "CURRENT_TASK": "Zadanie do wykonania",
         "PROCESSING": "Status: Analizujemy Twoją Sprawę"
     },
     "FILE_UPLOAD": {

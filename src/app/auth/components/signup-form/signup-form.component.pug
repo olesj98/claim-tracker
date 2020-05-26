@@ -19,12 +19,14 @@ form.signup-form([formGroup]="form")
             .error-messages
                 .error-messages__item {{ error.message }}
         .col-12
-            pko-checkbox(formControlName="termsAccepted") {{ 'AUTH.ACCEPT' | translate }}&nbsp;
-                a(href="https://www.pkobp.pl/", translate) AUTH.TERMS_LINK
+            .form-group.m-0
+                pko-checkbox(formControlName="termsAccepted") {{ 'AUTH.ACCEPT' | translate }}&nbsp;
+                    a(href="https://www.pkobp.pl/", translate) AUTH.TERMS_LINK
+                .error-messages(*ngIf="termsAccepted.touched && termsAccepted.invalid")
+                    .error-messages__item(*ngIf="termsAccepted.hasError('required')", translate) VALIDATION.REQUIRED
     .signup-form__actions
         button.signup-form__submit.btn.btn-primary(
             type="button",
-            [disabled]="termsAccepted.invalid",
             translate,
             (click)="submit()") ALL.NEXT
 
