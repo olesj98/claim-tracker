@@ -4,7 +4,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { TranslateModule } from '@ngx-translate/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { CommonPipesModule } from '@pko/shared/common-pipes';
+import { CommonAssetsModule } from '@pko/shared/common-assets';
 import { FooterModule } from '@pko/shared/footer';
 
 import { TrackerComponent } from './containers/tracker/tracker.component';
@@ -24,7 +24,7 @@ import { TrackerRoutingModule } from './tracker-routing.module';
         OverlayModule,
         TranslateModule,
         AngularSvgIconModule,
-        CommonPipesModule,
+        CommonAssetsModule,
         FooterModule,
         TrackerRoutingModule
     ]

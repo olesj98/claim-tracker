@@ -30,7 +30,7 @@ export class DocumentReaderDirective implements OnDestroy {
 
     private _openDocument(document: Blob): void {
         if (window.navigator.msSaveOrOpenBlob) {
-            window.navigator.msSaveOrOpenBlob(new Blob([document], { type: document.type }));
+            window.navigator.msSaveOrOpenBlob(document);
         } else {
             const objectUrl = URL.createObjectURL(document);
             const newTab = window.open(objectUrl, '_blank');

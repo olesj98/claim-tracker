@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { QuillModule } from 'ngx-quill';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { CommonPipesModule } from '@pko/shared/common-pipes';
+import { CommonAssetsModule } from '@pko/shared/common-assets';
 import { MessagesRoutingModule } from './messages-routing.module';
 
 import { MessagesComponent } from './containers/messages/messages.component';
@@ -36,7 +36,7 @@ import { MessagePipes } from './pipes';
                 ]
             }
         }),
-        CommonPipesModule,
+        CommonAssetsModule,
         MessagesRoutingModule
     ]
 })

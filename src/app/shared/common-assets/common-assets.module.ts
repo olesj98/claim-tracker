@@ -13,4 +13,4 @@ import { SanitazerPipe } from './sanitazer.pipe';
         SanitazerPipe
     ]
 })
-export class CommonPipesModule { }
+export class CommonAssetsModule { }
