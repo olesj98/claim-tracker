@@ -21,10 +21,6 @@ html, body {
     &__content > .container {
         height: 100%;
     }
-
-    &__footer {
-        min-height: 45px;
-    }
 }
 
 @include media-breakpoint-down(sm) {
