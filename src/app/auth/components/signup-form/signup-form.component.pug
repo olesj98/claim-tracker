@@ -21,7 +21,7 @@ form.signup-form([formGroup]="form")
         .col-12
             .form-group.m-0
                 pko-checkbox(formControlName="termsAccepted") {{ 'AUTH.ACCEPT' | translate }}&nbsp;
-                    a(href="https://www.pkobp.pl/", target="_blank", translate) AUTH.TERMS_LINK
+                    a(href="assets/Regulamin_świadczenia_uslugi_Sprawdz status szkody_droga_elektroniczna FV(002)ok.pdf", target="_blank", translate) AUTH.TERMS_LINK
                 .error-messages(*ngIf="termsAccepted.touched && termsAccepted.invalid")
                     .error-messages__item(*ngIf="termsAccepted.hasError('required')", translate) VALIDATION.REQUIRED
     .signup-form__actions
