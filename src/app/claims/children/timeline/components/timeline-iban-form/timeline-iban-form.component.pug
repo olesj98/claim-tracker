@@ -6,4 +6,4 @@
             .error-messages__item(*ngIf="acoountNumber.hasError('required')", translate) VALIDATION.REQUIRED
             .error-messages__item(*ngIf="acoountNumber.hasError('iban') && !acoountNumber.hasError('required')", translate) VALIDATION.IBAN
     .d-flex.justify-content-end
-        button.btn.btn-primary(type="button", translate, (click)="submit()") ALL.SAVE
+        button.btn.btn-primary.account-form__submit(type="button", translate, (click)="submit()") ALL.SAVE

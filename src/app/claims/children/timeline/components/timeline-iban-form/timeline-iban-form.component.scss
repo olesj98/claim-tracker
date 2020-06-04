@@ -1,0 +1,9 @@
+@import 'bootstrap/tools';
+
+.account-form {
+    @include media-breakpoint-down(md) {
+        &__submit {
+            width: 100%;
+        }
+    }
+}
