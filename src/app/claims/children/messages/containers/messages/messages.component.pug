@@ -3,6 +3,6 @@
         pko-messenger(
             [messages]="messages$ | async",
             [scrollToBottom]="true",
-            [focusMessageInput]="instantFocusRequired$ | async",
+            [focusMessageInput]="true",
             (sendMessage)="onSendMessage($event)"
         )
