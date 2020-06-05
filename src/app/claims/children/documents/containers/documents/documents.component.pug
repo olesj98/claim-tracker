@@ -24,4 +24,5 @@
                 pko-document.documents__static-file.mb-2(
                     *ngFor="let document of sharedDocuments",
                     [filename]="document.name",
+                    [postDate]="document.createDate",
                     [hrefToGet]="document.links | documentHref: DocumentRelGet")
