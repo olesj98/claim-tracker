@@ -24,10 +24,8 @@ export class MessageFromTodayPipe extends DatePipe implements PipeTransform {
 
         if (isYesterday) {
             return this._translate.instant('MESSAGES.YESTERDAY');
-        } else if (isSameYear) {
-            return super.transform(sentDate, 'd MMMM');
         } else {
-            return super.transform(sentDate, 'longDate');
+            return super.transform(sentDate, isSameYear ? 'd MMMM' : 'longDate');
         }
     }
 }

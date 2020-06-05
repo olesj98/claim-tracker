@@ -1,15 +1,15 @@
 .message(
     [class.message--slf]="isSelf",
-    [class.message--btw]="isBetween",
-    [class.message--bfs]="isLastBeforeSquashed",
-    [class.message--sqh]="isSquashed")
+    [class.message--btw]="config.isSquashedUpAndDown",
+    [class.message--bfs]="config.isLastFromSameSequence",
+    [class.message--sqh]="config.hasNextSubsequentMessage")
     .message__inner
-        .message__avatar(*ngIf="!isSquashed", [ngSwitch]="isSelf")
+        .message__avatar(*ngIf="!config.hasNextSubsequentMessage", [ngSwitch]="isSelf")
             ng-container(*ngSwitchCase="true")
-                svg-icon(src="assets/icons/avatar.svg", [svgStyle]="{ 'width.px': '24', 'height.px': '24' }" )
+                svg-icon(src="assets/icons/avatar.svg", [svgStyle]="{ 'width.px': '24', 'height.px': '24' }")
             ng-container(*ngSwitchCase="false")
-                img(src="assets/icons/pko-small.png", height="24")
+                img(src="assets/icons/pko-small.png", height="24", [alt]="message.partyName")
         .message__container
             .message__cloud
                 .message__body([innerHTML]="message.body | sanitizer")
-            span.message__time(*ngIf="!isSquashed") {{ message.postDate | date: 'HH:mm' }}
+            span.message__time(*ngIf="!config.hasNextSubsequentMessage") {{ message.postDate | date: 'HH:mm' }}

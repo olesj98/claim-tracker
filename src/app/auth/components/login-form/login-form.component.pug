@@ -23,6 +23,6 @@
                 .error-messages__item {{ error.message }}
         .signin-form__submit-row
             .signin-form__secondary-action
-                .signin-form__action.link.link--back.link--fake(role="button", (click)="restore()", translate) ALL.BACK
+                .signin-form__action.link.link--back.link--fake(role="button", [attr.aria-label]="'ALL.BACK' | translate", (click)="restore()", translate) ALL.BACK
                 a.signin-form__action.link(routerLink="/registration", translate) AUTH.RESTORE_PIN
             button.btn.btn-primary.signin-form__submit-btn(type="button", translate, (click)="submit()") AUTH.LOG_IN

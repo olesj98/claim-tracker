@@ -6,7 +6,8 @@
         "SAVE": "Zapisz",
         "SEND": "Wyślij",
         "PKOU": "PKO Ubezpieczenia",
-        "OK": "OK"
+        "OK": "OK",
+        "DELETE": "Usuń"
     },
     "TOOLBAR": {
         "MY_CLAIMS": "Moje szkody",

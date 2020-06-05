@@ -6,7 +6,7 @@
                     span.messenger__announcement-label {{ messages[i - 1] | fromToday }}
                 pko-message(
                     [message]="message",
-                    [squashed]="message | messageSquashed: messages[i + 1]: messages[i - 1]")
+                    [config]="message | messageConfig: messages[i + 1]: messages[i - 1]")
     .messenger__draft
         pko-message-input((send)="sendMessage.emit($event)", [focusMessageInput]="focusMessageInput")
 

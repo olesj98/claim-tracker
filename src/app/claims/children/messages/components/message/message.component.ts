@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { Message, MessageRecipient } from '@pko/claims/models';
 
+import { MessageConfig } from '../../klasses';
+
 @Component({
     selector: 'pko-message',
     templateUrl: './message.component.pug',
@@ -10,21 +12,9 @@ import { Message, MessageRecipient } from '@pko/claims/models';
 })
 export class MessageComponent {
     @Input() message: Message;
-    @Input() squashed: [boolean, boolean, boolean];
+    @Input() config: MessageConfig;
 
     get isSelf(): boolean {
         return this.message.recipient === MessageRecipient.Adjuster;
-    }
-
-    get isSquashed(): boolean {
-        return this.squashed[0];
-    }
-
-    get isBetween(): boolean {
-        return this.squashed[1];
-    }
-
-    get isLastBeforeSquashed(): boolean {
-        return this.squashed[2];
     }
 }
