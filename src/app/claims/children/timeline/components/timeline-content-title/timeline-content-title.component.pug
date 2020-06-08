@@ -1,6 +1,6 @@
 .content-title
     .content-title__header([ngSwitch]="selectedTab.eventType")
-        .content-title__text.h5.mb-3([hidden]="isTask && selectedTab.done")
+        .content-title__text.h3.mb-3([hidden]="isTask && selectedTab.done")
             ng-container(*ngSwitchCase="EventType.BEGIN_PROCESS")
                 p.m-0 {{ ('TIMELINE.CONTENT.BEGIN_PROCESS' + translationPostfix) | translate }}
             ng-container(*ngSwitchCase="EventType.END_PROCESS")
