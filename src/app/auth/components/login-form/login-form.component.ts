@@ -1,5 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter, Input, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 import { HttpError } from '@pko/core';
 import { PhoneNumberMaskConfig } from '@pko/shared/util';
@@ -12,8 +14,18 @@ import { Credentials } from '../../models';
     styleUrls: ['./login-form.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginFormComponent implements OnInit {
-    @Input() error: HttpError | null;
+export class LoginFormComponent implements OnInit, OnDestroy {
+    @Input()
+    set error(error: HttpError | null) {
+        this._error = error;
+
+        if (this._error && this.form) {
+            this.resetControls();
+        }
+    }
+    get error(): HttpError | null {
+        return this._error;
+    }
 
     @Output() submitted: EventEmitter<Credentials> = new EventEmitter<Credentials>();
     @Output() flush: EventEmitter<void> = new EventEmitter<void>();
@@ -22,6 +34,9 @@ export class LoginFormComponent implements OnInit {
     phoneVerified: boolean;
 
     phoneNumberMask = new PhoneNumberMaskConfig();
+
+    private _phoneValueChangeSubscription: Subscription;
+    private _error: HttpError;
 
     get phoneNumber(): FormControl {
         return this.form.get('phoneNumber') as FormControl;
@@ -41,11 +56,23 @@ export class LoginFormComponent implements OnInit {
             ])],
             pin: [null, Validators.required]
         });
+
+        this._phoneValueChangeSubscription = this.phoneNumber.valueChanges
+            .pipe(filter(() => !!this.error))
+            .subscribe(() => this.flush.emit());
+    }
+
+    ngOnDestroy(): void {
+        this._phoneValueChangeSubscription.unsubscribe();
     }
 
     restore() {
         this.flush.emit();
-        this.form.reset();
+        this.resetControls();
+    }
+
+    resetControls(): void {
+        this.form.reset(undefined, { emitEvent: false });
         this.phoneVerified = false;
     }
 

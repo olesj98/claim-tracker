@@ -8,9 +8,11 @@
                 [placeholder]="'AUTH.PHONE_NUMBER_PLACEHOLDER' | translate",
                 formControlName="phoneNumber",
                 (keydown.enter)="verifyPhone()")
-            .error-messages.error-messages--static(*ngIf="phoneNumber.touched && phoneNumber.invalid")
+            .error-messages.error-messages--static(*ngIf="!error && (phoneNumber.touched && phoneNumber.invalid)")
                 .error-messages__item(*ngIf="phoneNumber.hasError('required')", translate) VALIDATION.REQUIRED
                 .error-messages__item(*ngIf="phoneNumber.hasError('minlength')", translate) VALIDATION.INVALID_PHONE_NUMBER
+            .error-messages(*ngIf="error")
+                .error-messages__item {{ error.message }}
         .signin-form__submit-row
             .signin-form__secondary-action
                 a.signin-form__action.link(routerLink="/registration", translate) AUTH.RESTORE_PIN
@@ -19,8 +21,6 @@
         h2.signin-form__title.mb-4(translate) AUTH.ENTER_PIN
         .form-group
             pko-pin(formControlName="pin", size="m", [initialFocus]="true")
-            .error-messages(*ngIf="error")
-                .error-messages__item {{ error.message }}
         .signin-form__submit-row
             .signin-form__secondary-action
                 .signin-form__action.link.link--back.link--fake(role="button", [attr.aria-label]="'ALL.BACK' | translate", (click)="restore()", translate) ALL.BACK
