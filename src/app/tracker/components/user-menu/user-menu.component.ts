@@ -2,13 +2,10 @@ import { Component, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@a
 
 import { User } from '@pko/auth';
 
-import { userMenuAnimation } from './user-menu.animations';
-
 @Component({
     selector: 'pko-user-menu',
     templateUrl: './user-menu.component.pug',
     styleUrls: [ './user-menu.component.scss' ],
-    animations: [ userMenuAnimation.tooltip ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserMenuComponent {
@@ -29,8 +26,10 @@ export class UserMenuComponent {
     constructor(private _changeDetectorRef: ChangeDetectorRef) { }
 
     openContextTip(): void {
-        this.tooltipShowing = true;
-        this._changeDetectorRef.markForCheck();
+        if (this.minified) {
+            this.tooltipShowing = true;
+            this._changeDetectorRef.markForCheck();
+        }
     }
 
     closeContextTip(): void {

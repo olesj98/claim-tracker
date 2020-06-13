@@ -16,8 +16,7 @@
         height: 100%;
     }
 
-    &__row,
-    &__logout {
+    &__row {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -60,14 +59,5 @@
         padding: 0 1rem;
         border-left: 1px solid $pko-divider-color;
         border-right: 1px solid $pko-divider-color;
-    }
-
-    &__logout {
-        flex-direction: column;
-        cursor: pointer;
-    }
-
-    &__logout-label {
-        margin-top: 4px;
     }
 }

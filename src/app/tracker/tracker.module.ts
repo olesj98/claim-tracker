@@ -10,6 +10,7 @@ import { FooterModule } from '@pko/shared/footer';
 import { TrackerComponent } from './containers/tracker/tracker.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 
 import { TrackerRoutingModule } from './tracker-routing.module';
 
@@ -17,7 +18,8 @@ import { TrackerRoutingModule } from './tracker-routing.module';
     declarations: [
         ToolbarComponent,
         TrackerComponent,
-        UserMenuComponent
+        UserMenuComponent,
+        LogoutButtonComponent
     ],
     imports: [
         CommonModule,

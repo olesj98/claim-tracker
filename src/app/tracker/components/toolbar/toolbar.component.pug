@@ -10,14 +10,11 @@ header.toolbar([class.toolbar--minified]="minified")
             .toolbar__col-right
                 .toolbar__user-container(*ngIf="user")
                     pko-user-menu([user]="user")
-                .toolbar__logout(role="button", (click)="logout.emit()", [attr.aria-label]="'TOOLBAR.LOGOUT' | translate")
-                    svg-icon(src="assets/icons/power.svg")
-                    .toolbar__logout-label.text.text--caption(translate) TOOLBAR.LOGOUT
+                pko-logout-button((confirm)="logout.emit()")
 
 ng-template(#minifiedToolbarRowTmpl)
     .toolbar__row.toolbar__row(@toolbarAnimation)
         pko-user-menu(*ngIf="user", [user]="user", [minified]="true")
         a.toolbar__logo(routerLink="/")
             img.logo.logo--small(src="assets/pkou-logo.png", [alt]="'ALL.PKOU' | translate")
-        .toolbar__logout(role="button", (click)="logout.emit()", [attr.aria-label]="'TOOLBAR.LOGOUT' | translate")
-            svg-icon(src="assets/icons/power.svg")
+        pko-logout-button([minified]="true", (confirm)="logout.emit()")

@@ -1,0 +1,14 @@
+.logout {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+
+    &__label {
+        margin-top: 4px;
+    }
+
+    &__mobile-label {
+        user-select: none;
+    }
+}

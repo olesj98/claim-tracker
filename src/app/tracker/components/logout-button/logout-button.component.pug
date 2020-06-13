@@ -1,0 +1,15 @@
+.logout(role="button", (click)="onLogout()", [attr.aria-label]="'TOOLBAR.LOGOUT' | translate", cdk-overlay-origin, #origin="cdkOverlayOrigin")
+    svg-icon(src="assets/icons/power.svg", [svgStyle]="{ 'width.px': '24', 'height.px': '24' }")
+    .logout__label.text.text--caption(*ngIf="!minified", translate) TOOLBAR.LOGOUT
+
+ng-template(
+    cdk-connected-overlay,
+    cdkConnectedOverlayLockPosition,
+    cdkConnectedOverlayHasBackdrop,
+    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop",
+    cdkConnectedOverlayPanelClass="mt-2",
+    [cdkConnectedOverlayOrigin]="origin",
+    [cdkConnectedOverlayOpen]="menuShowing",
+    (backdropClick)="closeMenu()")
+    .pko-menu.pko-menu--arrow-right.m-0
+        span.logout__mobile-label(role="button", [attr.aria-label]="'TOOLBAR.LOGOUT' | translate", translate, (click)="confirm.emit()") TOOLBAR.LOGOUT
