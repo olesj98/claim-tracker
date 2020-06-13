@@ -13,3 +13,7 @@ export interface Message extends DraftMessage {
     notificationDate: string;
     recipient: MessageRecipient;
 }
+
+export interface UnreadMessagesCountResponse {
+    unreadMessagesCount: number;
+}

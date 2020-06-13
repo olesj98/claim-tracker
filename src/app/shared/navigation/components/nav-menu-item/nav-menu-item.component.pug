@@ -1,4 +1,4 @@
-a.nav-tab([routerLink]="path", routerLinkActive="nav-tab--active")
+a.nav-tab([routerLink]="path", routerLinkActive="nav-tab--active", [class.nav-tab--badge-hidden]="hidenBadgeWhenActive")
     span.nav-tab__label
         span.nav-tab__badge(*ngIf="badge") {{ badge }}
         ng-content

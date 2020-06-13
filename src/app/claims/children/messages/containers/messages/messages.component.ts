@@ -16,10 +16,12 @@ import * as fromClaims from '@pko/claims/reducers';
 })
 export class MessagesComponent implements OnInit {
     messages$: Observable<Array<Message>>;
+    unreadMessagesCount$: Observable<number>;
 
     constructor(private _store: Store<fromClaims.State>,
                 private _route: ActivatedRoute) {
         this.messages$ = this._store.pipe(select(fromClaims.getMessagesList));
+        this.unreadMessagesCount$ = this._store.pipe(select(fromClaims.getUnreadMessageCount));
     }
 
     ngOnInit(): void {

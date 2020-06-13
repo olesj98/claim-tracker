@@ -10,7 +10,7 @@
             pko-nav-menu
                 pko-nav-menu-item(path="./os-czasu") {{ 'CLAIM_DETAILS.TIMELINE' | translate }}
                 pko-nav-menu-item(path="./dokumenty") {{ 'CLAIM_DETAILS.DOCUMENTS' | translate }}
-                pko-nav-menu-item(path="./wiadomosci", [badge]="claim.unreadMessagesCount") {{ 'CLAIM_DETAILS.MESSAGES' | translate }}
+                pko-nav-menu-item(path="./wiadomosci", [badge]="unreadMessagesCount$ | async", [hidenBadgeWhenActive]="true") {{ 'CLAIM_DETAILS.MESSAGES' | translate }}
             router-outlet
     aside.claim-details__messages(*ngIf="messagesVisible$ | async")
         a.claim-details__envelope(routerLink="./wiadomosci", [queryParams]="{ focus: 'keep' }")

@@ -47,7 +47,8 @@
     "MESSAGES": {
         "SEND_PLACEHOLDER": "Napisz wiadomość",
         "YESTERDAY": "Wczoraj",
-        "EMPTY": "Brak wiadomości"
+        "EMPTY": "Brak wiadomości",
+        "NEW_MESSAGES": "Nowe wiadomości"
     },
     "DOCUMENTS": {
         "SHARED_DOCUMENTS": "Przekazane dokumenty",

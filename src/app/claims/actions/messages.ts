@@ -9,7 +9,10 @@ export const send = createAction('[Messages] Send', props<{ message: DraftMessag
 export const sendSuccess = createAction('[Messages] Send Success', props<{ message: Message }>());
 export const sendFailure = createAction('[Messages] Send Failure', props<{ message: DraftMessage }>());
 
-export const markAllAsReadSuccess = createAction('[Messages] Mark All As Read Success', props<{ id: string }>());
+export const getUnreadMessagesCountSuccess = createAction('[Messages] Get Unread Messages Count Success', props<{ count: number }>());
+export const getUnreadMessagesCountFailure = createAction('[Messages] Get Unread Messages Count Failure');
+
+export const markAllAsReadSuccess = createAction('[Messages] Mark All As Read Success');
 export const markAllAsReadFailure = createAction('[Messages] Mark All As Read Failure');
 
 export const enterMessengerView = createAction('[Messages] Enter Messenger View');

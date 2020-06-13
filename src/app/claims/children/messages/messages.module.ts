@@ -6,12 +6,14 @@ import { QuillModule } from 'ngx-quill';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { CommonAssetsModule } from '@pko/shared/common-assets';
+
 import { MessagesRoutingModule } from './messages-routing.module';
 
 import { MessagesComponent } from './containers/messages/messages.component';
 import { MessengerComponent } from './components/messenger/messenger.component';
 import { MessageComponent } from './components/message/message.component';
 import { MessageInputComponent } from './components/message-input/message-input.component';
+import { MessengerAnnouncementComponent } from './components/messenger-announcement/messenger-announcement.component';
 
 import { MessagePipes } from './pipes';
 
@@ -21,7 +23,8 @@ import { MessagePipes } from './pipes';
         MessengerComponent,
         MessageComponent,
         MessageInputComponent,
-        ...MessagePipes
+        MessengerAnnouncementComponent,
+        ...MessagePipes,
     ],
     imports: [
         CommonModule,

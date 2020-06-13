@@ -39,10 +39,10 @@ export const getSelectedClaim = createSelector(
     getSelectedClaimId,
     (entities, id) => entities[id]
 );
-export const getUnreadMessageCount = createSelector(getSelectedClaim, claim => claim?.unreadMessagesCount);
 
 export const getMessagesState = createSelector(getClaimsState, state => state.messages);
 export const getMessagesList = createSelector(getMessagesState, fromMessages.getAll);
+export const getUnreadMessageCount = createSelector(getMessagesState, fromMessages.getUnreadMessagesCount);
 export const getLatestNotifiedMessage = createSelector(getMessagesList, fromMessages.getLatestByNotificationDate);
 
 export const getFeedsState = createSelector(getClaimsState, state => state.timeline);

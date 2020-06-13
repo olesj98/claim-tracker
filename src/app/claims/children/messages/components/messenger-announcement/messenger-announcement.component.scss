@@ -1,0 +1,36 @@
+@import 'variables';
+
+.announcement {
+    $self: &;
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    &--info {
+        #{ $self }__label {
+            color: $pko-primary-light;
+            font-weight: 300;
+        }
+    }
+
+    &:before,
+    &:after {
+        content: '';
+        border-top: 1px solid rgba($pko-black, 0.1);
+        margin: 0 20px 0 0;
+        flex: 1 0 20px;
+    }
+
+    &:after {
+        margin: 0 0 0 20px;
+    }
+
+    &__label {
+        font-size: 13px;
+        font-weight: bold;
+    }
+}

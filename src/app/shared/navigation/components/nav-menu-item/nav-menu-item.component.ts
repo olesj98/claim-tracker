@@ -9,4 +9,5 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 export class NavMenuItemComponent {
     @Input() path: string;
     @Input() badge: string | number;
+    @Input() hidenBadgeWhenActive: boolean;
 }

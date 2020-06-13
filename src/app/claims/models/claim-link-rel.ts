@@ -1,7 +1,7 @@
 export enum ClaimLinkRel {
-    Self = 'self',
     Timeline = 'claim.timeline',
     Messages = 'claim.messages',
+    MessagesCount = 'claim.messagesCount',
     SharedDocuments = 'claim.sharedDocuments',
     ClientDocuments = 'claim.clientDocuments',
     DocumentTypes   = 'claim.documentTypes',

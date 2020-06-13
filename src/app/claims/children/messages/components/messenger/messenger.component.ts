@@ -21,6 +21,7 @@ import { DraftMessage, Message } from '@pko/claims/models';
 export class MessengerComponent implements AfterViewInit {
     @Input() focusMessageInput: boolean;
     @Input() scrollToBottom: boolean;
+    @Input() unreadMessagesCount: number;
 
     @Input()
     set messages(messages: Array<Message>) {

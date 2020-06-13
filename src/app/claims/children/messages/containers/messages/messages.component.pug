@@ -2,6 +2,7 @@
     .col-12
         pko-messenger(
             [messages]="messages$ | async",
+            [unreadMessagesCount]="unreadMessagesCount$ | async",
             [scrollToBottom]="true",
             [focusMessageInput]="true",
             (sendMessage)="onSendMessage($event)"

@@ -1,9 +1,11 @@
 .messenger
     .messenger__scrollable(#scrollable)
         ng-container(*ngIf="messages?.length; else emptyMessengerTmpl")
-            ng-container(*ngFor="let message of messages; trackBy: trackByMessage; index as i;")
-                .messenger__announcement(*ngIf="message | isAnotherDay: messages[i - 1]")
-                    span.messenger__announcement-label {{ messages[i - 1] | fromToday }}
+            ng-container(*ngFor="let message of messages; trackBy: trackByMessage; index as i")
+                ng-container([ngSwitch]="i | isNewMessage: messages.length: unreadMessagesCount")
+                    pko-messenger-announcement(*ngSwitchCase="true", [info]="true") {{ 'MESSAGES.NEW_MESSAGES' | translate }}
+                    ng-container(*ngSwitchDefault)
+                        pko-messenger-announcement(*ngIf="message | isAnotherDay: messages[i - 1]") {{ messages[i - 1] | fromToday }}
                 pko-message(
                     [message]="message",
                     [config]="message | messageConfig: messages[i + 1]: messages[i - 1]")

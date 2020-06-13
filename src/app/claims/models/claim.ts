@@ -14,6 +14,5 @@ export interface Claim {
     reportDate: string;
     details: string;
     adjusterName: string;
-    unreadMessagesCount: number;
     links: Array<Link>;
 }

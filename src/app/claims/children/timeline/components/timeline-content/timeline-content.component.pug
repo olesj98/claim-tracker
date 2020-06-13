@@ -14,7 +14,7 @@
                     [mobile]="minified",
                     (selected)="onInteractionEvent($event)")
             ng-container(*ngSwitchCase="EventType.DOCUMENT_SHARED")
-                pko-document.mt-3(
+                pko-document.mt-3.d-flex.justify-content-center(
                     [hrefToGet]="selectedTab.links | documentHref: DocumentLinkRel.TimelineSharedDocument",
                     [filename]="selectedTab.name")
             ng-container(*ngSwitchCase="EventType.SEND_ACCOUNT_NUMBER")

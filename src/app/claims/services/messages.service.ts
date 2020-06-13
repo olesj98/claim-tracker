@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { hrefGet } from '@pko/core';
 
-import { Claim, ClaimLinkRel, DraftMessage, Message } from '../models';
+import { Claim, ClaimLinkRel, DraftMessage, Message, UnreadMessagesCountResponse } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class MessagesService {
@@ -19,6 +19,10 @@ export class MessagesService {
     }
 
     markAllAsRead(claim: Claim, readMessageDate: string): Observable<void> {
-        return this._http.post<void>(hrefGet(claim.links, ClaimLinkRel.Self), { readMessageDate });
+        return this._http.put<void>(hrefGet(claim.links, ClaimLinkRel.MessagesCount), { readMessageDate });
+    }
+
+    getUnreadMessagesCount(claim: Claim): Observable<UnreadMessagesCountResponse> {
+        return this._http.get<UnreadMessagesCountResponse>(hrefGet(claim.links, ClaimLinkRel.MessagesCount));
     }
 }
