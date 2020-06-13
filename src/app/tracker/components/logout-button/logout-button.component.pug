@@ -11,5 +11,5 @@ ng-template(
     [cdkConnectedOverlayOrigin]="origin",
     [cdkConnectedOverlayOpen]="menuShowing",
     (backdropClick)="closeMenu()")
-    .pko-menu.pko-menu--arrow-right.m-0
+    .pko-menu.m-0
         span.logout__mobile-label(role="button", [attr.aria-label]="'TOOLBAR.LOGOUT' | translate", translate, (click)="confirm.emit()") TOOLBAR.LOGOUT

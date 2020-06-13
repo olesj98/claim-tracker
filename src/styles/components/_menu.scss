@@ -4,10 +4,4 @@
     background: rgba(97, 97, 97, .9);
     color: $pko-white;
     border-radius: $pko-border-radius;
-
-    &--arrow-right {
-        &:after {
-            left: calc(100% - 20px);
-        }
-    }
 }
