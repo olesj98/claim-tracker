@@ -5,6 +5,6 @@ export class UserInitialsPipe implements PipeTransform {
     transform(fullName: string): string {
         const [ name, surname ] = fullName.split(' ');
 
-        return `${name[0].toUpperCase()}${surname[0].toUpperCase()}`;
+        return `${name[0].toUpperCase()}${(surname ? surname[0] : '').toUpperCase()}`;
     }
 }

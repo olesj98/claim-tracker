@@ -1,4 +1,5 @@
 import { Directive, HostListener, Input, OnDestroy } from '@angular/core';
+import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { of, Subject, Subscription } from 'rxjs';
 import { catchError, exhaustMap, filter } from 'rxjs/operators';
 
@@ -21,18 +22,31 @@ export class DocumentReaderDirective implements OnDestroy {
                 )
             )
         )
-            .subscribe(response => response && this._openDocument(response));
+            .subscribe((response: HttpResponse<Blob>) => {
+                if (response) {
+                    const file = response.body;
+
+
+
+                    this._openDocument(file, response.headers);
+                }
+            });
     }
 
     @HostListener('click') onclick(): void {
         this.read$.next();
     }
 
-    private _openDocument(document: Blob): void {
+    private _openDocument(blob: Blob, headers: HttpHeaders): void {
+        const contentDisposition = headers.get('Content-Disposition');
+        const filename = contentDisposition.split(';')[1].split('=')[1].trim();
+
+        const file = new Blob([blob], { type: headers.get('Content-Type') });
+
         if (window.navigator.msSaveOrOpenBlob) {
-            window.navigator.msSaveOrOpenBlob(document);
+            window.navigator.msSaveOrOpenBlob(file, filename);
         } else {
-            const objectUrl = URL.createObjectURL(document);
+            const objectUrl = URL.createObjectURL(file);
             const newTab = window.open(objectUrl, '_blank');
 
             if (!newTab) {
