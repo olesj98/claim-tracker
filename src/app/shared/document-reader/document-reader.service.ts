@@ -7,6 +7,6 @@ export class DocumentReaderService {
     constructor(private _http: HttpClient) { }
 
     read(url: string): Observable<HttpResponse<Blob>> {
-        return this._http.get<Blob>(url, { responseType: 'blob' as any, observe: 'response' });
+        return this._http.get<Blob>(url, { responseType: 'blob' as 'json', observe: 'response' });
     }
 }

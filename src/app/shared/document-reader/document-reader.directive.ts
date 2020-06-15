@@ -24,11 +24,7 @@ export class DocumentReaderDirective implements OnDestroy {
         )
             .subscribe((response: HttpResponse<Blob>) => {
                 if (response) {
-                    const file = response.body;
-
-
-
-                    this._openDocument(file, response.headers);
+                    this._openDocument(response.body, response.headers);
                 }
             });
     }
@@ -40,14 +36,11 @@ export class DocumentReaderDirective implements OnDestroy {
     private _openDocument(blob: Blob, headers: HttpHeaders): void {
         const contentDisposition = headers.get('Content-Disposition');
         const filename = contentDisposition.split(';')[1].split('=')[1].trim();
-        const type = headers.get('Content-Type').split(';')[0];
-
-        const file = new Blob([blob], { type });
 
         if (window.navigator.msSaveOrOpenBlob) {
-            window.navigator.msSaveOrOpenBlob(file, filename);
+            window.navigator.msSaveOrOpenBlob(blob, filename);
         } else {
-            const objectUrl = URL.createObjectURL(file);
+            const objectUrl = URL.createObjectURL(blob);
             const newTab = window.open(objectUrl, '_blank');
 
             if (!newTab) {
