@@ -18,7 +18,7 @@ export const messagesReducer = createReducer(
     on(MessagesActions.fetchSuccess, (state, { messages }) =>
         ({ ...state, messages: [...messages] })),
     on(MessagesActions.sendSuccess, (state, { message }) =>
-        ({ ...state, messages: [...state.messages, message] })),
+        ({ ...state, messages: [...state.messages, message], unreadMessagesCount: 0 })),
     on(MessagesActions.getUnreadMessagesCountSuccess, (state, { count }) =>
         ({ ...state, unreadMessagesCount: count })),
     on(ClaimDetailsActions.flush, () => initialState)

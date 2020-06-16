@@ -40,7 +40,7 @@ export class DocumentReaderDirective implements OnDestroy {
         if (window.navigator.msSaveOrOpenBlob) {
             window.navigator.msSaveOrOpenBlob(blob, filename);
         } else {
-            const objectUrl = URL.createObjectURL(blob);
+            const objectUrl = (URL || webkitURL).createObjectURL(blob);
             const newTab = window.open(objectUrl, '_blank');
 
             if (!newTab) {

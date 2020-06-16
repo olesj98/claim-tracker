@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ import * as fromClaims from '@pko/claims/reducers';
     styleUrls: ['./messages.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MessagesComponent implements OnInit {
+export class MessagesComponent implements OnInit, OnDestroy {
     messages$: Observable<Array<Message>>;
     unreadMessagesCount$: Observable<number>;
 
@@ -30,5 +30,9 @@ export class MessagesComponent implements OnInit {
 
     onSendMessage(message: DraftMessage): void {
         this._store.dispatch(MessagesActions.send({ message }));
+    }
+
+    ngOnDestroy(): void {
+        this._store.dispatch(MessagesActions.flushMessengerView());
     }
 }
