@@ -10,7 +10,7 @@ $pko-message-self-bg: #5991DD;
     $self: &;
 
     display: flex;
-    flex: 1;
+    flex: 1 0 auto;
 
     &:not(#{ $self }--sqh) {
         margin-bottom: 1.5rem;
