@@ -8,128 +8,128 @@ $pko-message-self-bg: #5991DD;
 
 :host {
     flex: 1 0 auto;
+}
 
-    .message {
-        $self: &;
+.message {
+    $self: &;
 
-        &:not(#{ $self }--sqh) {
-            margin-bottom: 1.5rem;
+    &:not(#{ $self }--sqh) {
+        margin-bottom: 1.5rem;
+    }
+
+    &--slf {
+        #{ $self }__inner {
+            flex-direction: row-reverse;
         }
 
-        &--slf {
-            #{ $self }__inner {
-                flex-direction: row-reverse;
-            }
-
-            #{ $self }__cloud {
-                background: $pko-message-self-bg;
-                color: $pko-white;
-                border-color: $pko-message-self-bg;
-                border-radius: $pko-message-border-radius $pko-message-border-radius 0 $pko-message-border-radius;
-            }
-
-            #{ $self }__container {
-                margin: 0 $pko-message-cloud-margin 0 0;
-                align-items: flex-end;
-            }
-
-            #{ $self }__avatar {
-                background-color: $pko-gray-2;
-            }
+        #{ $self }__cloud {
+            background: $pko-message-self-bg;
+            color: $pko-white;
+            border-color: $pko-message-self-bg;
+            border-radius: $pko-message-border-radius $pko-message-border-radius 0 $pko-message-border-radius;
         }
 
-        &--sqh {
-            #{ $self }__container {
-                margin-left: $pko-message-author-size + $pko-message-cloud-margin;
-            }
-
-            &#{ $self }--slf {
-                #{ $self }__container {
-                    margin: 0 $pko-message-author-size + $pko-message-cloud-margin 0 0;
-                }
-            }
-        }
-
-        &--btw {
-            #{ $self }__cloud {
-                border-radius: 0 $pko-message-border-radius $pko-message-border-radius 0;
-            }
-
-            &#{ $self }--slf {
-                #{ $self }__cloud {
-                    border-radius: $pko-message-border-radius 0 0 $pko-message-border-radius;
-                }
-            }
-        }
-
-        &--bfs {
-            &#{ $self }--slf {
-                #{ $self }__cloud {
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:not(#{ $self }--slf) {
-                #{ $self }__cloud {
-                    border-top-left-radius: 0;
-                }
-            }
-        }
-
-        &__inner {
-            display: flex;
-            flex: 1 0 auto;
+        #{ $self }__container {
+            margin: 0 $pko-message-cloud-margin 0 0;
             align-items: flex-end;
         }
 
+        #{ $self }__avatar {
+            background-color: $pko-gray-2;
+        }
+    }
+
+    &--sqh {
+        #{ $self }__container {
+            margin-left: $pko-message-author-size + $pko-message-cloud-margin;
+        }
+
+        &#{ $self }--slf {
+            #{ $self }__container {
+                margin: 0 $pko-message-author-size + $pko-message-cloud-margin 0 0;
+            }
+        }
+    }
+
+    &--btw {
+        #{ $self }__cloud {
+            border-radius: 0 $pko-message-border-radius $pko-message-border-radius 0;
+        }
+
+        &#{ $self }--slf {
+            #{ $self }__cloud {
+                border-radius: $pko-message-border-radius 0 0 $pko-message-border-radius;
+            }
+        }
+    }
+
+    &--bfs {
+        &#{ $self }--slf {
+            #{ $self }__cloud {
+                border-top-right-radius: 0;
+            }
+        }
+
+        &:not(#{ $self }--slf) {
+            #{ $self }__cloud {
+                border-top-left-radius: 0;
+            }
+        }
+    }
+
+    &__inner {
+        display: flex;
+        flex: 1 0 auto;
+        align-items: flex-end;
+    }
+
+    &__container {
+        max-width: calc(50% - #{$pko-message-author-size + $pko-message-cloud-margin});
+        overflow-x: hidden;
+        word-break: break-word;
+        margin-left: $pko-message-cloud-margin;
+    }
+
+    &__time {
+        display: inline-block;
+        font-size: 13px;
+    }
+
+    &__cloud {
+        border: 1px solid $pko-gray-2;
+        border-radius: $pko-message-border-radius $pko-message-border-radius $pko-message-border-radius 0;
+        padding: 12px;
+        margin-bottom: 6px;
+        background: $pko-white;
+    }
+
+    &__avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: $pko-message-author-size;
+        height: $pko-message-author-size;
+        border-radius: 50%;
+        background: $pko-white;
+        border: 1px solid $pko-gray-2;
+        font-size: 13px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &--slf {
+            #{ $self }__avatar {
+                background-color: $pko-gray-4;
+                border-color: $pko-gray-4;
+            }
+        }
+
         &__container {
-            max-width: calc(50% - #{$pko-message-author-size + $pko-message-cloud-margin});
-            overflow-x: hidden;
-            word-break: break-word;
-            margin-left: $pko-message-cloud-margin;
-        }
-
-        &__time {
-            display: inline-block;
-            font-size: 13px;
-        }
-
-        &__cloud {
-            border: 1px solid $pko-gray-2;
-            border-radius: $pko-message-border-radius $pko-message-border-radius $pko-message-border-radius 0;
-            padding: 12px;
-            margin-bottom: 6px;
-            background: $pko-white;
+            max-width: 100%;
         }
 
         &__avatar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-            width: $pko-message-author-size;
-            height: $pko-message-author-size;
-            border-radius: 50%;
-            background: $pko-white;
-            border: 1px solid $pko-gray-2;
-            font-size: 13px;
-        }
-
-        @include media-breakpoint-down(sm) {
-            &--slf {
-                #{ $self }__avatar {
-                    background-color: $pko-gray-4;
-                    border-color: $pko-gray-4;
-                }
-            }
-
-            &__container {
-                max-width: 100%;
-            }
-
-            &__avatar {
-                border-color: $pko-white;
-            }
+            border-color: $pko-white;
         }
     }
 }
