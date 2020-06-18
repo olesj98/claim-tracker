@@ -1,5 +1,4 @@
 @import 'variables';
-@import 'bootstrap/tools';
 
 :host {
     cursor: pointer;
@@ -15,10 +14,6 @@
     &:focus {
         outline: none;
         border-color: $pko-primary;
-    }
-
-    @include media-breakpoint-down(sm) {
-        width: 100%;
     }
 }
 
