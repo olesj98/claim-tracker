@@ -3,9 +3,9 @@
         ng-container(*ngIf="messages?.length; else emptyMessengerTmpl")
             ng-container(*ngFor="let message of messages; trackBy: trackByMessage; index as i")
                 ng-container([ngSwitch]="i | isNewMessage: messages.length: unreadMessagesCount")
-                    pko-messenger-announcement(*ngSwitchCase="true", [info]="true") {{ 'MESSAGES.NEW_MESSAGES' | translate }}
+                    pko-messenger-announcement.messenger__notification(*ngSwitchCase="true", [info]="true") {{ 'MESSAGES.NEW_MESSAGES' | translate }}
                     ng-container(*ngSwitchDefault)
-                        pko-messenger-announcement(*ngIf="message | isAnotherDay: messages[i - 1]") {{ messages[i - 1] | fromToday }}
+                        pko-messenger-announcement.messenger__notification(*ngIf="message | isAnotherDay: messages[i - 1]") {{ messages[i - 1] | fromToday }}
                 pko-message.messenger__msg(
                     [message]="message",
                     [config]="message | messageConfig: messages[i + 1]: messages[i - 1]")

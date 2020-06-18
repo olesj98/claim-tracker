@@ -27,7 +27,6 @@ $pko-message-self-bg: #5991DD;
 
         #{ $self }__container {
             margin: 0 $pko-message-cloud-margin 0 0;
-            align-items: flex-end;
         }
 
         #{ $self }__avatar {
@@ -75,7 +74,6 @@ $pko-message-self-bg: #5991DD;
 
     &__inner {
         display: flex;
-        flex: 1 0 auto;
         align-items: flex-end;
     }
 
