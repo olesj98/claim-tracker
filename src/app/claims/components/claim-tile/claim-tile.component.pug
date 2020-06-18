@@ -1,6 +1,6 @@
 .claim
-    .claim__body
-        .claim__type {{ 'CLAIM_TYPE.' + claim.claimType | translate }}
-        .claim__id {{ claim.businessNumber }}
-        .claim__details {{ claim.details }}
+    .claim__type
+        .claim__badge {{ 'CLAIM_TYPE.' + claim.claimType | translate }}
+    .claim__id {{ claim.businessNumber }}
+    .claim__details {{ claim.details }}
 
