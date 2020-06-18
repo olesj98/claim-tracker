@@ -75,14 +75,13 @@ $pko-message-self-bg: #5991DD;
 
     &__inner {
         display: flex;
-        width: 100%;
+        flex: 1;
         align-items: flex-end;
     }
 
     &__container {
         max-width: calc(50% - #{$pko-message-author-size + $pko-message-cloud-margin});
         display: flex;
-        flex: 0 0 auto;
         flex-direction: column;
         overflow-x: hidden;
         word-break: break-word;
