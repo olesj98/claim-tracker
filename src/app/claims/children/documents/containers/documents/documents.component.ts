@@ -2,11 +2,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { DocumentsActions } from '@pko/claims/actions';
+import { DocumentChangeEvent } from '@pko/shared/file-upload';
 import { TrackerLayoutService } from '@pko/tracker/services';
+import { DocumentsActions } from '@pko/claims/actions';
 import { DocumentLinkRel, DocumentReference } from '@pko/claims/models';
 import { ClaimDocumentTypesDictionaryService } from '@pko/claims/services';
-import { DocumentChangeEvent } from '@pko/shared/file-upload';
 
 import * as fromClaims from '@pko/claims/reducers';
 

@@ -13,6 +13,11 @@
     height: 120px;
     padding: 12px;
 
+    &:focus {
+        outline: none;
+        border-color: $pko-primary;
+    }
+
     @include media-breakpoint-down(sm) {
         width: 100%;
     }

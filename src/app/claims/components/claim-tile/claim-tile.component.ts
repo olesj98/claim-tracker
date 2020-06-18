@@ -1,4 +1,12 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import {
+    Component,
+    ChangeDetectionStrategy,
+    Input,
+    Output,
+    EventEmitter,
+    HostListener,
+    HostBinding
+} from '@angular/core';
 
 import { Claim } from '../../models';
 
@@ -13,6 +21,9 @@ export class ClaimTileComponent {
 
     @Output() selected: EventEmitter<void> = new EventEmitter<void>();
 
+    @HostBinding('attr.tabindex') tabindex = 0;
+
+    @HostListener('keydown.enter')
     @HostListener('click', []) onclick() {
         this.selected.emit();
     }
