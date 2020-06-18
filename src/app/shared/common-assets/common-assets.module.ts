@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 
 import { UserInitialsPipe } from './user-initials.pipe';
 import { SanitazerPipe } from './sanitazer.pipe';
+import { StickyDirective } from './sticky.directive';
 
 @NgModule({
     declarations: [
         UserInitialsPipe,
-        SanitazerPipe
+        SanitazerPipe,
+        StickyDirective
     ],
     exports: [
         UserInitialsPipe,
-        SanitazerPipe
+        SanitazerPipe,
+        StickyDirective
     ]
 })
 export class CommonAssetsModule { }

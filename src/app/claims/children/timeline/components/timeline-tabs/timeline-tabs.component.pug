@@ -10,7 +10,7 @@
                 pko-timeline-tab-body.feed__tab-content([tab]="tab")
             .feed__connector(*ngIf="!last")
                 span.feed__connector-line
-    .feed__content(*ngIf="!minified")
+    .feed__content(*ngIf="!minified", sticky)
         ng-container(*ngTemplateOutlet="feedTabContentTmpl")
 
 ng-template(#feedTabContentTmpl)

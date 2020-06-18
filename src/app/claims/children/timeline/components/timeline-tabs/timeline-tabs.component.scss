@@ -77,8 +77,8 @@
     }
 
     &__content {
-        position: sticky;
         position: -webkit-sticky;
+        position: sticky;
         top: 1.75rem;
         padding: 2rem 1rem;
         background: $pko-gray-1;

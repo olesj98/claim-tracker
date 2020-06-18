@@ -7,6 +7,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { BottomSheetModule } from '@pko/shared/bottom-sheet';
 import { FileUploadModule } from '@pko/shared/file-upload';
+import { CommonAssetsModule } from '@pko/shared/common-assets';
 
 import { TimelineRoutingModule } from './timeline-routing.module';
 
@@ -32,6 +33,7 @@ import { TimelineIbanFormComponent } from './components/timeline-iban-form/timel
         AngularSvgIconModule,
         TextMaskModule,
         TranslateModule,
+        CommonAssetsModule,
         FileUploadModule,
         BottomSheetModule,
         TimelineRoutingModule
