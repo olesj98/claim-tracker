@@ -27,6 +27,10 @@
         }
     }
 
+    &__msg {
+        flex: 1 0 auto;
+    }
+
     &__draft {
         margin-top: 1rem;
     }

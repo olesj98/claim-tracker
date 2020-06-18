@@ -6,7 +6,7 @@
                     pko-messenger-announcement(*ngSwitchCase="true", [info]="true") {{ 'MESSAGES.NEW_MESSAGES' | translate }}
                     ng-container(*ngSwitchDefault)
                         pko-messenger-announcement(*ngIf="message | isAnotherDay: messages[i - 1]") {{ messages[i - 1] | fromToday }}
-                pko-message(
+                pko-message.messenger__msg(
                     [message]="message",
                     [config]="message | messageConfig: messages[i + 1]: messages[i - 1]")
     .messenger__draft

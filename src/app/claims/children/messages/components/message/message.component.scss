@@ -6,10 +6,6 @@ $pko-message-author-size: 32px;
 $pko-message-border-radius: 10px;
 $pko-message-self-bg: #5991DD;
 
-:host {
-    flex: 1 0 auto;
-}
-
 .message {
     $self: &;
 
