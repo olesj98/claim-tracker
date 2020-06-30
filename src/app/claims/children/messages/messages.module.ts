@@ -37,7 +37,10 @@ import { MessagePipes } from './pipes';
                 toolbar: [
                     [ 'bold', 'underline', 'italic' ]
                 ]
-            }
+            },
+            formats: [
+                'bold', 'underline', 'italic'
+            ]
         }),
         CommonAssetsModule,
         MessagesRoutingModule
